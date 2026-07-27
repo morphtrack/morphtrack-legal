@@ -1,5 +1,7 @@
 # Morph account deletion
 
+Читать по-русски: [Удаление аккаунта](ru/delete-account)
+
 You can delete your Morph account and all associated data directly in the app: open **More → Profile**, scroll to the **Danger zone**, tap **Delete account** and confirm.
 
 When you delete your account, we delete:
@@ -18,7 +20,11 @@ Deleting your account does **not** cancel an active store subscription. Cancel i
 
 Some data may be retained for a limited period if required for security, fraud prevention, legal, or operational reasons. Deleted data may also remain in encrypted backups for up to 30 days before being permanently removed.
 
-If you can no longer sign in and need help deleting your account, contact us at morphtrack.app@gmail.com and include the email address linked to your Morph account.
+## Request deletion without the app
+
+You can also request deletion of your account and all associated data **without installing or opening the app**: send an email to **morphtrack.app@gmail.com** from the email address linked to your Morph account, with the subject "Delete my account". We will verify that the request comes from the account's email address and complete the deletion, normally within 30 days, and confirm by reply.
+
+The same applies if you can no longer sign in: contact us at morphtrack.app@gmail.com and include the email address linked to your Morph account.
 
 # Photo deletion
 
