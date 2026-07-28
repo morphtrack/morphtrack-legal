@@ -1,6 +1,6 @@
 # Terms of Use
 
-_Last updated: 2026-07-27_
+_Last updated: 2026-07-28_
 
 Читать по-русски: [Условия использования](ru/terms)
 
@@ -36,8 +36,11 @@ You agree to:
 
 - upload only photos of **yourself**, or of another adult who has given you their explicit permission;
 - not upload illegal, harmful, infringing, or abusive content;
+- not upload pornographic or sexually explicit content; photos of skin or body areas for legitimate health and appearance tracking are permitted;
 - not reverse engineer, scrape, use automated access to, or interfere with the service;
 - not attempt to misuse the AI features (for example, to extract unrelated outputs or bypass usage limits).
+
+We may remove content that violates these Terms.
 
 ## 6. License to Use the App
 
