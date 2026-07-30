@@ -1,3 +1,8 @@
+---
+title: Delete Account
+lang: en
+---
+
 # Morph account deletion
 
 You can delete your Morph account and all associated data directly in the app: open Profile → tap Delete account and confirm.

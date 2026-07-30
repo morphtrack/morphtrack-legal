@@ -1,3 +1,8 @@
+---
+title: Delete Account
+lang: en
+---
+
 # Morph account deletion
 
 Читать по-русски: [Удаление аккаунта](ru/delete-account)

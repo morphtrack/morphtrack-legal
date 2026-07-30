@@ -1,3 +1,8 @@
+---
+title: Support
+lang: en
+---
+
 # Morph — Support
 
 Читать по-русски: [Поддержка](ru/support)

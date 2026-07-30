@@ -1,3 +1,8 @@
+---
+title: Terms of Use
+lang: en
+---
+
 # Terms of Service
 
 _Last updated: 2026-05-14_
