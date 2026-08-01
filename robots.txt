@@ -1,0 +1,5 @@
+# MorphTrack — https://www.morphtrack.app
+User-agent: *
+Allow: /
+
+Sitemap: https://www.morphtrack.app/sitemap.xml
