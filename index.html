@@ -496,6 +496,32 @@
   function onScroll(){ if (nav) nav.classList.toggle('scrolled', window.scrollY > 8); }
   if (lenis) lenis.on('scroll', onScroll); else window.addEventListener('scroll', onScroll, { passive:true });
   onScroll();
+
+  // re-measure reveals once web fonts settle (fixes RU/mobile layout-shift jerk)
+  if (window.ScrollTrigger && document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function(){ ScrollTrigger.refresh(); });
+  }
+
+  // gentle proximity snap to sections (desktop only; mobile keeps free scroll)
+  if (lenis && matchMedia('(min-width: 900px)').matches) {
+    var snapTargets = [].slice.call(document.querySelectorAll('header.hero, section'));
+    var navH = 64, snapT;
+    lenis.on('scroll', function(){
+      clearTimeout(snapT);
+      snapT = setTimeout(function(){
+        if (lenis.isScrolling) return;
+        var cur = window.scrollY, best = null, bestD = Infinity;
+        snapTargets.forEach(function(s){
+          var top = Math.round(s.getBoundingClientRect().top + window.scrollY - navH);
+          var d = Math.abs(top - cur);
+          if (d < bestD) { bestD = d; best = top; }
+        });
+        if (best != null && bestD > 6 && bestD < window.innerHeight * 0.22) {
+          lenis.scrollTo(best, { duration: 0.5 });
+        }
+      }, 150);
+    });
+  }
 })();
 </script>
 </body>
