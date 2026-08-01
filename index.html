@@ -466,7 +466,7 @@
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
     if (lenis) lenis.on('scroll', ScrollTrigger.update);
-    if (!reduce) {
+    if (!reduce && matchMedia('(min-width: 900px)').matches) {
       gsap.utils.toArray('[data-reveal]').forEach(function(el){
         gsap.set(el, { opacity: 0, y: 40 });
         ScrollTrigger.create({
