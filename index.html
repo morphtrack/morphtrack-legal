@@ -516,9 +516,9 @@
           if (d < bestD) { bestD = d; best = top; }
         });
         if (best != null && bestD > 6 && bestD < window.innerHeight * 0.5) {
-          lenis.scrollTo(best, { duration: 0.6, easing: function(t){ return 1 - Math.pow(1 - t, 3); } });
+          lenis.scrollTo(best, { duration: 0.85, easing: function(t){ return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2; } });
         }
-      }, 120);
+      }, 220);
     });
   }
 })();
