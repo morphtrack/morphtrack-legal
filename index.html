@@ -261,7 +261,10 @@
     .hero-grid, .row, .faq-layout { grid-template-columns: 1fr; gap: 40px; }
     .features, .loop { grid-template-columns: 1fr; }
     .hero { padding: 40px 0 16px; }
-    .device-wrap { order: -1; }
+    /* Inside a feature row the screenshot leads: by then the reader knows what
+       the product is and the image illustrates the point. The HERO is the
+       opposite — it must open with the headline, lede and store buttons, so it
+       deliberately keeps its natural (text-first) order on small screens. */
     .row.flip .device-wrap, .row .device-wrap { order: -1; }
     .row.flip .rtext { order: 2; }
     
