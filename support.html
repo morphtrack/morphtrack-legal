@@ -1,0 +1,29 @@
+---
+layout: null
+---
+<!-- /support — a redirect to the real page at /v2/support.
+     The support page only ever existed under /v2/, but Google has /support
+     indexed as a 404 and old links point at it, so the bare path has to
+     resolve. GitHub Pages cannot issue a 301, so this is the same shape
+     jekyll-redirect-from generates: a canonical pointing at the real page,
+     plus an instant meta refresh. Kept plugin-free on purpose — _config.yml
+     declares no plugins and this is not worth adding one for. -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Support · MorphTrack</title>
+    <link rel="canonical" href="https://www.morphtrack.app/v2/support">
+    <meta http-equiv="refresh" content="0; url=/v2/support">
+    <style>
+      body { font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+             margin: 15vh auto; max-width: 32rem; padding: 0 1.5rem; color: #1a1816; }
+      a { color: #9c3d29; }
+      @media (prefers-color-scheme: dark) { body { background: #17150f; color: #ece7df; } a { color: #e0876f; } }
+    </style>
+  </head>
+  <body>
+    <p>Taking you to <a href="/v2/support">MorphTrack Support</a>…</p>
+  </body>
+</html>
