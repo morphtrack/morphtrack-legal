@@ -4,7 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title | default: site.title }} · MorphTrack</title>
+  {%- if page.redirect_to %}
+  <!-- A superseded document. GitHub Pages serves static files only, so there is
+       no 301 to give: the meta refresh moves a visitor, the canonical link
+       moves a crawler, and the body below is what a client that honours
+       neither will read. -->
+  <meta http-equiv="refresh" content="0; url={{ page.redirect_to }}">
+  <link rel="canonical" href="{{ page.redirect_to }}">
+  <meta name="robots" content="noindex, follow">
+  {%- elsif page.noindex %}
+  <!-- Superseded but kept reachable: someone may have accepted this version,
+       so it stays readable while search engines are told to prefer the one in
+       force. -->
+  <meta name="robots" content="noindex, follow">
+  {%- else %}
   <meta name="robots" content="index, follow">
+  {%- endif %}
   <style>
     :root{
       --bg:#f7f5f2; --surface:#ffffff; --ink:#1a1816; --muted:#7a736b;
