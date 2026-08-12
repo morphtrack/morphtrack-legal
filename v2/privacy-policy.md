@@ -5,7 +5,7 @@ lang: en
 
 # Privacy Policy
 
-_Last updated: 2026-07-27_
+_Last updated: 2026-08-12_
 
 Читать по-русски: [Политика конфиденциальности](ru/privacy-policy)
 
@@ -102,6 +102,8 @@ We use third-party service providers to operate the app:
 - **Payment processing** — Apple App Store, Google Play: subscription purchases are processed entirely by the stores.
 
 These providers process information only on our behalf and only as necessary to provide their services to us. We do not allow these providers to use your photos or content for their own purposes.
+
+We share your information with them only under written agreements that require them to protect it to at least the same standard as this policy describes, to use it solely for the purposes set out here, and to keep it confidential.
 
 ## 8. Who has access
 
