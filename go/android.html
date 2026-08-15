@@ -1,0 +1,73 @@
+---
+layout: null
+permalink: /go/android/
+sitemap: false
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Opening Google Play…</title>
+<!--
+  A click on the Google Play badge lands here for a moment before going on to
+  Google.
+
+  The point is to make the click COUNTABLE without collecting anything: this is
+  an ordinary page on our own site, so the analytics already running counts it
+  as a page view. /go/ios versus /go/android then answers "do people press the
+  buttons, and which one" — with no beacon of our own, no cookies, no new
+  endpoint, and nothing added to what we store.
+
+  It also carries the traffic source into Play's install referrer, so the same
+  click still shows up as an attributed INSTALL in Play Console.
+
+  The short pause is deliberate. An instant redirect can outrun the analytics
+  beacon, which would undercount exactly the number this page exists to
+  produce — and a page that flashes and vanishes reads as a glitch, while one
+  that says where it is going reads as a step.
+-->
+<style>
+  html,body{height:100%;margin:0}
+  body{display:flex;align-items:center;justify-content:center;
+       font:500 15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       background:#0b0b0f;color:#e9e9ee}
+  .w{text-align:center;padding:24px}
+  .s{display:inline-block;width:22px;height:22px;margin-bottom:14px;
+     border:2px solid #3a3a45;border-top-color:#e9e9ee;border-radius:50%;
+     animation:sp .8s linear infinite}
+  @keyframes sp{to{transform:rotate(360deg)}}
+  a{color:#9db6ff}
+  @media (prefers-reduced-motion:reduce){.s{animation:none}}
+</style>
+</head>
+<body>
+  <div class="w">
+    <div class="s" aria-hidden="true"></div>
+    <p>Opening GoogleOpening the App&nbsp;Store…nbsp;Play…</p>
+    <p><a id="fallback" href="https://play.google.com/store/apps/details?id=com.morphtrack.app">Continue manually</a></p>
+  </div>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  function clean(v, fb) {
+    if (!v) return fb;
+    var out = String(v).toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 40);
+    return out || fb;
+  }
+  var referrer = encodeURIComponent(
+    'utm_source=' + clean(q.get('utm_source'), 'site') +
+    '&utm_medium=' + clean(q.get('utm_medium'), 'web') +
+    '&utm_campaign=' + clean(q.get('utm_campaign'), 'landing')
+  );
+  var url = 'https://play.google.com/store/apps/details?id=com.morphtrack.app&referrer=' + referrer;
+  document.getElementById('fallback').setAttribute('href', url);
+  // Long enough for the page view to be reported, short enough to feel like a
+  // redirect rather than a page.
+  setTimeout(function () { location.replace(url); }, 400);
+})();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "90aa9d690f2e4361a9aa97f5c2857793"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
