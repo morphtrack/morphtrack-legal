@@ -580,6 +580,62 @@
   }
 })();
 </script>
+<script>
+/* Carry the traffic source through to the STORES.
+ *
+ * The question is "where did installs come from", and the honest answer is not
+ * a click counter: a click is intent, an install is the thing. Both stores will
+ * attribute installs for free IF the source reaches them, so this reads the
+ * page's own ?utm_source/medium/campaign and rewrites the store badges to carry
+ * it — App Store Connect shows it under Acquisition → Campaigns, Play Console
+ * under Acquisition reports.
+ *
+ * Deliberately no cookies, no storage, no beacon, no third party. Nothing here
+ * is collected by us at all: the parameters are handed to Apple and Google and
+ * forgotten. That keeps it clear of the app's privacy policy, which promises no
+ * analytics SDKs, and of App Review, which is currently reading that promise
+ * closely.
+ *
+ * Values are whitelisted rather than passed through — a query string is
+ * attacker-controlled, and it is being spliced into a URL the user will follow.
+ */
+(function () {
+  var q = new URLSearchParams(location.search);
+
+  // Lowercase, [a-z0-9_-] only, short. Apple caps a campaign token at 40 chars;
+  // anything else is dropped rather than escaped, because there is no legitimate
+  // source name that needs more.
+  function clean(v, fallback) {
+    if (!v) return fallback;
+    var out = String(v).toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 40);
+    return out || fallback;
+  }
+
+  // "site" rather than "" so direct traffic is a named bucket instead of a hole
+  // in the report.
+  var source   = clean(q.get('utm_source'), 'site');
+  var medium   = clean(q.get('utm_medium'), 'web');
+  var campaign = clean(q.get('utm_campaign'), 'landing');
+
+  // Apple: one free-text token. Join the three so a single column still says
+  // where it came from.
+  var appleToken = clean(source + '-' + medium, 'site-web');
+
+  // Google: the whole referrer string, url-encoded, as Play expects.
+  var playReferrer = encodeURIComponent(
+    'utm_source=' + source + '&utm_medium=' + medium + '&utm_campaign=' + campaign
+  );
+
+  document.querySelectorAll('a.badge[href]').forEach(function (a) {
+    var href = a.getAttribute('href');
+    if (href.indexOf('apps.apple.com') !== -1) {
+      a.setAttribute('href', href + (href.indexOf('?') === -1 ? '?' : '&') + 'ct=' + appleToken + '&mt=8');
+    } else if (href.indexOf('play.google.com') !== -1) {
+      a.setAttribute('href', href + '&referrer=' + playReferrer);
+    }
+  });
+})();
+</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "90aa9d690f2e4361a9aa97f5c2857793"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
