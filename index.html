@@ -400,10 +400,10 @@ footer { background: var(--tint); padding: 46px 0 40px; }
 }
 .rev-row::-webkit-scrollbar { display: none; }
 .rev {
-  flex: none; width: 320px; scroll-snap-align: center;
-  background: var(--elev); border-radius: 20px; padding: 26px 26px 24px;
+  flex: none; width: 340px; scroll-snap-align: center;
+  background: var(--elev); border-radius: 22px; padding: 32px 30px 30px;
   box-shadow: var(--shadowCard);
-  display: flex; flex-direction: column; gap: 16px;
+  display: flex; flex-direction: column; gap: 26px;
 }
 /* Staggered like a hand of cards rather than a straight row. */
 .rev:nth-child(2n)   { margin-top: 44px; }
@@ -414,7 +414,7 @@ footer { background: var(--tint); padding: 46px 0 40px; }
   /* The glyph sits high in its em box, so the line box left a gap under
      it that the card's flex gap then doubled. Pulled back so the mark
      reads as attached to the quote instead of floating above it. */
-  margin: 4px 0 -17px;
+  margin: 2px 0 -27px;
 }
 .rev p { margin: 0; font-size: 16.5px; line-height: 1.5; color: var(--ink); }
 .rev .stars { display: flex; gap: 3px; color: oklch(0.76 0.14 45); }
@@ -496,7 +496,7 @@ details[open] > summary .plus::after { opacity: 0; }
      state does not follow a swipe. Hiding them keeps them from lying. */
   .rev-nav { display: none; }
   .rev-foot { justify-content: flex-start; }
-  .rev { width: 280px; }
+  .rev { width: 296px; padding: 28px 24px 26px; gap: 22px; }
   /* A pill that wraps is not a pill — at this width the label runs to two
      lines and the 999px radius turns it into a lozenge. Square it off and let
      it be a block. */
