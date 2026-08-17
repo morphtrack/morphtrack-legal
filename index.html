@@ -14,7 +14,7 @@
      a src, so it is allowed by host. update-csp.js only rewrites the hash list
      and will happily report success while analytics is dead. Keep both hosts:
      static.* serves the script, the apex is where the beacon POSTs. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-FQQ5wC3+Vcei988r2PGpTtz72AL6zTG/phg1TziZ59A=' 'sha256-tMlLby7qV/DVcTNQNLbqc4hgloCbPVnDkdb0GgwbKWY=' 'sha256-0RaCI0e/qungMihpZtbvWuE41Lftw3YKl9pYC8g4GO4=' 'sha256-leYUtdkuswOY4WzSyTUAkxmgLXNYBfDp8w89GmTo2Qk=' 'sha256-OzG71tjlNgWKhMF12uQFpsTGrbDcqDf3f4NPFHLFRqY=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-FQQ5wC3+Vcei988r2PGpTtz72AL6zTG/phg1TziZ59A=' 'sha256-tMlLby7qV/DVcTNQNLbqc4hgloCbPVnDkdb0GgwbKWY=' 'sha256-0RaCI0e/qungMihpZtbvWuE41Lftw3YKl9pYC8g4GO4=' 'sha256-QNtbb4Z3ysVn1aCrqliLLAS3T3LmX5KexuTCeXjBX9A=' 'sha256-OzG71tjlNgWKhMF12uQFpsTGrbDcqDf3f4NPFHLFRqY=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MorphTrack — Private Photo Progress &amp; AI Change Tracking</title>
 <meta name="description" content="Turn your own photos into a private timeline. Compare any two, log your routine, and get an on-demand AI reading of what changed — zone by zone. Stored in the EU, no ads, no tracking.">
@@ -759,9 +759,9 @@ details[open] > summary .plus::after { opacity: 0; }
     <div class="foot-in">
       <a href="#top" class="brand"><img src="/img/logo.png" alt="MorphTrack logo" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"> MorphTrack</a>
       <div class="foot-links">
-        <a href="v2/privacy-policy" data-i18n="foot_privacy">Privacy Policy</a>
-        <a href="v2/terms" data-i18n="foot_terms">Terms</a>
-        <a href="v2/support" data-i18n="foot_support">Support</a>
+        <a href="v2/privacy-policy" data-i18n-href="v2/ru/privacy-policy" data-i18n="foot_privacy">Privacy Policy</a>
+        <a href="v2/terms" data-i18n-href="v2/ru/terms" data-i18n="foot_terms">Terms</a>
+        <a href="v2/support" data-i18n-href="v2/ru/support" data-i18n="foot_support">Support</a>
       </div>
     </div>
     <!-- Kept visible on purpose. The brief's footer is copyright and links
@@ -1027,6 +1027,14 @@ details[open] > summary .plus::after { opacity: 0; }
   var pics = document.querySelectorAll('img[data-i18n-src]');
   var PIC_EN = new Map();
   pics.forEach(function (el) { PIC_EN.set(el, el.getAttribute('src')); });
+
+  /* The legal pages exist in both languages at their own URLs, so the footer
+   * links have to move too — a Russian reader following "Политика
+   * конфиденциальности" to the English text is worse than not translating the
+   * label at all. */
+  var hrefs = document.querySelectorAll('a[data-i18n-href]');
+  var HREF_EN = new Map();
+  hrefs.forEach(function (el) { HREF_EN.set(el, el.getAttribute('href')); });
   function apply(lang) {
     els.forEach(function (el) {
       var k = el.getAttribute('data-i18n'); var ru = I18N.ru[k];
@@ -1034,6 +1042,9 @@ details[open] > summary .plus::after { opacity: 0; }
     });
     pics.forEach(function (el) {
       el.setAttribute('src', lang === 'ru' ? el.getAttribute('data-i18n-src') : PIC_EN.get(el));
+    });
+    hrefs.forEach(function (el) {
+      el.setAttribute('href', lang === 'ru' ? el.getAttribute('data-i18n-href') : HREF_EN.get(el));
     });
     document.documentElement.lang = lang;
     // Russian copy is a different length, so every trigger position moves.
