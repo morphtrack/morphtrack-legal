@@ -465,7 +465,11 @@ details[open] > summary .plus::after { opacity: 0; }
      into a vertical scrollbar inside the band. */
   .fan {
     --pw: 214px;
-    height: 300px; margin: 18px 0 0; padding: 14px var(--gutter) 0;
+    /* 300px cut the phones off around the middle of the calendar grid — the
+       crop read as "big" on desktop but on a phone it just hid the content
+       the screenshots are there to show. 412 leaves only the tab bar behind
+       the edge. */
+    height: 412px; margin: 18px 0 0; padding: 14px var(--gutter) 0;
     justify-content: flex-start; gap: 14px;
     overflow-x: auto; overflow-y: hidden;
     scroll-snap-type: x mandatory; scrollbar-width: none;
@@ -477,6 +481,10 @@ details[open] > summary .plus::after { opacity: 0; }
   .rev-nav { display: none; }
   .rev-foot { justify-content: flex-start; }
   .rev { width: 280px; }
+  /* A pill that wraps is not a pill — at this width the label runs to two
+     lines and the 999px radius turns it into a lozenge. Square it off and let
+     it be a block. */
+  .pill-accent { display: block; border-radius: 14px; padding: 13px 16px; line-height: 1.45; }
   .stage { padding: 34px 0; }
   .stage .pf { width: 206px; }
   .duo .back { width: 172px; transform: translateX(-140px) rotate(-10deg); }
