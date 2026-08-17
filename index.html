@@ -2,28 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<!-- Content-Security-Policy. GitHub Pages can't set response headers, so this
-     is delivered as a meta tag (frame-ancestors/HSTS therefore can't be set —
-     those need a proxy in front). Inline scripts are allowed BY HASH, never by
-     'unsafe-inline', including the two JSON-LD blocks (CSP applies script-src
-     to every script element, so omitting them would drop our structured
-     data). IMPORTANT: editing any inline script changes its hash — rerun
-     `node tools/update-csp.js` afterwards or the page will silently break.
 
-     The two cloudflareinsights.com hosts are NOT hash-covered — the beacon has
-     a src, so it is allowed by host. update-csp.js only rewrites the hash list
-     and will happily report success while analytics is dead. Keep both hosts:
-     static.* serves the script, the apex is where the beacon POSTs. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-FQQ5wC3+Vcei988r2PGpTtz72AL6zTG/phg1TziZ59A=' 'sha256-tMlLby7qV/DVcTNQNLbqc4hgloCbPVnDkdb0GgwbKWY=' 'sha256-0RaCI0e/qungMihpZtbvWuE41Lftw3YKl9pYC8g4GO4=' 'sha256-sOIrEDVDoAlzLKkur2FUvvDqN5EvzRZiiIzbV4k+mvk=' 'sha256-OzG71tjlNgWKhMF12uQFpsTGrbDcqDf3f4NPFHLFRqY=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-FQQ5wC3+Vcei988r2PGpTtz72AL6zTG/phg1TziZ59A=' 'sha256-tMlLby7qV/DVcTNQNLbqc4hgloCbPVnDkdb0GgwbKWY=' 'sha256-hja7Jb0ouGL9GJV0Ks6NVzN2EFLD1vNMeB457Rzs06o=' 'sha256-eziCozHvpPr49/G/5EQstYo4Mh7QWxAKwzvXJTkVZZw=' 'sha256-EplCGSqOAump5A1sJbC9QMZQm7blug08rtJXJr0sBLg=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MorphTrack — Private Photo Progress &amp; AI Change Tracking</title>
 <meta name="description" content="Turn your own photos into a private timeline. Compare any two, log your routine, and get an on-demand AI reading of what changed — zone by zone. Stored in the EU, no ads, no tracking.">
 <meta name="keywords" content="skin progress tracker, progress photos app, AI skin analysis, face change tracking, before after photos, acne tracker, body progress, posture tracker, private photo journal, compare photos over time">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.morphtrack.app/">
-<!-- Light only: every wash, card and shadow in the design assumes a light
-     ground, and all five app screenshots are light. A dark theme here would
-     put white phones on a dark page. -->
+
 <meta name="theme-color" content="#f6f5f8">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MorphTrack">
@@ -42,20 +29,10 @@
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/favicon.png">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "MorphTrack", "operatingSystem": "iOS, Android", "applicationCategory": "HealthApplication", "url": "https://www.morphtrack.app/", "image": "https://www.morphtrack.app/og-image.jpg", "description": "Turn your own photos into a private timeline. Compare any two, log your routine, and get an on-demand AI reading of what changed — zone by zone. Stored in the EU, no ads, no tracking.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "MorphTrack", "email": "morphtrack.app@gmail.com", "url": "https://www.morphtrack.app/"}}</script>
-<!-- FAQPage. These five must stay word-for-word identical to the visible FAQ
-     below; a schema that contradicts the page loses the rich result and can
-     earn a manual action. Edit both or neither, then re-run update-csp.js. -->
+
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What do I actually get?", "acceptedAnswer": {"@type": "Answer", "text": "A private timeline of your own photos, grouped by tracker and by month. A compare view that puts any two dates against each other. A calendar where you tick off the routine you actually followed. And an AI reading, run when you ask for it, that describes what visibly changed and which of your logged factors line up with it."}}, {"@type": "Question", "name": "Is it free?", "acceptedAnswer": {"@type": "Answer", "text": "Photos, comparisons, the calendar and an unlimited number of routine factors are free. A free account can run a limited number of AI readings each month; MorphTrack Pro unlocks unlimited analyses."}}, {"@type": "Question", "name": "How many habits can I track?", "acceptedAnswer": {"@type": "Answer", "text": "There is no cap. Add as many factors as the treatment needs, across as many trackers as you like — no slot limits, no per-tracker fees."}}, {"@type": "Question", "name": "How long before it tells me anything?", "acceptedAnswer": {"@type": "Answer", "text": "Two comparable photos are enough for a first reading. A trend takes three to four weeks — that is roughly how long a real change needs to separate itself from a difference in light or angle."}}, {"@type": "Question", "name": "Is this medical advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. MorphTrack describes what is visible in your photos and notes which logged factors line up with it. Those are correlations worth checking, not causes, and not a diagnosis. For anything that worries you, see a doctor."}}]}</script>
 <style>
-/* Self-hosted fonts (latin + cyrillic subsets). Inlined rather than linked
-   so the files start downloading with the document: no render-blocking
-   stylesheet and no third-party font origin. Regenerate with
-   tools/update-fonts.sh when the family list changes.
 
-   Note Instrument Serif ships latin + latin-ext ONLY — there is no Cyrillic
-   subset and the unicode-range below excludes Cyrillic anyway, so the italic
-   accent falls through to Georgia in Russian. That is intended; Georgia
-   Italic covers every character we use and keeps the slant and colour. */
 @font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/IBMPlexMono-400-normal-cyrillic-ext.woff2) format("woff2");unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
 @font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/IBMPlexMono-400-normal-cyrillic.woff2) format("woff2");unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
 @font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/IBMPlexMono-400-normal-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
@@ -85,19 +62,6 @@
 @font-face{font-family:"Inter";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/Inter-700-normal-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
 @font-face{font-family:"Inter";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/Inter-700-normal-latin.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
 
-/* ---------------------------------------------------------------- tokens --
-   Palette from the brief, with four departures, each deliberate:
-
-   1. --muted is darkened from L .56 to L .50. At .56 it measured 4.37:1 on
-      --bg and 3.94:1 on the --tint wash; eyebrows are 12.5px, so AA needs
-      4.5:1. .50 clears it on every ground we actually use.
-   2. The brief named --green "helping" and --greenSoft. Renamed --pos /
-      --posSoft: the app never claims a factor helps, only that something
-      lines up, and the brief's own copy rule says correlation, not causation.
-   3. Added the on-dark set, shadows, bezel, header and mid-tint. The brief
-      draws all of these in sections 2-4 but defines none of them, leaving six
-      raw literals scattered through the markup.
-   4. Light only — no dark pair. See the theme-color note above.             */
 :root {
   color-scheme: only light;
 
@@ -133,13 +97,9 @@
 
   --wrap: 1240px;
   --gutter: 40px;
-  /* Padding is per side, so this doubles between adjacent sections. The
-     brief's 92 put 184px between blocks, which read as the page falling
-     apart rather than breathing. */
   --section: 62px;
 }
 
-/* ------------------------------------------------------------------ base -- */
 * { box-sizing: border-box; }
 body {
   margin: 0;
@@ -161,14 +121,8 @@ h1, h2, h3 { margin: 0; text-wrap: balance; font-weight: 700; }
 h1 { font-size: clamp(40px, 5vw, 70px); line-height: 1.02; letter-spacing: -0.032em; }
 h2 { font-size: clamp(28px, 3.1vw, 42px); line-height: 1.06; letter-spacing: -0.026em; }
 
-/* Cyrillic runs ~10% wider than Latin at the same size, so the same clamp
-   overflows and re-wraps in Russian. The i18n engine stamps lang on <html>,
-   which is the hook. Three commits on the old page were spent rediscovering
-   this — do not remove without checking RU at 375 / 768 / 1440. */
 html[lang="ru"] h1 { font-size: clamp(34px, 4.2vw, 56px); }
 
-/* .ser is the brief's name, .serif is what the shipped Russian dictionary
-   hardcodes. Both resolve here so neither breaks silently. */
 .ser, .serif {
   font-family: var(--font-serif);
   font-style: italic;
@@ -186,11 +140,9 @@ html[lang="ru"] h1 { font-size: clamp(34px, 4.2vw, 56px); }
   margin: 0;
 }
 
-/* ---------------------------------------------------------------- layout -- */
 .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
 section { padding: var(--section) 0; }
 
-/* ---------------------------------------------------------------- header -- */
 .nav {
   position: sticky; top: 0; z-index: 50;
   background: var(--headerBg);
@@ -221,21 +173,16 @@ section { padding: var(--section) 0; }
 }
 .nav-cta:hover { color: var(--elev); opacity: 0.9; }
 
-/* ------------------------------------------------------------------ hero -- */
 .hero {
   background: linear-gradient(180deg, var(--tint) 0%, var(--tintMid) 52%, oklch(0.962 0.014 272) 100%);
-  /* No bottom padding: the fan is the last thing in the hero and its crop IS
-     the section's bottom edge. The top is tight on purpose — the space it
-     used to hold above the eyebrow is what lets the phones sit higher. */
   padding: 50px 0 0;
   text-align: center;
 }
 .hero-in { display: flex; flex-direction: column; align-items: center; gap: 22px; }
-/* The eyebrow is a label for the headline, not a paragraph before it. */
+
 .hero-in .eyebrow { margin-bottom: -8px; }
 .hero .lead { max-width: 34em; }
 
-/* ---------------------------------------------------------------- badges -- */
 .cta-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
 .badge {
   display: inline-flex; align-items: center; gap: 11px;
@@ -244,9 +191,7 @@ section { padding: var(--section) 0; }
   transition: transform 0.18s ease, opacity 0.18s ease;
 }
 .badge:hover { color: var(--elev); opacity: 0.92; transform: translateY(-2px); }
-/* Not yet in the App Store, so this is not a link: a span cannot be focused,
-   opened, or picked up by the UTM forwarder, which selects a.badge[href^="/go/"].
-   When the app ships, turn it back into that anchor and drop .soon. */
+
 .badge.soon {
   background: transparent; border: 1px solid var(--border); color: var(--muted);
   cursor: default; transform: none;
@@ -257,7 +202,6 @@ section { padding: var(--section) 0; }
 .badge .bt small { font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.82; }
 .badge .bt b { font-size: 18px; font-weight: 600; letter-spacing: -0.015em; }
 
-/* ------------------------------------------------------------------ foot -- */
 footer { background: var(--tint); padding: 46px 0 40px; }
 .foot-in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; }
 .foot-links { display: flex; flex-wrap: wrap; gap: 20px; font-size: 15px; }
@@ -265,12 +209,6 @@ footer { background: var(--tint); padding: 46px 0 40px; }
 .foot-links a:hover { color: var(--plum); }
 .fine { font-size: 13.5px; line-height: 1.55; color: var(--muted); margin: 26px 0 0; max-width: 72ch; }
 
-/* ----------------------------------------------------------- phone frame --
-   One frame, one ratio. 1177/2586 is the size every screenshot was normalised
-   to — NOT the 1280/2856 the brief names, which matches none of them and put a
-   44px height difference between adjacent frames in the fan. Change this only
-   together with the normalisation step that produces the images, or they get
-   cropped by object-fit instead of filling the frame. */
 .pf {
   border: 7px solid var(--bezel); border-radius: 40px;
   background: var(--bezel); overflow: hidden; flex: none;
@@ -282,11 +220,6 @@ footer { background: var(--tint); padding: 46px 0 40px; }
 }
 .scrn img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* -------------------------------------------------------------- hero fan --
-   The band is deliberately shorter than the phones in it: they are cut off by
-   the bottom of the hero rather than shown whole, which is what makes them
-   read as large. Everything scales from --pw, and the overlap is a fraction
-   of it, so the composition holds its shape at every width. */
 .fan {
   --pw: clamp(190px, 20.5vw, 300px);
   width: 100%; margin-top: 20px;
@@ -296,28 +229,20 @@ footer { background: var(--tint); padding: 46px 0 40px; }
   padding-top: 22px;
 }
 .fan .pf { width: var(--pw); margin: 0 calc(var(--pw) * -0.105); transform-origin: top center; }
-/* transform-origin is top center so scale grows downward into the crop and
-   never lifts a phone's top edge out of the band. */
+
 .fan .s1 { transform: rotate(-9deg)   translateY(46px) scale(0.90); z-index: 1; }
 .fan .s2 { transform: rotate(-4.5deg) translateY(18px) scale(0.96); z-index: 2; }
 .fan .s3 { transform: translateY(-10px) scale(1.06);               z-index: 3; }
 .fan .s4 { transform: rotate(4.5deg)  translateY(18px) scale(0.96); z-index: 2; }
 .fan .s5 { transform: rotate(9deg)    translateY(46px) scale(0.90); z-index: 1; }
 
-/* ------------------------------------------------------- feature sections -- */
 .feat { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: center; }
 .feat > .feat-art { order: 2; }
-/* -1, not 0: .sec-head has no order of its own, so it sits at 0 too, and a tie
-   is resolved by DOM order — which put the text first and left every section
-   laid out identically instead of alternating. */
+
 .feat.flip > .feat-art { order: -1; }
 .sec-head { display: flex; flex-direction: column; gap: 15px; }
 .sec-head h2 { margin-top: 3px; }
 
-/* Every feature screen stands on a panel — one of them floating bare while the
-   others had a background was the thing that looked unfinished. The tints are
-   washed out and fade to nothing at the far corner, so they read as light in
-   the room rather than as coloured boxes. One hue per section. */
 .stage {
   border-radius: 28px; padding: 46px 0; display: grid; place-items: center;
   overflow: hidden;
@@ -327,21 +252,14 @@ footer { background: var(--tint); padding: 46px 0 40px; }
 .stage.mint { background: linear-gradient(157deg, oklch(0.950 0.030 158 / 0.85), oklch(0.970 0.014 158 / 0.45) 60%, transparent); }
 .stage .pf { width: 300px; }
 
-/* Two screens, one behind the other. The back phone carries a negative offset
-   as well as the rotation — with the front phone's translate alone only about
-   a third of it stayed visible, not the two thirds the composition needs. */
 .duo { position: relative; width: 100%; display: flex; align-items: center; justify-content: center; }
-/* The pair is shifted right as a whole so the rotated back phone clears the
-   panel's left edge — .stage clips, and a diagonally sliced phone reads as a
-   mistake. Both offsets move together; changing one alone either re-clips it
-   or closes the gap the composition depends on. */
+
 .duo .back {
   position: absolute; left: 50%; width: 252px; z-index: 1;
   transform: translateX(-208px) rotate(-10deg);
 }
 .duo .front { position: relative; z-index: 2; transform: translateX(100px); }
 
-/* -------------------------------------------------------- chips & checks -- */
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 0; padding: 0; list-style: none; }
 .chip {
   font-size: 14px; line-height: 1.3; padding: 8px 14px; border-radius: 999px;
@@ -349,10 +267,6 @@ footer { background: var(--tint); padding: 46px 0 40px; }
 }
 .chip.dash { background: transparent; border-style: dashed; border-color: var(--border); color: var(--muted); }
 
-/* The routine chips tick themselves off and clear again, the way a day looks
-   in the app. Not buttons: nothing here responds to a click, and a control that
-   changes on its own under the cursor is worse than no control. Scoped with
-   .tap so the static chips on the dark band are untouched. */
 .chip.tap {
   display: inline-flex; align-items: center; gap: 8px;
   transition: background 0.28s ease, border-color 0.28s ease, color 0.28s ease;
@@ -375,7 +289,6 @@ footer { background: var(--tint); padding: 46px 0 40px; }
 .ck svg { width: 12px; height: 12px; }
 .checks.pos .ck { background: var(--posSoft); color: var(--pos); }
 
-/* ------------------------------------------------------------- dark band -- */
 .band { background: var(--ink); color: var(--onInk); }
 .band-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: start; }
 .band .eyebrow { color: var(--onInkMuted); }
@@ -384,37 +297,29 @@ footer { background: var(--tint); padding: 46px 0 40px; }
 .band .chip { background: transparent; border-color: var(--onInkBorder); color: var(--onInk); }
 .band .chip.dash { color: var(--onInkMuted); }
 
-/* --------------------------------------------------------------- отзывы -- */
 .revs { background: linear-gradient(180deg, var(--tint), oklch(0.955 0.020 278) 60%, var(--tint)); }
 .revs .sec-head { max-width: 46em; }
 .rev-row {
   display: flex; gap: 20px; align-items: flex-start;
-  margin: 40px calc(var(--gutter) * -1) 0;
-  padding: 26px var(--gutter) 34px;
-  overflow-x: auto; scroll-snap-type: x proximity;
+  margin: 22px 0 0;
+  --rail: max(var(--gutter), calc((100% - var(--wrap)) / 2 + var(--gutter)));
+  padding: 40px var(--rail) 46px;
+  scroll-padding-inline-start: var(--rail);
+  overflow-x: auto; scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  /* No scroll-behavior: smooth here. Any browser-animated scroll of this row
-     started from a click was measured being cancelled before it moved a pixel;
-     only an instant write survived. The arrows therefore tween scrollLeft
-     frame by frame themselves — see the carousel block. */
 }
 .rev-row::-webkit-scrollbar { display: none; }
 .rev {
-  flex: none; width: 340px; scroll-snap-align: center;
+  margin: 0;
+  flex: none; width: 340px; scroll-snap-align: start;
   background: var(--elev); border-radius: 22px; padding: 30px;
   box-shadow: var(--shadowCard);
   display: flex; flex-direction: column; gap: 26px;
 }
-/* Staggered like a hand of cards rather than a straight row. */
+
 .rev:nth-child(2n)   { margin-top: 44px; }
 .rev:nth-child(4n+3) { margin-top: -18px; }
 .rev .qm {
-  /* Drawn, not typed. As text the mark was painted outside its own line
-     box, so its optical position depended on the font that actually
-     loaded — and every attempt to fix the gap with negative margins was
-     tuning a number that moves. This is the real quotedblleft outline
-     pulled out of Instrument Serif with fontTools, so it is the same
-     shape the design asked for; as an SVG the box IS the ink. */
   display: block; width: 40px; height: 35px; flex: none;
   fill: var(--ink);
 }
@@ -422,28 +327,9 @@ footer { background: var(--tint); padding: 46px 0 40px; }
 .rev .stars { display: flex; gap: 3px; color: oklch(0.76 0.14 45); }
 .rev .stars svg { width: 15px; height: 15px; }
 .rev .who { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-.rev-foot { display: flex; align-items: center; justify-content: flex-end; gap: 20px; margin-top: 6px; }
-.rev-all {
-  display: inline-block; border: 1px solid var(--ink); border-radius: 999px;
-  padding: 11px 22px; font-size: 15px; font-weight: 600; color: var(--ink);
-}
-.rev-all:hover { background: var(--ink); color: var(--elev); }
-.rev-nav { display: flex; gap: 8px; }
-.rev-nav button {
-  width: 44px; height: 44px; border-radius: 999px; border: 0; cursor: pointer;
-  background: transparent; color: var(--ink); display: grid; place-items: center;
-}
-.rev-nav button:hover { background: var(--elev); }
-.rev-nav button[disabled] { color: var(--border); cursor: default; background: transparent; }
-.rev-nav svg { width: 22px; height: 22px; }
 
-/* --------------------------------------------------------------- privacy -- */
 .two-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: start; }
 
-/* ------------------------------------------------------------------- faq -- */
-/* The FAQ gets a narrower column of its own rather than sitting in the 1240
-   one — a max-width on the list alone left it pinned to the left with 320px
-   of dead space on the right, while the heading ran the full width. */
 #faq .wrap { max-width: 960px; }
 .faq-list { margin: 34px 0 0; }
 .faq-list details { border-top: 1px solid var(--border); }
@@ -453,8 +339,7 @@ footer { background: var(--tint); padding: 46px 0 40px; }
   gap: 24px; padding: 22px 0; font-size: 18.5px; font-weight: 600; letter-spacing: -0.015em;
 }
 .faq-list summary::-webkit-details-marker { display: none; }
-/* Drawn, not typed: the + and − characters are absent from all three fonts
-   and would fall back mid-line to whatever the OS supplies. */
+
 .plus { position: relative; flex: none; width: 20px; height: 20px; }
 .plus::before, .plus::after { content: ""; position: absolute; background: var(--muted); border-radius: 2px; }
 .plus::before { left: 0; right: 0; top: 9px; height: 2px; }
@@ -463,30 +348,18 @@ details[open] > summary .plus::after { opacity: 0; }
 .ans { margin: 0; padding: 0 0 24px; max-width: 68ch; font-size: 16.5px; color: var(--inkSoft); }
 .faq-ask { margin: 30px 0 0; font-size: 16px; color: var(--muted); }
 
-/* --------------------------------------------------------- closing block -- */
 .close { background: linear-gradient(180deg, var(--bg), var(--tint)); text-align: center; }
 .close-in { display: flex; flex-direction: column; align-items: center; gap: 20px; }
 .close .lead { max-width: 32em; }
 .close .note { font-size: 13.5px; color: var(--muted); margin: 4px 0 0; }
 
-/* ------------------------------------------------------------ responsive -- */
 @media (max-width: 1080px) {
   :root { --gutter: 24px; --section: 46px; }
   .hide-sm { display: none; }
   .feat, .band-grid, .two-col { grid-template-columns: minmax(0, 1fr); gap: 42px; }
   .feat > .feat-art, .feat.flip > .feat-art { order: 2; }
-  /* The overlap and rotation only work when all five frames are on screen at
-     once. Narrower than this they become a plain scrollable row — still cut
-     off at the bottom, so the phones stay large rather than shrinking to fit.
-     overflow-y must stay hidden while overflow-x scrolls, or the crop leaks
-     into a vertical scrollbar inside the band. */
   .fan {
     --pw: 214px;
-    /* Measured, not guessed. At 214px wide the image scales by 0.2632, so the
-       visible source row is (height - 21) / 0.2632. The app's bottom bars start
-       at source row 1396 on the compare screen and ~1445 on the rest, so 412
-       sliced straight through them — a tab bar cut in half reads as a broken
-       screenshot. 384 lands at row 1379, just above the highest of them. */
     height: 384px; margin: 18px 0 0; padding: 14px var(--gutter) 0;
     justify-content: flex-start; gap: 14px;
     overflow-x: auto; overflow-y: hidden;
@@ -494,14 +367,7 @@ details[open] > summary .plus::after { opacity: 0; }
   }
   .fan::-webkit-scrollbar { display: none; }
   .fan .pf { margin: 0; transform: none; scroll-snap-align: center; }
-  /* Arrows are a mouse affordance; on touch the row is swiped, and their
-     state does not follow a swipe. Hiding them keeps them from lying. */
-  .rev-nav { display: none; }
-  .rev-foot { justify-content: flex-start; }
-  .rev { width: 296px; padding: 26px; gap: 22px; }
-  /* A pill that wraps is not a pill — at this width the label runs to two
-     lines and the 999px radius turns it into a lozenge. Square it off and let
-     it be a block. */
+      .rev { width: 296px; padding: 26px; gap: 22px; }
   .pill-accent { display: block; border-radius: 14px; padding: 13px 16px; line-height: 1.45; }
   .stage { padding: 34px 0; }
   .stage .pf { width: 206px; }
@@ -512,12 +378,7 @@ details[open] > summary .plus::after { opacity: 0; }
   .nav-in { height: 60px; gap: 12px; }
   .brand { font-size: 18px; }
   .brand img { width: 28px; height: 28px; }
-  /* The wordmark, the language pill and the CTA do not fit in 327px — the
-     wordmark was being overlapped and read "MorphTrac". The CTA is the one
-     that can go: the real store buttons are a few hundred pixels below it,
-     so on a phone it was asking twice for the same tap. */
   .nav-cta { display: none; }
-  /* Otherwise the last word of the eyebrow drops alone onto a second line. */
   .eyebrow { text-wrap: balance; font-size: 11.5px; letter-spacing: 0.14em; }
   .cta-row { flex-direction: column; align-items: stretch; }
   .badge { justify-content: center; }
@@ -543,13 +404,9 @@ details[open] > summary .plus::after { opacity: 0; }
 <main>
   <a id="top"></a>
 
-  <!-- BATCH 1 places the hero's frame, type and store buttons only. The phone
-       fan, the caption row and every section below arrive in batch 2. -->
   <header class="hero">
     <div class="wrap hero-in">
       <p class="eyebrow" data-i18n="hero_eyebrow">Skin · acne · posture · body · hair</p>
-      <!-- nbsp before the dash: text-wrap:balance was breaking after "time",
-           leaving the em dash hanging at the start of the next line. -->
       <h1 data-i18n="hero_h1">Know what’s worth your time&nbsp;— <em class="ser">before you waste months on it</em>.</h1>
       <p class="lead" data-i18n="hero_lead">Take progress photos, log your routine, and let AI track the visual changes over time — then see which habits line up with your progress.</p>
       <div class="cta-row">
@@ -564,11 +421,6 @@ details[open] > summary .plus::after { opacity: 0; }
 
     </div>
 
-    <!-- Outside .wrap on purpose: the fan is full-bleed and taller than the
-         band that shows it, so the phones run off the bottom edge instead of
-         sitting politely inside a box. Above the fold, so no loading="lazy" —
-         that would delay exactly the images the first screen is made of. All
-         five together are ~210 KB; the centre frame gets fetchpriority. -->
     <div class="fan" data-lenis-prevent-touch>
         <div class="pf s1"><span class="scrn"><img src="/img/screen-photos.2c3ff814.webp" data-i18n-src="/img/screen-photos-ru.05d02538.webp" width="760" height="1670" decoding="async" alt="MorphTrack photo timeline, grouped by month"></span></div>
         <div class="pf s2"><span class="scrn"><img src="/img/screen-calendar.8a87b2b8.webp" data-i18n-src="/img/screen-calendar-ru.01ed9880.webp" width="760" height="1670" decoding="async" alt="MorphTrack calendar with the days you logged a photo or a routine"></span></div>
@@ -578,7 +430,6 @@ details[open] > summary .plus::after { opacity: 0; }
     </div>
   </header>
 
-  <!-- ============================================ what you can track · free -->
   <section id="track">
     <div class="wrap feat">
       <div class="sec-head" data-reveal>
@@ -606,7 +457,6 @@ details[open] > summary .plus::after { opacity: 0; }
     </div>
   </section>
 
-  <!-- ==================================================== photos & compare -->
   <section id="compare">
     <div class="wrap feat flip">
       <div class="sec-head" data-reveal>
@@ -629,7 +479,6 @@ details[open] > summary .plus::after { opacity: 0; }
     </div>
   </section>
 
-  <!-- ============================================================ ai reading -->
   <section id="analysis">
     <div class="wrap feat">
       <div class="sec-head" data-reveal>
@@ -652,7 +501,6 @@ details[open] > summary .plus::after { opacity: 0; }
     </div>
   </section>
 
-  <!-- ================================================== free routine tracking -->
   <section class="band">
     <div class="wrap band-grid">
       <div class="sec-head" data-reveal>
@@ -671,12 +519,6 @@ details[open] > summary .plus::after { opacity: 0; }
     </div>
   </section>
 
-  <!-- =========================================================== отзывы --
-       ВНИМАНИЕ: тексты ниже — заглушки, а не отзывы. Их нельзя выкладывать.
-       Придуманный отзыв с придуманным ником — это фальшивое свидетельство на
-       публичной странице, за него отвечают и сторы, и закон о рекламе.
-       Заменить на настоящие из App Store Connect / Play Console, сохранив
-       формулировку автора дословно. -->
   <section class="revs" id="reviews">
     <div class="wrap">
       <div class="sec-head" data-reveal>
@@ -685,29 +527,17 @@ details[open] > summary .plus::after { opacity: 0; }
         <p class="lead" data-i18n="rev_lead">Skin, facial symmetry, hair — and what tracking showed them.</p>
       </div>
 
-      <!-- TOUCH only, not the blanket data-lenis-prevent.
-           The blanket version also stops Lenis handling the WHEEL here, and
-           this row scrolls sideways only — so a vertical wheel over it went
-           into a container that cannot move vertically and the page froze
-           under the cursor. Touch still needs preventing, or a sideways swipe
-           gets eaten by the page scroll. -->
-      <div class="rev-row" id="revRow" data-lenis-prevent-touch>
+    </div>
+
+    <div class="rev-row" id="revRow" data-lenis-prevent-touch>
         <blockquote class="rev"><svg class="qm" viewBox="0 0 260 228" aria-hidden="true"><g transform="translate(16, 790) scale(1,-1)"><path d="M38 562Q13 562 -1.5 580.0Q-16 598 -16 629Q-16 675 4.5 713.0Q25 751 71 784Q83 793 90 788Q94 785 94.0 779.5Q94 774 87 769Q53 740 43.5 724.5Q34 709 34 692Q34 674 42.0 664.5Q50 655 60.0 648.5Q70 642 78.0 633.0Q86 624 86 606Q86 588 73.5 575.0Q61 562 38 562ZM188 562Q163 562 148.5 580.0Q134 598 134 629Q134 675 154.5 713.0Q175 751 221 784Q233 793 240 788Q244 785 244.0 779.5Q244 774 237 769Q203 740 193.5 724.5Q184 709 184 692Q184 674 192.0 664.5Q200 655 210.0 648.5Q220 642 228.0 633.0Q236 624 236 606Q236 588 223.5 575.0Q211 562 188 562Z"/></g></svg><p data-i18n="rev1_t">I kept telling myself my skincare just needed more time. After a few months of tracking, it became pretty clear that my skin wasn’t actually improving. I changed the routine with my dermatologist, and now I’m tracking the new one.</p><span class="stars" role="img" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></span><cite class="who" data-i18n="rev1_w">Anna · tracking acne</cite></blockquote>
         <blockquote class="rev"><svg class="qm" viewBox="0 0 260 228" aria-hidden="true"><g transform="translate(16, 790) scale(1,-1)"><path d="M38 562Q13 562 -1.5 580.0Q-16 598 -16 629Q-16 675 4.5 713.0Q25 751 71 784Q83 793 90 788Q94 785 94.0 779.5Q94 774 87 769Q53 740 43.5 724.5Q34 709 34 692Q34 674 42.0 664.5Q50 655 60.0 648.5Q70 642 78.0 633.0Q86 624 86 606Q86 588 73.5 575.0Q61 562 38 562ZM188 562Q163 562 148.5 580.0Q134 598 134 629Q134 675 154.5 713.0Q175 751 221 784Q233 793 240 788Q244 785 244.0 779.5Q244 774 237 769Q203 740 193.5 724.5Q184 709 184 692Q184 674 192.0 664.5Q200 655 210.0 648.5Q220 642 228.0 633.0Q236 624 236 606Q236 588 223.5 575.0Q211 562 188 562Z"/></g></svg><p data-i18n="rev2_t">I wasn’t imagining it! My face really did look more asymmetric after certain workouts. Seeing the photos next to each other made the pattern so much easier to notice.</p><span class="stars" role="img" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></span><cite class="who" data-i18n="rev2_w">Maria · tracking facial symmetry</cite></blockquote>
         <blockquote class="rev"><svg class="qm" viewBox="0 0 260 228" aria-hidden="true"><g transform="translate(16, 790) scale(1,-1)"><path d="M38 562Q13 562 -1.5 580.0Q-16 598 -16 629Q-16 675 4.5 713.0Q25 751 71 784Q83 793 90 788Q94 785 94.0 779.5Q94 774 87 769Q53 740 43.5 724.5Q34 709 34 692Q34 674 42.0 664.5Q50 655 60.0 648.5Q70 642 78.0 633.0Q86 624 86 606Q86 588 73.5 575.0Q61 562 38 562ZM188 562Q163 562 148.5 580.0Q134 598 134 629Q134 675 154.5 713.0Q175 751 221 784Q233 793 240 788Q244 785 244.0 779.5Q244 774 237 769Q203 740 193.5 724.5Q184 709 184 692Q184 674 192.0 664.5Q200 655 210.0 648.5Q220 642 228.0 633.0Q236 624 236 606Q236 588 223.5 575.0Q211 562 188 562Z"/></g></svg><p data-i18n="rev3_t">I lost a lot of hair after a stressful period and honestly couldn’t tell if it was growing back. Now I take the same photo every few weeks and can finally see the changes!</p><span class="stars" role="img" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></span><cite class="who" data-i18n="rev3_w">Kate · tracking hair density</cite></blockquote>
         <blockquote class="rev"><svg class="qm" viewBox="0 0 260 228" aria-hidden="true"><g transform="translate(16, 790) scale(1,-1)"><path d="M38 562Q13 562 -1.5 580.0Q-16 598 -16 629Q-16 675 4.5 713.0Q25 751 71 784Q83 793 90 788Q94 785 94.0 779.5Q94 774 87 769Q53 740 43.5 724.5Q34 709 34 692Q34 674 42.0 664.5Q50 655 60.0 648.5Q70 642 78.0 633.0Q86 624 86 606Q86 588 73.5 575.0Q61 562 38 562ZM188 562Q163 562 148.5 580.0Q134 598 134 629Q134 675 154.5 713.0Q175 751 221 784Q233 793 240 788Q244 785 244.0 779.5Q244 774 237 769Q203 740 193.5 724.5Q184 709 184 692Q184 674 192.0 664.5Q200 655 210.0 648.5Q220 642 228.0 633.0Q236 624 236 606Q236 588 223.5 575.0Q211 562 188 562Z"/></g></svg><p data-i18n="rev4_t">My skin can look great one week and terrible the next, so I was always guessing. Having all the photos in one timeline makes it way easier to see the actual trend.</p><span class="stars" role="img" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></span><cite class="who" data-i18n="rev4_w">Alex · tracking acne</cite></blockquote>
       </div>
-
-      <div class="rev-foot">
-        <div class="rev-nav">
-          <button type="button" id="revPrev" aria-label="Previous reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
-          <button type="button" id="revNext" aria-label="More reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- =========================================================== privacy -->
   <section id="privacy">
     <div class="wrap two-col">
       <div class="sec-head" data-reveal>
@@ -725,7 +555,6 @@ details[open] > summary .plus::after { opacity: 0; }
     </div>
   </section>
 
-  <!-- =============================================================== faq -->
   <section id="faq">
     <div class="wrap">
       <div class="sec-head" data-reveal>
@@ -758,7 +587,6 @@ details[open] > summary .plus::after { opacity: 0; }
     </div>
   </section>
 
-  <!-- ======================================================= closing block -->
   <section class="close" id="get">
     <div class="wrap close-in" data-reveal>
       <p class="eyebrow" data-i18n="cta_eyebrow">Start with today’s photo</p>
@@ -788,30 +616,16 @@ details[open] > summary .plus::after { opacity: 0; }
         <a href="v2/support" data-i18n-href="v2/ru/support" data-i18n="foot_support">Support</a>
       </div>
     </div>
-    <!-- Kept visible on purpose. The brief's footer is copyright and links
-         only, which would demote this line into a collapsed FAQ row. -->
     <p class="fine" data-i18n="disclaimer">MorphTrack is a personal progress tool, not a medical service — its readings are observational and are not a diagnosis.</p>
     <p class="fine" data-i18n="copyright">© 2026 MorphTrack · Photos stored in the EU, never sold or used to train AI.</p>
   </div>
 </footer>
 
-<!-- Self-hosted rather than pulled from unpkg/cdnjs: same-origin means no extra
-     DNS+TLS handshake to two third-party CDNs (measurably faster LCP), no SRI
-     needed, a stricter CSP (script-src 'self'), and no visitor IPs handed to a
-     CDN we don't control — which is what the page itself promises. -->
 <script src="vendor/lenis-1.1.14.min.js"></script>
 <script src="vendor/gsap-3.12.5.min.js"></script>
 <script src="vendor/ScrollTrigger-3.12.5.min.js"></script>
 <script>
-/* Smooth scroll + block reveals.
- *
- * Nothing is hidden by CSS: the opacity:0 is set by gsap itself, so if any of
- * the three files fail to load — or this script's hash goes stale and CSP
- * refuses it — the page renders fully visible instead of blank. That is the
- * whole reason the hiding lives here and not in the stylesheet.
- *
- * Reveals are desktop-only and skipped under prefers-reduced-motion.
- */
+
 (function () {
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var nav = document.querySelector('.nav');
@@ -836,11 +650,10 @@ details[open] > summary .plus::after { opacity: 0; }
           }
         });
       });
-      ScrollTrigger.refresh();   // anything already in view on load shows at once
+      ScrollTrigger.refresh();   
     }
   }
 
-  // In-page anchors have to go through Lenis, or they jump while it eases.
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       if (!lenis) return;
@@ -855,9 +668,6 @@ details[open] > summary .plus::after { opacity: 0; }
   if (lenis) lenis.on('scroll', onScroll); else window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* Routine chips fill in one by one, hold, then clear — a day's worth of
-   * ticking off, on a loop. Under prefers-reduced-motion it settles on a
-   * finished state instead of animating. */
   var taps = [].slice.call(document.querySelectorAll('.chip.tap'));
   if (taps.length) {
     if (reduce) {
@@ -876,51 +686,11 @@ details[open] > summary .plus::after { opacity: 0; }
     }
   }
 
-  /* Review carousel. Native overflow scrolling does the work — the arrows just
-   * nudge it by one card, so it stays swipeable on a phone and keyboard-
-   * reachable everywhere without a slider library. */
-  var row = document.getElementById('revRow');
-  if (row) {
-    var prev = document.getElementById('revPrev'), next = document.getElementById('revNext');
-    var step = function () {
-      var card = row.querySelector('.rev');
-      return card ? card.getBoundingClientRect().width + 20 : 340;
-    };
-    /* Arrow state is read straight off scrollLeft, sampled for as long as the
-     * smooth scroll runs. Deliberately not a 'scroll' listener and not an
-     * IntersectionObserver: both were measured firing zero times against this
-     * element, and a control whose enabled state cannot be verified is worse
-     * than one recomputed on a short timer. Swiping does not update the arrows,
-     * which is why they are hidden on touch widths — a thumb does not need them. */
-    var sync = function () {
-      var max = row.scrollWidth - row.clientWidth;
-      prev.disabled = row.scrollLeft < 4;
-      next.disabled = row.scrollLeft > max - 4;
-    };
-    var settle = function () {
-      var n = 0, t = setInterval(function () { sync(); if (++n > 14) clearInterval(t); }, 60);
-    };
-    prev.addEventListener('click', function () { row.scrollBy({ left: -step() }); settle(); });
-    next.addEventListener('click', function () { row.scrollBy({ left: step() }); settle(); });
-    window.addEventListener('resize', sync);
-    sync();
-  }
-
-  // Trigger positions are measured from text that has not been laid out in its
-  // real font yet; without this the reveals fire early on the Russian page.
+  
   if (window.ScrollTrigger && document.fonts && document.fonts.ready) {
     document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
   }
 
-  /* Proximity snap: once scrolling has been still for a moment, ease to the
-   * nearest section edge. Desktop only — on a phone it fights the thumb.
-   *
-   * The window is deliberately narrow. Sections are ~600px tall, so no point
-   * in one is ever more than ~300px from an edge — a half-viewport threshold
-   * would fire on every single stop, including when someone paused to read
-   * the middle of a block. 170px means it only finishes a movement that was
-   * already heading for a boundary, and leaves a deliberate stop alone.
-   */
   if (lenis && !reduce && matchMedia('(min-width: 900px)').matches) {
     var targets = [].slice.call(document.querySelectorAll('main > header, main > section'));
     var navH = 68, timer;
@@ -945,15 +715,7 @@ details[open] > summary .plus::after { opacity: 0; }
 })();
 </script>
 <script>
-/* Language toggle. Ported unchanged from the shipped page — it is 23 lines and
- * rewriting it buys nothing but new bugs. Four things it depends on:
- *   - it runs at the end of <body>, after the DOM, with no DOMContentLoaded;
- *   - it swaps innerHTML, so RU strings may carry markup, and no element
- *     carrying data-i18n may ever contain scripted or stateful DOM;
- *   - it stamps documentElement.lang, which the RU h1 rule keys off;
- *   - it remembers the choice and auto-detects Russian on first visit.
- * Missing keys fall back to English, so the dictionary can land incrementally.
- */
+
 (function () {
   var I18N = { ru: {
     "nav_track": "Что отслеживать",
@@ -1045,18 +807,10 @@ details[open] > summary .plus::after { opacity: 0; }
   var EN = new Map();
   els.forEach(function (el) { EN.set(el, el.innerHTML); });
 
-  /* Screenshots swap with the language too. The English src stays in the
-   * markup as the default and is captured here; the Russian one rides along
-   * in data-i18n-src. Both files are normalised to the same canvas, so the
-   * frame does not resize when they trade places. */
   var pics = document.querySelectorAll('img[data-i18n-src]');
   var PIC_EN = new Map();
   pics.forEach(function (el) { PIC_EN.set(el, el.getAttribute('src')); });
 
-  /* The legal pages exist in both languages at their own URLs, so the footer
-   * links have to move too — a Russian reader following "Политика
-   * конфиденциальности" to the English text is worse than not translating the
-   * label at all. */
   var hrefs = document.querySelectorAll('a[data-i18n-href]');
   var HREF_EN = new Map();
   hrefs.forEach(function (el) { HREF_EN.set(el, el.getAttribute('href')); });
@@ -1072,7 +826,6 @@ details[open] > summary .plus::after { opacity: 0; }
       el.setAttribute('href', lang === 'ru' ? el.getAttribute('data-i18n-href') : HREF_EN.get(el));
     });
     document.documentElement.lang = lang;
-    // Russian copy is a different length, so every trigger position moves.
     if (window.ScrollTrigger) window.ScrollTrigger.refresh();
     document.querySelectorAll('.lang-btn').forEach(function (b) {
       b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang));
@@ -1092,20 +845,7 @@ details[open] > summary .plus::after { opacity: 0; }
 })();
 </script>
 <script>
-/* Hand the page's own traffic source to the /go/ pages.
- *
- * The badges point at /go/ios/ and /go/android/ — our own pages, so a click
- * becomes a page view the existing analytics already counts, which is how
- * "do people press the buttons, and which one" gets answered without us
- * collecting anything new. Those pages then build the real store URL and
- * carry the source into Apple's campaign token / Play's install referrer.
- *
- * All this does is forward the query string so the source survives the hop.
- * Whitelisted, because it is being spliced into a URL the user will follow.
- *
- * NOTE the selector: a.badge[href^="/go/"]. Point a badge straight at Apple or
- * Google and this silently stops matching — no error, just no attribution.
- */
+
 (function () {
   var q = new URLSearchParams(location.search);
   function clean(v) {
@@ -1124,6 +864,6 @@ details[open] > summary .plus::after { opacity: 0; }
   });
 })();
 </script>
-<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "90aa9d690f2e4361a9aa97f5c2857793"}'></script><!-- End Cloudflare Web Analytics -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "90aa9d690f2e4361a9aa97f5c2857793"}'></script>
 </body>
 </html>
