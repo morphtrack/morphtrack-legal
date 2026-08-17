@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Rewrite the CSP meta tag's script-src hashes in index.html.
+ * Rewrite the CSP meta tag's script-src hashes in a page.
  *
  * The policy allows inline <script> blocks by SHA-256 hash rather than
  * 'unsafe-inline' (which Lighthouse flags as an ineffective CSP). That means
@@ -8,13 +8,20 @@
  * hash and the browser silently stops executing it.
  *
  * Run this after editing any inline script:
- *   node tools/update-csp.js
+ *   node tools/update-csp.js [file]        (default: index.html)
+ *
+ * A page with no hashes yet is fine — the list is inserted after
+ * `script-src 'self' `. What this does NOT touch is host allowlists: the
+ * Cloudflare beacon has a src, so it is permitted by host, not by hash, and
+ * dropping those hosts from a hand-written policy would leave this script
+ * reporting success while analytics is dead.
  */
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-const FILE = path.join(__dirname, '..', 'index.html');
+const FILE = path.resolve(process.argv[2] || path.join(__dirname, '..', 'index.html'));
+const NAME = path.basename(FILE);
 const html = fs.readFileSync(FILE, 'utf8');
 
 // Every script element WITHOUT a src attribute — CSP's script-src governs
@@ -33,25 +40,24 @@ if (hashes.length === 0) {
 }
 
 // Swap just the hash list inside script-src, leaving the rest of the policy
-// (host allowlists, other directives) exactly as authored.
-const HASH_LIST = /(content="[^"]*script-src 'self' )('sha256-[^']*'(?: 'sha256-[^']*')*)( )/;
+// (host allowlists, other directives) exactly as authored. The hash group is
+// `*`, not `+`, so a policy that has no hashes yet gets them inserted rather
+// than rejected — that is the state every newly authored page starts in.
+const HASH_LIST = /(content="[^"]*script-src 'self' )((?:'sha256-[^']*' )*)/;
 
 if (!HASH_LIST.test(html)) {
-  console.error('CSP script-src hash list not found in index.html — not modified.');
+  console.error(`No \`script-src 'self' \` found in ${NAME} — not modified.`);
   process.exit(1);
 }
 
-const updated = html.replace(
-  HASH_LIST,
-  (_full, head, _old, tail) => `${head}${hashes.join(' ')}${tail}`,
-);
+const updated = html.replace(HASH_LIST, (_full, head) => `${head}${hashes.join(' ')} `);
 
 // Already current is success, not failure — this script is safe to re-run.
 if (updated === html) {
-  console.log(`CSP already up to date (${hashes.length} inline-script hashes).`);
+  console.log(`${NAME}: CSP already up to date (${hashes.length} inline-script hashes).`);
   process.exit(0);
 }
 
 fs.writeFileSync(FILE, updated);
-console.log(`Updated CSP with ${hashes.length} inline-script hashes:`);
+console.log(`${NAME}: updated CSP with ${hashes.length} inline-script hashes:`);
 hashes.forEach((h, i) => console.log(`  #${i + 1} ${h}`));

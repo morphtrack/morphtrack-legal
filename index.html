@@ -8,16 +8,23 @@
      'unsafe-inline', including the two JSON-LD blocks (CSP applies script-src
      to every script element, so omitting them would drop our structured
      data). IMPORTANT: editing any inline script changes its hash — rerun
-     `node tools/update-csp.js` afterwards or the page will silently break. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-RBYC/UTRzDPyRwm6sX4sk+aeENTXOKFJgrUgOKxG/iY=' 'sha256-Mimr89JcCUGRevKj0bcBGcJz95QkPu5EdC5if4Razz0=' 'sha256-eJPHFSenPAn0lL7EdjQbltZFhimmLJpwRIsWn4gDeT0=' 'sha256-G6C1ZvpPX8QBZQT4o2M8RXmAYaEp1xa9p2hvRTJu4D8=' 'sha256-3tsSXF7PBa4TUhRnKx9vtrCejnVdTvmMuZzNuFu4AWU=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+     `node tools/update-csp.js` afterwards or the page will silently break.
+
+     The two cloudflareinsights.com hosts are NOT hash-covered — the beacon has
+     a src, so it is allowed by host. update-csp.js only rewrites the hash list
+     and will happily report success while analytics is dead. Keep both hosts:
+     static.* serves the script, the apex is where the beacon POSTs. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-FQQ5wC3+Vcei988r2PGpTtz72AL6zTG/phg1TziZ59A=' 'sha256-tMlLby7qV/DVcTNQNLbqc4hgloCbPVnDkdb0GgwbKWY=' 'sha256-0RaCI0e/qungMihpZtbvWuE41Lftw3YKl9pYC8g4GO4=' 'sha256-leYUtdkuswOY4WzSyTUAkxmgLXNYBfDp8w89GmTo2Qk=' 'sha256-OzG71tjlNgWKhMF12uQFpsTGrbDcqDf3f4NPFHLFRqY=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MorphTrack — Private Photo Progress &amp; AI Change Tracking</title>
 <meta name="description" content="Turn your own photos into a private timeline. Compare any two, log your routine, and get an on-demand AI reading of what changed — zone by zone. Stored in the EU, no ads, no tracking.">
 <meta name="keywords" content="skin progress tracker, progress photos app, AI skin analysis, face change tracking, before after photos, acne tracker, body progress, posture tracker, private photo journal, compare photos over time">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.morphtrack.app/">
-<meta name="theme-color" content="#f7f4fb" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#221a2e" media="(prefers-color-scheme: dark)">
+<!-- Light only: every wash, card and shadow in the design assumes a light
+     ground, and all five app screenshots are light. A dark theme here would
+     put white phones on a dark page. -->
+<meta name="theme-color" content="#f6f5f8">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MorphTrack">
 <meta property="og:title" content="MorphTrack — see what actually changed">
@@ -34,13 +41,21 @@
 <meta name="twitter:image" content="https://www.morphtrack.app/og-image.jpg">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/favicon.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "MorphTrack", "operatingSystem": "iOS, Android", "applicationCategory": "HealthApplication", "url": "https://www.morphtrack.app/", "image": "https://www.morphtrack.app/og-image.jpg", "description": "Turn your own photos into a private timeline. Compare any two, log your routine, and get an on-demand AI reading of what changed \u2014 zone by zone. Stored in the EU, no ads, no tracking.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "MorphTrack", "email": "morphtrack.app@gmail.com", "url": "https://www.morphtrack.app/"}}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is it actually private?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Your photos are visible only to you and stored securely in the EU (Frankfurt). All camera metadata, including location, is removed at upload. No ads, no analytics SDKs, no tracking \u2014 we never sell your data or use it to train AI models, and you can delete any photo, tracker, or your whole account at any time."}}, {"@type": "Question", "name": "What can I track?", "acceptedAnswer": {"@type": "Answer", "text": "Anything visible you want to follow over time \u2014 skin and acne, body and posture, facial symmetry, hair, or a personal goal of your own. Each gets its own tracker and timeline."}}, {"@type": "Question", "name": "How does the AI reading work?", "acceptedAnswer": {"@type": "Answer", "text": "It runs only when you ask. MorphTrack compares the photos in a tracker across time and describes, zone by zone, what visibly changed \u2014 then lines it up with the routine you logged. It's a plain-language observation, not medical advice or a diagnosis."}}, {"@type": "Question", "name": "Is it free?", "acceptedAnswer": {"@type": "Answer", "text": "MorphTrack is free to start. A free account can run a limited number of AI readings each month; MorphTrack Pro unlocks unlimited analyses."}}, {"@type": "Question", "name": "How do I sign in?", "acceptedAnswer": {"@type": "Answer", "text": "With email, or one tap using Google or Apple. Sign-in is only for syncing your own account across devices."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "MorphTrack", "operatingSystem": "iOS, Android", "applicationCategory": "HealthApplication", "url": "https://www.morphtrack.app/", "image": "https://www.morphtrack.app/og-image.jpg", "description": "Turn your own photos into a private timeline. Compare any two, log your routine, and get an on-demand AI reading of what changed — zone by zone. Stored in the EU, no ads, no tracking.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "MorphTrack", "email": "morphtrack.app@gmail.com", "url": "https://www.morphtrack.app/"}}</script>
+<!-- FAQPage. These five must stay word-for-word identical to the visible FAQ
+     below; a schema that contradicts the page loses the rich result and can
+     earn a manual action. Edit both or neither, then re-run update-csp.js. -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What do I actually get?", "acceptedAnswer": {"@type": "Answer", "text": "A private timeline of your own photos, grouped by tracker and by month. A compare view that puts any two dates against each other. A calendar where you tick off the routine you actually followed. And an AI reading, run when you ask for it, that describes what visibly changed and which of your logged factors line up with it."}}, {"@type": "Question", "name": "Is it free?", "acceptedAnswer": {"@type": "Answer", "text": "Photos, comparisons, the calendar and an unlimited number of routine factors are free. A free account can run a limited number of AI readings each month; MorphTrack Pro unlocks unlimited analyses."}}, {"@type": "Question", "name": "How many habits can I track?", "acceptedAnswer": {"@type": "Answer", "text": "There is no cap. Add as many factors as the treatment needs, across as many trackers as you like — no slot limits, no per-tracker fees."}}, {"@type": "Question", "name": "How long before it tells me anything?", "acceptedAnswer": {"@type": "Answer", "text": "Two comparable photos are enough for a first reading. A trend takes three to four weeks — that is roughly how long a real change needs to separate itself from a difference in light or angle."}}, {"@type": "Question", "name": "Is this medical advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. MorphTrack describes what is visible in your photos and notes which logged factors line up with it. Those are correlations worth checking, not causes, and not a diagnosis. For anything that worries you, see a doctor."}}]}</script>
 <style>
 /* Self-hosted fonts (latin + cyrillic subsets). Inlined rather than linked
    so the files start downloading with the document: no render-blocking
    stylesheet and no third-party font origin. Regenerate with
-   tools/update-fonts.sh when the family list changes. */
+   tools/update-fonts.sh when the family list changes.
+
+   Note Instrument Serif ships latin + latin-ext ONLY — there is no Cyrillic
+   subset and the unicode-range below excludes Cyrillic anyway, so the italic
+   accent falls through to Georgia in Russian. That is intended; Georgia
+   Italic covers every character we use and keeps the slant and colour. */
 @font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/IBMPlexMono-400-normal-cyrillic-ext.woff2) format("woff2");unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
 @font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/IBMPlexMono-400-normal-cyrillic.woff2) format("woff2");unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
 @font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/IBMPlexMono-400-normal-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
@@ -69,483 +84,692 @@
 @font-face{font-family:"Inter";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/Inter-700-normal-cyrillic.woff2) format("woff2");unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
 @font-face{font-family:"Inter";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/Inter-700-normal-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
 @font-face{font-family:"Inter";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/Inter-700-normal-latin.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
-/* Self-hosted fonts (latin + cyrillic). Inlined rather than linked so the
-   font files start downloading with the document — no render-blocking
-   stylesheet, no third-party origin. Regenerate: tools/update-fonts.sh */
-  :root {
-    --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
-    --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, monospace;
 
-    --bg: oklch(0.980 0.006 300); --bg-elev: oklch(1 0 0); --surface: oklch(0.966 0.008 300);
-    --surface-deep: oklch(0.930 0.010 300); --ink: oklch(0.18 0.02 300); --ink-soft: oklch(0.35 0.02 300);
-    --muted: oklch(0.47 0.02 300); --muted-light: oklch(0.63 0.02 300); --border: oklch(0.88 0.010 300);
-    --border-soft: oklch(0.935 0.008 300); --accent: oklch(0.50 0.19 293); --accent-ink: oklch(0.42 0.17 293);
-    --accent-soft: oklch(0.95 0.035 298); --on-accent: oklch(1 0 0); --lav: oklch(0.72 0.11 300);
-    --warm: oklch(0.60 0.16 30); --warm-soft: oklch(0.955 0.028 40); --good: oklch(0.55 0.12 155);
-    --shadow: 0 1px 2px oklch(0.2 0.03 300 / 0.05), 0 12px 40px oklch(0.2 0.06 300 / 0.07);
-    --shadow-lift: 0 2px 4px oklch(0.2 0.03 300 / 0.06), 0 30px 64px oklch(0.2 0.08 300 / 0.13);
+/* ---------------------------------------------------------------- tokens --
+   Palette from the brief, with four departures, each deliberate:
+
+   1. --muted is darkened from L .56 to L .50. At .56 it measured 4.37:1 on
+      --bg and 3.94:1 on the --tint wash; eyebrows are 12.5px, so AA needs
+      4.5:1. .50 clears it on every ground we actually use.
+   2. The brief named --green "helping" and --greenSoft. Renamed --pos /
+      --posSoft: the app never claims a factor helps, only that something
+      lines up, and the brief's own copy rule says correlation, not causation.
+   3. Added the on-dark set, shadows, bezel, header and mid-tint. The brief
+      draws all of these in sections 2-4 but defines none of them, leaving six
+      raw literals scattered through the markup.
+   4. Light only — no dark pair. See the theme-color note above.             */
+:root {
+  color-scheme: only light;
+
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, monospace;
+
+  --bg:        oklch(0.978 0.004 250);
+  --elev:      #fff;
+  --surface:   oklch(0.955 0.005 250);
+  --ink:       oklch(0.17 0.005 250);
+  --inkSoft:   oklch(0.34 0.006 250);
+  --muted:     oklch(0.50 0.006 250);
+  --border:    oklch(0.88 0.006 250);
+  --soft:      oklch(0.93 0.005 250);
+  --accent:    oklch(0.40 0.180 270);
+  --accentSoft:oklch(0.94 0.026 265);
+  --plum:      oklch(0.45 0.12 320);
+  --pos:       oklch(0.52 0.12 150);
+  --posSoft:   oklch(0.95 0.03 150);
+  --tint:      oklch(0.945 0.028 280);
+  --tintMid:   oklch(0.955 0.018 275);
+  --tintWarm:  oklch(0.96 0.02 70);
+
+  --onInk:       oklch(0.97 0.004 250);
+  --onInkMuted:  oklch(0.74 0.008 250);
+  --onInkBorder: oklch(0.32 0.012 260);
+
+  --headerBg:   oklch(0.978 0.004 250 / 0.86);
+  --bezel:      oklch(0.20 0.012 275);
+  --shadowCard: 0 24px 50px -34px oklch(0.17 0.02 260 / 0.32);
+  --shadowPhone:0 40px 80px -34px oklch(0.17 0.02 260 / 0.42);
+
+  --wrap: 1240px;
+  --gutter: 40px;
+  /* Padding is per side, so this doubles between adjacent sections. The
+     brief's 92 put 184px between blocks, which read as the page falling
+     apart rather than breathing. */
+  --section: 62px;
+}
+
+/* ------------------------------------------------------------------ base -- */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--plum); }
+img { max-width: 100%; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+h1, h2, h3 { margin: 0; text-wrap: balance; font-weight: 700; }
+h1 { font-size: clamp(40px, 5vw, 70px); line-height: 1.02; letter-spacing: -0.032em; }
+h2 { font-size: clamp(28px, 3.1vw, 42px); line-height: 1.06; letter-spacing: -0.026em; }
+
+/* Cyrillic runs ~10% wider than Latin at the same size, so the same clamp
+   overflows and re-wraps in Russian. The i18n engine stamps lang on <html>,
+   which is the hook. Three commits on the old page were spent rediscovering
+   this — do not remove without checking RU at 375 / 768 / 1440. */
+html[lang="ru"] h1 { font-size: clamp(34px, 4.2vw, 56px); }
+
+/* .ser is the brief's name, .serif is what the shipped Russian dictionary
+   hardcodes. Both resolve here so neither breaks silently. */
+.ser, .serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--accent);
+}
+.lead { font-size: 19px; line-height: 1.55; color: var(--inkSoft); text-wrap: pretty; margin: 0; }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ---------------------------------------------------------------- layout -- */
+.wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+section { padding: var(--section) 0; }
+
+/* ---------------------------------------------------------------- header -- */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--headerBg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-in { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 68px; }
+.nav { transition: box-shadow 0.25s ease; }
+.nav.scrolled { box-shadow: 0 10px 30px -26px oklch(0.17 0.02 260 / 0.6); }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-size: 21px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+.brand:hover { color: var(--ink); }
+.brand img { width: 34px; height: 34px; border-radius: 10px; display: block; }
+.nav-links { display: flex; align-items: center; gap: 8px; }
+.nav-links > a.nav-link { color: var(--inkSoft); font-size: 15px; font-weight: 500; padding: 8px 12px; border-radius: 999px; }
+.nav-links > a.nav-link:hover { color: var(--ink); background: var(--surface); }
+.lang { display: inline-flex; gap: 2px; background: var(--surface); border-radius: 999px; padding: 3px; margin: 0 4px; }
+.lang-btn {
+  border: 0; background: transparent; color: var(--muted);
+  font-family: var(--font-sans); font-size: 13px; font-weight: 600; letter-spacing: 0.02em;
+  padding: 6px 11px; border-radius: 999px; cursor: pointer; line-height: 1;
+}
+.lang-btn:hover { color: var(--ink); }
+.lang-btn[aria-pressed="true"] { background: var(--ink); color: var(--elev); }
+.nav-cta {
+  background: var(--ink); color: var(--elev); font-size: 15px; font-weight: 600;
+  padding: 10px 18px; border-radius: 999px; white-space: nowrap;
+}
+.nav-cta:hover { color: var(--elev); opacity: 0.9; }
+
+/* ------------------------------------------------------------------ hero -- */
+.hero {
+  background: linear-gradient(180deg, var(--tint) 0%, var(--tintMid) 52%, oklch(0.962 0.014 272) 100%);
+  /* No bottom padding: the fan is the last thing in the hero and its crop IS
+     the section's bottom edge. The top is tight on purpose — the space it
+     used to hold above the eyebrow is what lets the phones sit higher. */
+  padding: 50px 0 0;
+  text-align: center;
+}
+.hero-in { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+/* The eyebrow is a label for the headline, not a paragraph before it. */
+.hero-in .eyebrow { margin-bottom: -8px; }
+.hero .lead { max-width: 34em; }
+
+/* ---------------------------------------------------------------- badges -- */
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.badge {
+  display: inline-flex; align-items: center; gap: 11px;
+  background: var(--ink); color: var(--elev);
+  border-radius: 14px; padding: 11px 20px 11px 17px;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+.badge:hover { color: var(--elev); opacity: 0.92; transform: translateY(-2px); }
+.badge svg { width: 25px; height: 25px; flex: none; }
+.badge .bt { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.12; }
+.badge .bt small { font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.82; }
+.badge .bt b { font-size: 18px; font-weight: 600; letter-spacing: -0.015em; }
+
+/* ------------------------------------------------------------------ foot -- */
+footer { background: var(--tint); padding: 46px 0 40px; }
+.foot-in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 20px; font-size: 15px; }
+.foot-links a { color: var(--inkSoft); }
+.foot-links a:hover { color: var(--plum); }
+.fine { font-size: 13.5px; line-height: 1.55; color: var(--muted); margin: 26px 0 0; max-width: 72ch; }
+
+/* ----------------------------------------------------------- phone frame --
+   One frame, one ratio. 1177/2586 is the size every screenshot was normalised
+   to — NOT the 1280/2856 the brief names, which matches none of them and put a
+   44px height difference between adjacent frames in the fan. Change this only
+   together with the normalisation step that produces the images, or they get
+   cropped by object-fit instead of filling the frame. */
+.pf {
+  border: 7px solid var(--bezel); border-radius: 40px;
+  background: var(--bezel); overflow: hidden; flex: none;
+  box-shadow: var(--shadowPhone);
+}
+.scrn {
+  position: relative; display: block; aspect-ratio: 1177 / 2586; overflow: hidden;
+  background: linear-gradient(163deg, oklch(0.972 0.006 250), oklch(0.938 0.014 262));
+}
+.scrn img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* -------------------------------------------------------------- hero fan --
+   The band is deliberately shorter than the phones in it: they are cut off by
+   the bottom of the hero rather than shown whole, which is what makes them
+   read as large. Everything scales from --pw, and the overlap is a fraction
+   of it, so the composition holds its shape at every width. */
+.fan {
+  --pw: clamp(190px, 20.5vw, 300px);
+  width: 100%; margin-top: 20px;
+  height: clamp(350px, 34vw, 492px);
+  overflow: hidden;
+  display: flex; justify-content: center; align-items: flex-start;
+  padding-top: 22px;
+}
+.fan .pf { width: var(--pw); margin: 0 calc(var(--pw) * -0.105); transform-origin: top center; }
+/* transform-origin is top center so scale grows downward into the crop and
+   never lifts a phone's top edge out of the band. */
+.fan .s1 { transform: rotate(-9deg)   translateY(46px) scale(0.90); z-index: 1; }
+.fan .s2 { transform: rotate(-4.5deg) translateY(18px) scale(0.96); z-index: 2; }
+.fan .s3 { transform: translateY(-10px) scale(1.06);               z-index: 3; }
+.fan .s4 { transform: rotate(4.5deg)  translateY(18px) scale(0.96); z-index: 2; }
+.fan .s5 { transform: rotate(9deg)    translateY(46px) scale(0.90); z-index: 1; }
+
+/* ------------------------------------------------------- feature sections -- */
+.feat { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: center; }
+.feat > .feat-art { order: 2; }
+/* -1, not 0: .sec-head has no order of its own, so it sits at 0 too, and a tie
+   is resolved by DOM order — which put the text first and left every section
+   laid out identically instead of alternating. */
+.feat.flip > .feat-art { order: -1; }
+.sec-head { display: flex; flex-direction: column; gap: 15px; }
+.sec-head h2 { margin-top: 3px; }
+
+/* Every feature screen stands on a panel — one of them floating bare while the
+   others had a background was the thing that looked unfinished. The tints are
+   washed out and fade to nothing at the far corner, so they read as light in
+   the room rather than as coloured boxes. One hue per section. */
+.stage {
+  border-radius: 28px; padding: 46px 0; display: grid; place-items: center;
+  overflow: hidden;
+}
+.stage.lav  { background: linear-gradient(157deg, oklch(0.945 0.030 280 / 0.9), oklch(0.968 0.014 274 / 0.5) 60%, transparent); }
+.stage.warm { background: linear-gradient(157deg, oklch(0.955 0.028 68 / 0.9),  oklch(0.974 0.013 66 / 0.5) 60%, transparent); }
+.stage.mint { background: linear-gradient(157deg, oklch(0.950 0.030 158 / 0.85), oklch(0.970 0.014 158 / 0.45) 60%, transparent); }
+.stage .pf { width: 300px; }
+
+/* Two screens, one behind the other. The back phone carries a negative offset
+   as well as the rotation — with the front phone's translate alone only about
+   a third of it stayed visible, not the two thirds the composition needs. */
+.duo { position: relative; width: 100%; display: flex; align-items: center; justify-content: center; }
+/* The pair is shifted right as a whole so the rotated back phone clears the
+   panel's left edge — .stage clips, and a diagonally sliced phone reads as a
+   mistake. Both offsets move together; changing one alone either re-clips it
+   or closes the gap the composition depends on. */
+.duo .back {
+  position: absolute; left: 50%; width: 252px; z-index: 1;
+  transform: translateX(-208px) rotate(-10deg);
+}
+.duo .front { position: relative; z-index: 2; transform: translateX(100px); }
+
+/* -------------------------------------------------------- chips & checks -- */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 0; padding: 0; list-style: none; }
+.chip {
+  font-size: 14px; line-height: 1.3; padding: 8px 14px; border-radius: 999px;
+  background: var(--elev); border: 1px solid var(--soft); color: var(--inkSoft);
+}
+.chip.dash { background: transparent; border-style: dashed; border-color: var(--border); color: var(--muted); }
+
+/* The routine chips tick themselves off and clear again, the way a day looks
+   in the app. Not buttons: nothing here responds to a click, and a control that
+   changes on its own under the cursor is worse than no control. Scoped with
+   .tap so the static chips on the dark band are untouched. */
+.chip.tap {
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background 0.28s ease, border-color 0.28s ease, color 0.28s ease;
+}
+.chip.tap .tick { width: 17px; height: 17px; flex: none; color: var(--border); }
+.chip.tap .tick path { opacity: 0; transition: opacity 0.28s ease; }
+.chip.tap.on { background: var(--ink); border-color: var(--ink); color: var(--elev); }
+.chip.tap.on .tick { color: currentColor; }
+.chip.tap.on .tick path { opacity: 1; }
+.pill-accent {
+  display: inline-block; margin-top: 22px; padding: 10px 18px; border-radius: 999px;
+  background: var(--accentSoft); color: var(--accent); font-size: 14.5px; font-weight: 600;
+}
+.checks { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 14px; }
+.checks li { display: flex; gap: 12px; align-items: flex-start; font-size: 16.5px; color: var(--inkSoft); }
+.ck {
+  flex: none; width: 21px; height: 21px; margin-top: 3px; border-radius: 50%;
+  background: var(--accentSoft); color: var(--accent); display: grid; place-items: center;
+}
+.ck svg { width: 12px; height: 12px; }
+.checks.pos .ck { background: var(--posSoft); color: var(--pos); }
+
+/* ------------------------------------------------------------- dark band -- */
+.band { background: var(--ink); color: var(--onInk); }
+.band-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: start; }
+.band .eyebrow { color: var(--onInkMuted); }
+.band p { color: var(--onInkMuted); margin: 0; }
+.band .ser { color: oklch(0.82 0.11 292); }
+.band .chip { background: transparent; border-color: var(--onInkBorder); color: var(--onInk); }
+.band .chip.dash { color: var(--onInkMuted); }
+
+/* --------------------------------------------------------------- отзывы -- */
+.revs { background: linear-gradient(180deg, var(--tint), oklch(0.955 0.020 278) 60%, var(--tint)); }
+.revs .sec-head { max-width: 46em; }
+.rev-row {
+  display: flex; gap: 20px; align-items: flex-start;
+  margin: 40px calc(var(--gutter) * -1) 0;
+  padding: 26px var(--gutter) 34px;
+  overflow-x: auto; scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  /* No scroll-behavior: smooth here. Any browser-animated scroll of this row
+     started from a click was measured being cancelled before it moved a pixel;
+     only an instant write survived. The arrows therefore tween scrollLeft
+     frame by frame themselves — see the carousel block. */
+}
+.rev-row::-webkit-scrollbar { display: none; }
+.rev {
+  flex: none; width: 320px; scroll-snap-align: center;
+  background: var(--elev); border-radius: 20px; padding: 26px 26px 24px;
+  box-shadow: var(--shadowCard);
+  display: flex; flex-direction: column; gap: 16px;
+}
+/* Staggered like a hand of cards rather than a straight row. */
+.rev:nth-child(2n)   { margin-top: 44px; }
+.rev:nth-child(4n+3) { margin-top: -18px; }
+.rev .qm { font-family: var(--font-serif); font-style: normal; font-size: 52px; line-height: 0.6; color: var(--ink); }
+.rev p { margin: 0; font-size: 16.5px; line-height: 1.5; color: var(--ink); }
+.rev .stars { display: flex; gap: 3px; color: oklch(0.76 0.14 45); }
+.rev .stars svg { width: 15px; height: 15px; }
+.rev .who { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.rev-foot { display: flex; align-items: center; justify-content: flex-end; gap: 20px; margin-top: 6px; }
+.rev-all {
+  display: inline-block; border: 1px solid var(--ink); border-radius: 999px;
+  padding: 11px 22px; font-size: 15px; font-weight: 600; color: var(--ink);
+}
+.rev-all:hover { background: var(--ink); color: var(--elev); }
+.rev-nav { display: flex; gap: 8px; }
+.rev-nav button {
+  width: 44px; height: 44px; border-radius: 999px; border: 0; cursor: pointer;
+  background: transparent; color: var(--ink); display: grid; place-items: center;
+}
+.rev-nav button:hover { background: var(--elev); }
+.rev-nav button[disabled] { color: var(--border); cursor: default; background: transparent; }
+.rev-nav svg { width: 22px; height: 22px; }
+
+/* --------------------------------------------------------------- privacy -- */
+.two-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: start; }
+
+/* ------------------------------------------------------------------- faq -- */
+/* The FAQ gets a narrower column of its own rather than sitting in the 1240
+   one — a max-width on the list alone left it pinned to the left with 320px
+   of dead space on the right, while the heading ran the full width. */
+#faq .wrap { max-width: 960px; }
+.faq-list { margin: 34px 0 0; }
+.faq-list details { border-top: 1px solid var(--border); }
+.faq-list details:last-of-type { border-bottom: 1px solid var(--border); }
+.faq-list summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; padding: 22px 0; font-size: 18.5px; font-weight: 600; letter-spacing: -0.015em;
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+/* Drawn, not typed: the + and − characters are absent from all three fonts
+   and would fall back mid-line to whatever the OS supplies. */
+.plus { position: relative; flex: none; width: 20px; height: 20px; }
+.plus::before, .plus::after { content: ""; position: absolute; background: var(--muted); border-radius: 2px; }
+.plus::before { left: 0; right: 0; top: 9px; height: 2px; }
+.plus::after { top: 0; bottom: 0; left: 9px; width: 2px; }
+details[open] > summary .plus::after { opacity: 0; }
+.ans { margin: 0; padding: 0 0 24px; max-width: 68ch; font-size: 16.5px; color: var(--inkSoft); }
+.faq-ask { margin: 30px 0 0; font-size: 16px; color: var(--muted); }
+
+/* --------------------------------------------------------- closing block -- */
+.close { background: linear-gradient(180deg, var(--bg), var(--tint)); text-align: center; }
+.close-in { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.close .lead { max-width: 32em; }
+.close .note { font-size: 13.5px; color: var(--muted); margin: 4px 0 0; }
+
+/* ------------------------------------------------------------ responsive -- */
+@media (max-width: 1080px) {
+  :root { --gutter: 24px; --section: 46px; }
+  .hide-sm { display: none; }
+  .feat, .band-grid, .two-col { grid-template-columns: minmax(0, 1fr); gap: 42px; }
+  .feat > .feat-art, .feat.flip > .feat-art { order: 2; }
+  /* The overlap and rotation only work when all five frames are on screen at
+     once. Narrower than this they become a plain scrollable row — still cut
+     off at the bottom, so the phones stay large rather than shrinking to fit.
+     overflow-y must stay hidden while overflow-x scrolls, or the crop leaks
+     into a vertical scrollbar inside the band. */
+  .fan {
+    --pw: 214px;
+    height: 300px; margin: 18px 0 0; padding: 14px var(--gutter) 0;
+    justify-content: flex-start; gap: 14px;
+    overflow-x: auto; overflow-y: hidden;
+    scroll-snap-type: x mandatory; scrollbar-width: none;
   }
-  @media (prefers-color-scheme: dark) { :root {
-    --bg: oklch(0.165 0.018 295); --bg-elev: oklch(0.215 0.020 295); --surface: oklch(0.245 0.020 295);
-    --surface-deep: oklch(0.295 0.024 295); --ink: oklch(0.97 0.006 300); --ink-soft: oklch(0.83 0.010 300);
-    --muted: oklch(0.72 0.014 300); --muted-light: oklch(0.55 0.014 300); --border: oklch(0.33 0.022 295);
-    --border-soft: oklch(0.28 0.020 295); --accent: oklch(0.74 0.15 293); --accent-ink: oklch(0.83 0.13 293);
-    --accent-soft: oklch(0.33 0.07 296); --on-accent: oklch(0.17 0.02 296); --lav: oklch(0.78 0.10 300);
-    --warm: oklch(0.74 0.14 40); --warm-soft: oklch(0.32 0.045 40); --good: oklch(0.74 0.13 155);
-    --shadow: 0 1px 2px oklch(0 0 0 / 0.3), 0 12px 40px oklch(0 0 0 / 0.45);
-    --shadow-lift: 0 2px 4px oklch(0 0 0 / 0.35), 0 30px 64px oklch(0 0 0 / 0.55);
-  } }
-  :root[data-theme="light"] {
-    --bg: oklch(0.980 0.006 300); --bg-elev: oklch(1 0 0); --surface: oklch(0.966 0.008 300);
-    --surface-deep: oklch(0.930 0.010 300); --ink: oklch(0.18 0.02 300); --ink-soft: oklch(0.35 0.02 300);
-    --muted: oklch(0.47 0.02 300); --muted-light: oklch(0.63 0.02 300); --border: oklch(0.88 0.010 300);
-    --border-soft: oklch(0.935 0.008 300); --accent: oklch(0.50 0.19 293); --accent-ink: oklch(0.42 0.17 293);
-    --accent-soft: oklch(0.95 0.035 298); --on-accent: oklch(1 0 0); --lav: oklch(0.72 0.11 300);
-    --warm: oklch(0.60 0.16 30); --warm-soft: oklch(0.955 0.028 40); --good: oklch(0.55 0.12 155);
-    --shadow: 0 1px 2px oklch(0.2 0.03 300 / 0.05), 0 12px 40px oklch(0.2 0.06 300 / 0.07);
-    --shadow-lift: 0 2px 4px oklch(0.2 0.03 300 / 0.06), 0 30px 64px oklch(0.2 0.08 300 / 0.13);
-  }
-  :root[data-theme="dark"] {
-    --bg: oklch(0.165 0.018 295); --bg-elev: oklch(0.215 0.020 295); --surface: oklch(0.245 0.020 295);
-    --surface-deep: oklch(0.295 0.024 295); --ink: oklch(0.97 0.006 300); --ink-soft: oklch(0.83 0.010 300);
-    --muted: oklch(0.72 0.014 300); --muted-light: oklch(0.55 0.014 300); --border: oklch(0.33 0.022 295);
-    --border-soft: oklch(0.28 0.020 295); --accent: oklch(0.74 0.15 293); --accent-ink: oklch(0.83 0.13 293);
-    --accent-soft: oklch(0.33 0.07 296); --on-accent: oklch(0.17 0.02 296); --lav: oklch(0.78 0.10 300);
-    --warm: oklch(0.74 0.14 40); --warm-soft: oklch(0.32 0.045 40); --good: oklch(0.74 0.13 155);
-    --shadow: 0 1px 2px oklch(0 0 0 / 0.3), 0 12px 40px oklch(0 0 0 / 0.45);
-    --shadow-lift: 0 2px 4px oklch(0 0 0 / 0.35), 0 30px 64px oklch(0 0 0 / 0.55);
-  }
-
-  * { box-sizing: border-box; }
-  body { margin: 0; }
-  .page { background: var(--bg); color: var(--ink); font-family: var(--font-sans); font-size: 18px;
-    line-height: 1.6; -webkit-font-smoothing: antialiased; letter-spacing: -0.011em; overflow-x: clip; }
-  .wrap { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
-  a { color: inherit; }
-  h1, h2, h3 { text-wrap: balance; letter-spacing: -0.025em; margin: 0; }
-  .serif { font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: 0; }
-  .eyebrow { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
-
-  /* nav */
-  .nav { position: sticky; top: 0; z-index: 20; backdrop-filter: saturate(1.4) blur(12px);
-    background: color-mix(in oklch, var(--bg) 82%, transparent); border-bottom: 1px solid var(--border-soft); }
-  .nav-in { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 19px; letter-spacing: -0.03em; text-decoration: none; color: var(--ink); }
-  .brand img { width: 29px; height: 29px; border-radius: 8px; display: block; box-shadow: var(--shadow); }
-  .nav-links { display: flex; align-items: center; gap: 30px; }
-  .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 15.5px; font-weight: 500; }
-  .nav-links a:hover { color: var(--accent-ink); }
-  .nav-links a.nav-cta { background: var(--ink); color: var(--bg-elev); padding: 9px 18px; border-radius: 999px; font-size: 15px; font-weight: 600; white-space: nowrap; }
-  .nav-links a.nav-cta:hover { color: var(--bg-elev); opacity: 0.88; }
-  @media (max-width: 720px) { .nav-links .hide-sm { display: none; } }
-  /* Narrow phones: brand + language toggle + CTA no longer fit at the desktop
-     gap and sizing, and the CTA was being clipped off the right edge (the
-     English label is wider than the Russian one). Tighten, don't drop. */
-  @media (max-width: 430px) {
-    .nav-links { gap: 8px; }
-    .nav-links a.nav-cta { padding: 8px 13px; font-size: 14px; }
-    .brand { font-size: 16.5px; gap: 8px; }
-    .brand img { width: 26px; height: 26px; }
-    .lang-btn { padding: 5px 8px; font-size: 12px; }
-  }
-
-  /* hero */
-  .hero { padding: 58px 0 34px; }
-  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 52px; align-items: center; }
-  .hero h1 { font-size: clamp(38px, 5.4vw, 60px); text-wrap: balance; line-height: 1.0; margin: 20px 0 0; font-weight: 600; }
-  .hero h1 .serif { color: var(--accent-ink); font-size: 1.06em; }
-  .lede { font-size: clamp(18px, 2.2vw, 22px); color: var(--ink-soft); margin: 24px 0 0; max-width: 30em; line-height: 1.5; }
-  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-  .lb { display: none; }
-/* Кириллица шире латиницы примерно на десятую часть, и на одном кегле
-   заданные переносы в русском переполняют колонку и рвутся ещё раз —
-   три строки превращаются в пять. Язык проставляется скриптом на
-   <html>, так что размер можно дать отдельный. */
-html[lang="ru"] .hero h1 { font-size: clamp(34px, 4.4vw, 48px); }
-@media (min-width: 860px) { .lb { display: inline; } }
-.card-read { width: 340px; max-width: 88vw; border-radius: 28px; padding: 26px 24px 22px; }
-.card-read p { margin: 0; }
-.cr-eyebrow { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-ink); }
-.cr-meta { font-size: 12.5px; color: var(--muted); margin-top: 4px !important; }
-.cr-row { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); }
-.cr-tag { display: inline-block; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; }
-.cr-tag.good { background: oklch(0.55 0.12 155 / 0.14); color: var(--good); }
-.cr-tag.flat { background: var(--accent-soft); color: var(--accent-ink); }
-.cr-tag.bad  { background: oklch(0.58 0.17 25 / 0.14); color: oklch(0.52 0.19 25); }
-.cr-tag.mute { background: oklch(0.6 0.02 300 / 0.14); color: var(--muted); }
-.cr-txt { margin-top: 8px !important; font-size: 14.5px; line-height: 1.45; color: var(--ink-soft); }
-.cr-txt b { color: var(--ink); font-weight: 650; }
-.cr-foot { margin-top: 20px !important; padding-top: 14px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); }
-.trust { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 24px; color: var(--muted); font-size: 14px; }
-  .trust span { display: inline-flex; align-items: center; gap: 6px; }
-  .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--good); flex: none; }
-
-  .badge { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; background: var(--ink); color: var(--bg-elev);
-    padding: 12px 20px 12px 17px; border-radius: 14px; transition: transform .15s ease, box-shadow .15s ease; }
-  .badge:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
-  .badge svg { width: 23px; height: 23px; flex: none; }
-  .badge .bt { display: flex; flex-direction: column; line-height: 1.05; text-align: left; }
-  .badge .bt small { font-size: 10.5px; opacity: 0.78; letter-spacing: 0.02em; }
-  .badge .bt b { font-size: 16.5px; font-weight: 600; letter-spacing: -0.01em; }
-
-  .device-wrap { display: flex; justify-content: center; }
-  .device { width: 300px; max-width: 76vw; border-radius: 40px; overflow: hidden; border: 1px solid var(--border);
-    box-shadow: var(--shadow-lift); background: var(--bg-elev); }
-  .device img { display: block; width: 100%; height: auto; }
-
-  /* sections */
-  section { padding: 46px 0; }
-  .sec-head { max-width: 36rem; margin-bottom: 34px; }
-  .sec-head h2 { font-size: clamp(30px, 4.2vw, 44px); line-height: 1.06; margin-top: 12px; font-weight: 600; }
-  .sec-head h2 .serif { color: var(--accent-ink); }
-  .sec-head p { color: var(--muted); margin: 14px 0 0; font-size: 18px; }
-
-  /* features */
-  .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-  .feature { background: var(--bg-elev); border: 1px solid var(--border-soft); border-radius: 22px; padding: 28px;
-    box-shadow: var(--shadow); transition: transform .18s ease, box-shadow .18s ease; }
-  .feature:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
-  .feature .fi { width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center; margin-bottom: 18px; }
-  .feature h3 { font-size: 21px; font-weight: 600; }
-  .feature p { color: var(--muted); font-size: 16.5px; margin: 10px 0 0; line-height: 1.55; }
-  .fi.a { background: var(--accent-soft); color: var(--accent-ink); }
-  .fi.b { background: var(--warm-soft); color: var(--warm); }
-  .fi.c { background: color-mix(in oklch, var(--lav) 22%, transparent); color: var(--accent-ink); }
-  .fi.d { background: color-mix(in oklch, var(--good) 15%, transparent); color: var(--good); }
-  .feature svg { width: 24px; height: 24px; }
-
-  /* showcase */
-  .show { background: var(--surface); border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); }
-  .row { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 52px; align-items: center; padding: 52px 0; }
-  .row + .row { border-top: 1px solid var(--border-soft); }
-  .row.flip .rtext { order: 2; } .row.flip .device-wrap { order: 1; }
-  .rtext h3 { font-size: clamp(28px, 3.7vw, 38px); line-height: 1.06; margin-top: 12px; font-weight: 600; }
-  .rtext h3 .serif { color: var(--accent-ink); }
-  .rtext p { color: var(--ink-soft); font-size: 18.5px; margin: 18px 0 0; line-height: 1.55; max-width: 35ch; }
-  .rtext .fine { font-size: 14px; color: var(--muted-light); margin-top: 14px; }
-  .rlist { list-style: none; padding: 0; margin: 24px 0 0; display: flex; flex-direction: column; gap: 14px; }
-  .rlist li { display: flex; align-items: flex-start; gap: 13px; font-size: 17px; color: var(--ink-soft); line-height: 1.4; font-weight: 500; }
-  .rlist .ck { flex: none; width: 24px; height: 24px; border-radius: 7px; background: var(--accent-soft); color: var(--accent-ink); display: grid; place-items: center; margin-top: 1px; }
-  .rlist .ck svg { width: 13px; height: 13px; }
-  .quote { font-family: var(--font-serif); font-style: italic; font-size: clamp(20px, 2.5vw, 25px); line-height: 1.4;
-    color: var(--ink-soft); margin-top: 18px; padding-left: 18px; border-left: 3px solid var(--accent); }
-
-  /* the loop — real screens */
-  .loop { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-  .lstep { background: var(--bg-elev); border: 1px solid var(--border-soft); border-radius: 22px; box-shadow: var(--shadow); position: relative; }
-  .lshot { padding: 13px 13px 2px; }
-  .lshot img { display: block; width: 100%; height: auto; }
-  .lbody { padding: 22px 26px 28px; }
-  .lstep .n { display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); } .lstep .n b { display: inline-grid; place-items: center; min-width: 26px; height: 22px; padding: 0 6px; border-radius: 7px; background: var(--accent-soft); color: var(--accent-ink); font-weight: 700; letter-spacing: 0; }
-  .lstep h3 { font-size: 21px; margin-top: 8px; font-weight: 600; }
-  .lstep p { color: var(--muted); font-size: 16.5px; margin: 9px 0 0; line-height: 1.55; }
-  
-  
-  .loop-note { margin-top: 22px; display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-  .loop-note svg { width: 16px; height: 16px; color: var(--accent-ink); }
-  /* the loop reads calmer a touch narrower — smaller step screenshots */
-  #how .wrap { max-width: 1000px; }
-
-  /* faq — two columns for balance */
-  .faq-layout { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 52px; align-items: start; }
-  .faq-aside .sec-head { margin-bottom: 0; }
-  .faq-aside .ask { margin-top: 20px; color: var(--muted); font-size: 15.5px; }
-  .faq-aside .ask a { color: var(--accent-ink); font-weight: 600; text-decoration: none; }
-  details { border-bottom: 1px solid var(--border); padding: 4px 0; }
-  details:first-child { border-top: 1px solid var(--border); }
-  summary { list-style: none; cursor: pointer; padding: 18px 0; font-size: 19.5px; font-weight: 600; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
-  summary::-webkit-details-marker { display: none; }
-  summary .plus { flex: none; width: 22px; height: 22px; position: relative; color: var(--muted); }
-  summary .plus::before, summary .plus::after { content: ""; position: absolute; background: currentColor; border-radius: 2px; }
-  summary .plus::before { top: 10px; left: 3px; right: 3px; height: 2px; }
-  summary .plus::after { left: 10px; top: 3px; bottom: 3px; width: 2px; transition: opacity .2s ease; }
-  details[open] summary .plus { color: var(--accent-ink); }
-  details[open] summary .plus::after { opacity: 0; }
-  details p { color: var(--muted); margin: 0 0 20px; font-size: 16.5px; line-height: 1.6; max-width: 64ch; }
-
-  /* cta + footer */
-  .cta-card { background: linear-gradient(150deg, var(--accent-ink), var(--accent)); color: var(--on-accent);
-    border-radius: 30px; padding: 54px 40px; text-align: center; }
-  .cta-card h2 { font-size: clamp(30px, 4.2vw, 46px); font-weight: 600; line-height: 1.04; }
-  .cta-card h2 .serif { font-style: italic; }
-  .cta-card p { opacity: 0.92; max-width: 32em; margin: 16px auto 0; font-size: 18px; }
-  .cta-card .cta-row { justify-content: center; }
-  .cta-card .badge { background: var(--bg-elev); color: var(--ink); }
-  .support { margin-top: 20px; font-size: 15px; opacity: 0.92; }
-  .support a { color: inherit; font-weight: 600; }
-  footer { padding: 44px 0 56px; border-top: 1px solid var(--border-soft); color: var(--muted); }
-  .foot-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; align-items: center; }
-  .foot-links { display: flex; flex-wrap: wrap; gap: 24px; }
-  .foot-links a { text-decoration: none; color: var(--ink-soft); font-size: 15px; }
-  .foot-links a:hover { color: var(--accent-ink); }
-  .disclaimer { font-size: 13px; color: var(--muted-light); margin-top: 18px; max-width: 62ch; }
-
-  .rise { opacity: 0; transform: translateY(14px); animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
-  .rise.d1 { animation-delay: .06s; } .rise.d2 { animation-delay: .12s; } .rise.d3 { animation-delay: .18s; }
-  @keyframes rise { to { opacity: 1; transform: none; } }
-  @media (prefers-reduced-motion: reduce) { .rise { animation: none; opacity: 1; transform: none; } .feature, .badge { transition: none; } }
-
-  @media (max-width: 900px) {
-    .hero-grid, .row, .faq-layout { grid-template-columns: 1fr; gap: 40px; }
-    .features, .loop { grid-template-columns: 1fr; }
-    .hero { padding: 40px 0 16px; }
-    /* Inside a feature row the screenshot leads: by then the reader knows what
-       the product is and the image illustrates the point. The HERO is the
-       opposite — it must open with the headline, lede and store buttons, so it
-       deliberately keeps its natural (text-first) order on small screens. */
-    .row.flip .device-wrap, .row .device-wrap { order: -1; }
-    .row.flip .rtext { order: 2; }
-    
-  }
-
-  .lang { display:inline-flex; gap:2px; background:var(--surface); border:1px solid var(--border-soft); border-radius:999px; padding:3px; }
-  .lang-btn { border:0; background:transparent; color:var(--muted); font-family:var(--font-sans); font-size:13px; font-weight:600; letter-spacing:.02em; padding:6px 10px; border-radius:999px; cursor:pointer; line-height:1; }
-  .lang-btn:hover { color:var(--ink); }
-  .lang-btn[aria-pressed="true"] { background:var(--ink); color:var(--bg-elev); }
-
-  /* smooth scroll (Lenis) */
-  html.lenis, html.lenis body { height: auto; }
-  .lenis.lenis-smooth { scroll-behavior: auto !important; }
-  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-  .lenis.lenis-stopped { overflow: hidden; }
-  .nav { transition: box-shadow .25s ease; }
-  .nav.scrolled { box-shadow: var(--shadow); }
-  .copyright { margin-top: 8px; }
+  .fan::-webkit-scrollbar { display: none; }
+  .fan .pf { margin: 0; transform: none; scroll-snap-align: center; }
+  /* Arrows are a mouse affordance; on touch the row is swiped, and their
+     state does not follow a swipe. Hiding them keeps them from lying. */
+  .rev-nav { display: none; }
+  .rev-foot { justify-content: flex-start; }
+  .rev { width: 280px; }
+  .stage { padding: 34px 0; }
+  .stage .pf { width: 206px; }
+  .duo .back { width: 172px; transform: translateX(-140px) rotate(-10deg); }
+  .duo .front { transform: translateX(62px); }
+}
+@media (max-width: 560px) {
+  .nav-in { height: 60px; gap: 12px; }
+  .brand { font-size: 18px; }
+  .brand img { width: 28px; height: 28px; }
+  /* The wordmark, the language pill and the CTA do not fit in 327px — the
+     wordmark was being overlapped and read "MorphTrac". The CTA is the one
+     that can go: the real store buttons are a few hundred pixels below it,
+     so on a phone it was asking twice for the same tap. */
+  .nav-cta { display: none; }
+  /* Otherwise the last word of the eyebrow drops alone onto a second line. */
+  .eyebrow { text-wrap: balance; font-size: 11.5px; letter-spacing: 0.14em; }
+  .cta-row { flex-direction: column; align-items: stretch; }
+  .badge { justify-content: center; }
+}
 </style>
 </head>
 <body>
 
-
-<div class="page">
-  <nav class="nav">
-    <div class="wrap nav-in">
-      <a href="#top" class="brand"><img src="/img/logo.png" alt="MorphTrack logo" width="29" height="29"> MorphTrack</a>
-      <div class="nav-links">
-        <a class="hide-sm" href="#features" data-i18n="nav_features">Features</a>
-        <a class="hide-sm" href="#how" data-i18n="nav_how">How it works</a>
-        <a class="hide-sm" href="#faq" data-i18n="nav_faq">FAQ</a>
-        <div class="lang" role="group" aria-label="Language"><button class="lang-btn" type="button" data-lang="en" aria-pressed="true">EN</button><button class="lang-btn" type="button" data-lang="ru" aria-pressed="false">RU</button></div><a class="nav-cta" href="#get" data-i18n="nav_cta">Get the app</a>
-      </div>
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand"><img src="/img/logo.png" alt="MorphTrack logo" width="34" height="34"> MorphTrack</a>
+    <div class="nav-links">
+      <a class="nav-link hide-sm" href="#track" data-i18n="nav_track">What you can track</a>
+      <a class="nav-link hide-sm" href="#analysis" data-i18n="nav_analysis">AI analysis</a>
+      <a class="nav-link hide-sm" href="#privacy" data-i18n="nav_privacy">Privacy</a>
+      <a class="nav-link hide-sm" href="#faq" data-i18n="nav_faq">FAQ</a>
+      <div class="lang" role="group" aria-label="Language"><button class="lang-btn" type="button" data-lang="en" aria-pressed="true">EN</button><button class="lang-btn" type="button" data-lang="ru" aria-pressed="false">RU</button></div>
+      <a class="nav-cta" href="#get" data-i18n="nav_cta">Get the app</a>
     </div>
-  </nav>
-  <main>
+  </div>
+</nav>
 
+<main>
   <a id="top"></a>
+
+  <!-- BATCH 1 places the hero's frame, type and store buttons only. The phone
+       fan, the caption row and every section below arrive in batch 2. -->
   <header class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <p class="eyebrow rise" data-i18n="hero_eyebrow">Skin · posture · body</p>
-        <h1 class="rise d1" data-i18n="hero_h1">Know what’s worth <br class="lb">your time — <span class="serif">before <br class="lb">you waste months on it</span>.</h1>
-        <p class="lede rise d2" data-i18n="hero_lede">Log what you actually do — creams, workouts, stretching, sleep — and MorphTrack shows which of it lines up with what changed in your photos, and which does not.</p>
-        <div class="cta-row rise d2">
-          <a class="badge" href="/go/ios/" target="_blank" rel="noopener" aria-label="Download on the App Store">
-            <svg viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-            <span class="bt"><small data-i18n="dl_appstore_small">Download on the</small><b>App&nbsp;Store</b></span>
-          </a>
-          <a class="badge" href="/go/android/" target="_blank" rel="noopener" aria-label="Get it on Google Play">
-            <svg viewBox="0 0 512 512" aria-hidden="true"><path fill="#00d2ff" d="M47 27c-6 4-9 11-9 20v418c0 9 3 16 9 20l2 2 235-235v-6L49 25z"/><path fill="#00e676" d="M362 341 285 264v-8l77-77 2 1 91 52c26 15 26 39 0 54z"/><path fill="#ff3d00" d="M364 340 285 260 49 496c9 6 22 6 37-2z"/><path fill="#ffea00" d="M364 172 86 18c-15-8-28-8-37 2l236 236z"/></svg>
-            <span class="bt"><small data-i18n="dl_gplay_small">GET IT ON</small><b>Google&nbsp;Play</b></span>
-          </a>
-        </div>
-        <div class="trust rise d3">
-          <span data-i18n="trust_eu"><i class="dot"></i> Photos stored in the EU</span>
-          <span data-i18n="trust_exif"><i class="dot"></i> EXIF &amp; location stripped</span>
-          <span data-i18n="trust_noads"><i class="dot"></i> No ads · no tracking</span>
-        </div>
+    <div class="wrap hero-in">
+      <p class="eyebrow" data-i18n="hero_eyebrow">Skin · acne · posture · body · hair</p>
+      <!-- nbsp before the dash: text-wrap:balance was breaking after "time",
+           leaving the em dash hanging at the start of the next line. -->
+      <h1 data-i18n="hero_h1">Know what’s worth your time&nbsp;— <em class="ser">before you waste months on it</em>.</h1>
+      <p class="lead" data-i18n="hero_lead">Take progress photos, log your routine, and let AI track the visual changes over time — then see which habits line up with your progress.</p>
+      <div class="cta-row">
+        <a class="badge" href="/go/ios/" target="_blank" rel="noopener" aria-label="Download on the App Store">
+          <svg viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+          <span class="bt"><small data-i18n="dl_appstore_small">Download on the</small><b>App&nbsp;Store</b></span>
+        </a>
+        <a class="badge" href="/go/android/" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+          <svg viewBox="0 0 512 512" aria-hidden="true"><path fill="#00d2ff" d="M47 27c-6 4-9 11-9 20v418c0 9 3 16 9 20l2 2 235-235v-6L49 25z"/><path fill="#00e676" d="M362 341 285 264v-8l77-77 2 1 91 52c26 15 26 39 0 54z"/><path fill="#ff3d00" d="M364 340 285 260 49 496c9 6 22 6 37-2z"/><path fill="#ffea00" d="M364 172 86 18c-15-8-28-8-37 2l236 236z"/></svg>
+          <span class="bt"><small data-i18n="dl_gplay_small">GET IT ON</small><b>Google&nbsp;Play</b></span>
+        </a>
       </div>
-      <div class="device-wrap rise d2">
-        <!-- Built in markup rather than a screenshot: it stays crisp, it
-             translates, and it does not go stale the next time the app screen
-             changes. The four states are the ones the SERVER actually derives
-             from evidence counts — including "nothing to compare", which nobody
-             else shows and which is the honest answer for a daily habit. -->
-        <div class="device card-read">
-          <p class="cr-eyebrow" data-i18n="cr_eyebrow">Face · acne</p>
-          <p class="cr-meta" data-i18n="cr_meta">7 months · 46 photos · 5 factors</p>
-          <div class="cr-row">
-            <p class="cr-tag good" data-i18n="cr_t1">Pattern worth watching</p>
-            <p class="cr-txt" data-i18n="cr_p1"><b>Azelaic acid</b> — improvement lines up with consistent use</p>
-          </div>
-          <div class="cr-row">
-            <p class="cr-tag flat" data-i18n="cr_t2">No pattern</p>
-            <p class="cr-txt" data-i18n="cr_p2"><b>Second serum</b> — six weeks logged, nothing changed alongside</p>
-          </div>
-          <div class="cr-row">
-            <p class="cr-tag bad" data-i18n="cr_t3">Pattern, wrong direction</p>
-            <p class="cr-txt" data-i18n="cr_p3"><b>New exfoliant</b> — redness increased in the weeks after</p>
-          </div>
-          <div class="cr-row">
-            <p class="cr-tag mute" data-i18n="cr_t4">Nothing to compare</p>
-            <p class="cr-txt" data-i18n="cr_p4"><b>Cleanser</b> — logged every single day</p>
-          </div>
-          <p class="cr-foot" data-i18n="cr_foot">Coincidences to explore, not proof.</p>
-        </div>
-      </div>
+
+    </div>
+
+    <!-- Outside .wrap on purpose: the fan is full-bleed and taller than the
+         band that shows it, so the phones run off the bottom edge instead of
+         sitting politely inside a box. Above the fold, so no loading="lazy" —
+         that would delay exactly the images the first screen is made of. All
+         five together are ~210 KB; the centre frame gets fetchpriority. -->
+    <div class="fan" data-lenis-prevent-touch>
+        <div class="pf s1"><span class="scrn"><img src="/img/screen-photos.2c3ff814.webp" data-i18n-src="/img/screen-photos-ru.05d02538.webp" width="760" height="1670" decoding="async" alt="MorphTrack photo timeline, grouped by month"></span></div>
+        <div class="pf s2"><span class="scrn"><img src="/img/screen-calendar.8a87b2b8.webp" data-i18n-src="/img/screen-calendar-ru.01ed9880.webp" width="760" height="1670" decoding="async" alt="MorphTrack calendar with the days you logged a photo or a routine"></span></div>
+        <div class="pf s3"><span class="scrn"><img src="/img/screen-analysis.b825109b.webp" data-i18n-src="/img/screen-analysis-ru.23f8aa50.webp" width="760" height="1670" fetchpriority="high" decoding="async" alt="An AI reading describing what changed, zone by zone"></span></div>
+        <div class="pf s4"><span class="scrn"><img src="/img/screen-compare.51aa3bec.webp" data-i18n-src="/img/screen-compare-ru.79881068.webp" width="760" height="1670" decoding="async" alt="Two dates compared with a slider"></span></div>
+        <div class="pf s5"><span class="scrn"><img src="/img/screen-connections.a7b9ab8c.webp" data-i18n-src="/img/screen-connections-ru.e13739a1.webp" width="760" height="1670" decoding="async" alt="Factors that line up with the change, and the trend line"></span></div>
     </div>
   </header>
 
-  <section id="features">
+  <!-- ============================================ what you can track · free -->
+  <section id="track">
+    <div class="wrap feat">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow" data-i18n="t1_eyebrow">Track what you do</p>
+        <h2 data-i18n="t1_h2">Every habit you want to watch&nbsp;— <em class="ser">no limits</em>.</h2>
+        <p class="lead" data-i18n="t1_lead">Track anything that might affect your progress — skincare, workouts, sleep, treatments, or factors of your own. Check them off as you go and MorphTrack keeps them aligned with your photo timeline. A photo takes seconds; logging a factor takes one tap.</p>
+        <ul class="chips">
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t1_c1">Azelaic acid</span></li>
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t1_c2">Retinol</span></li>
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>SPF 50</span></li>
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t1_c3">Dermatologist visit</span></li>
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t1_c4">Sleep 7 h+</span></li>
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t1_c5">Cycle day</span></li>
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t1_c6">Dairy-free</span></li>
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t1_c7">Gym</span></li>
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t1_c8">Evening stretching</span></li>
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t1_c9">Water 2 l</span></li>
+          <li class="chip dash" data-i18n="t1_chip_own">+ your own, unlimited</li>
+        </ul>
+        <p><span class="pill-accent" data-i18n="t1_pill">Unlimited factors · unlimited photos · free tracking</span></p>
+      </div>
+      <div class="feat-art" data-reveal>
+        <div class="stage lav"><div class="pf"><span class="scrn"><img src="/img/screen-calendar.8a87b2b8.webp" data-i18n-src="/img/screen-calendar-ru.01ed9880.webp" width="760" height="1670" loading="lazy" decoding="async" alt="The calendar: photo, AI reading and routine marked per day, with today’s routine chips below"></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================== photos & compare -->
+  <section id="compare">
+    <div class="wrap feat flip">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow" data-i18n="t2_eyebrow">Photos &amp; compare</p>
+        <h2 data-i18n="t2_h2">See the changes you miss&nbsp;— <em class="ser">side by side</em>.</h2>
+        <p class="lead" data-i18n="t2_lead">Your progress photos stay organised on their own. Pick any two dates and compare them with a slider, side by side, or as an overlay — so small changes are easier to see.</p>
+        <ul class="checks">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="t2_li1">Compare any two dates</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="t2_li2">Slider, side-by-side and overlay views</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="t2_li3">A photo guide helps you repeat the same angle</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="t2_li4">Unlimited photos, organised automatically</span></li>
+        </ul>
+      </div>
+      <div class="feat-art" data-reveal>
+        <div class="stage warm"><div class="duo">
+          <div class="pf back"><span class="scrn"><img src="/img/screen-photos.2c3ff814.webp" data-i18n-src="/img/screen-photos-ru.05d02538.webp" width="760" height="1670" loading="lazy" decoding="async" alt="Photos grouped by month inside a tracker"></span></div>
+          <div class="pf front"><span class="scrn"><img src="/img/screen-compare.51aa3bec.webp" data-i18n-src="/img/screen-compare-ru.79881068.webp" width="760" height="1670" loading="lazy" decoding="async" alt="Compare: 22 April against 15 July, 84 days apart, split by a slider"></span></div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ ai reading -->
+  <section id="analysis">
+    <div class="wrap feat">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow" data-i18n="t3_eyebrow">AI reading</p>
+        <h2 data-i18n="t3_h2">AI tracks how you change&nbsp;— <em class="ser">photo by photo</em>.</h2>
+        <p class="lead" data-i18n="t3_lead">It compares your progress photos over time, tracks changes across different areas, and lines that timeline up with the factors you logged. So you can see what improved, what got worse, and which habits appeared alongside those changes.</p>
+        <ul class="checks">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="t3_li1">Tracks visual changes across your photos over time</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="t3_li2">Breaks them down by area instead of a meaningless beauty score</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="t3_li3">Compares those changes with the factors you logged</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="t3_li4">Points out possible patterns — never claims a cause</span></li>
+        </ul>
+      </div>
+      <div class="feat-art" data-reveal>
+        <div class="stage mint"><div class="duo">
+          <div class="pf back"><span class="scrn"><img src="/img/screen-connections.a7b9ab8c.webp" data-i18n-src="/img/screen-connections-ru.e13739a1.webp" width="760" height="1670" loading="lazy" decoding="async" alt="Two factors noticed but not confirmed, above a trend line for the tracker"></span></div>
+          <div class="pf front"><span class="scrn"><img src="/img/screen-analysis.b825109b.webp" data-i18n-src="/img/screen-analysis-ru.23f8aa50.webp" width="760" height="1670" loading="lazy" decoding="async" alt="An AI reading: a period summary, then cheeks, under-eyes and jawline described one by one"></span></div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================== free routine tracking -->
+  <section class="band">
+    <div class="wrap band-grid">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow" data-i18n="free_eyebrow">Free tracking. No limits.</p>
+        <h2 data-i18n="free_h2">Routine tracking stays <em class="ser">free and unlimited</em>.</h2>
+      </div>
+      <div data-reveal>
+        <p data-i18n="free_p">Track as many factors as you want. Photos, comparisons, the calendar and routine tracking stay free and unlimited. You only pay when you want additional AI analyses.</p>
+        <ul class="chips">
+          <li class="chip" data-i18n="free_c1">Unlimited trackers</li>
+          <li class="chip" data-i18n="free_c2">Unlimited photos</li>
+          <li class="chip" data-i18n="free_c3">No ads</li>
+          <li class="chip" data-i18n="free_c4">No data selling</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== отзывы --
+       ВНИМАНИЕ: тексты ниже — заглушки, а не отзывы. Их нельзя выкладывать.
+       Придуманный отзыв с придуманным ником — это фальшивое свидетельство на
+       публичной странице, за него отвечают и сторы, и закон о рекламе.
+       Заменить на настоящие из App Store Connect / Play Console, сохранив
+       формулировку автора дословно. -->
+  <section class="revs" id="reviews">
     <div class="wrap">
       <div class="sec-head" data-reveal>
-        <p class="eyebrow" data-i18n="feat_eyebrow">Everything in one quiet place</p>
-        <h2 data-i18n="feat_h2">Not another gallery — a way to <span class="serif">actually see</span> change.</h2>
-        <p data-i18n="feat_sub">Four things MorphTrack does well, and nothing it doesn't need to.</p>
+        <p class="eyebrow" data-i18n="rev_eyebrow">In their words</p>
+        <h2 data-i18n="rev_h2">People tracking <em class="ser">something of their own</em>.</h2>
+        <p class="lead" data-i18n="rev_lead">Skin, facial symmetry, hair — and what tracking showed them.</p>
       </div>
-      <div class="features">
-        <div class="feature" data-reveal>
-          <div class="fi a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15l-1.9-4.1L5.5 9l4.6-1.4z"/><path d="M18 15l.9 2.2L21 18l-2.1.8L18 21l-.8-2.2L15 18l2.2-.8z"/></svg></div>
-          <h3 data-i18n="f1_h3">AI analysis, on demand</h3>
-          <p data-i18n="f1_p">Ask for a reading and MorphTrack compares your photos over time, describing what visibly changed zone by zone — and how it lines up with your routine.</p>
-        </div>
-        <div class="feature" data-reveal>
-          <div class="fi b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="7.5" height="16" rx="2"/><rect x="13.5" y="4" width="7.5" height="16" rx="2"/></svg></div>
-          <h3 data-i18n="f2_h3">Compare photos</h3>
-          <p data-i18n="f2_p">Slider, side-by-side, or overlay — line up any two shots by angle and framing to see exactly what moved.</p>
-        </div>
-        <div class="feature" data-reveal>
-          <div class="fi c"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><circle cx="7" cy="12" r="2.4" fill="currentColor" stroke="none"/><circle cx="13" cy="12" r="2.4"/><circle cx="19" cy="12" r="2.4"/></svg></div>
-          <h3 data-i18n="f3_h3">A timeline per goal</h3>
-          <p data-i18n="f3_p">Organize photos into trackers — skin, body, posture, hair — each its own private progress line you can scroll back through.</p>
-        </div>
-        <div class="feature" data-reveal>
-          <div class="fi d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <h3 data-i18n="f4_h3">Private by default</h3>
-          <p data-i18n="f4_p">Photos are yours alone, stored in the EU. Location metadata is stripped on upload. No ads, no analytics SDKs, never sold or used to train AI.</p>
+
+      <!-- TOUCH only, not the blanket data-lenis-prevent.
+           The blanket version also stops Lenis handling the WHEEL here, and
+           this row scrolls sideways only — so a vertical wheel over it went
+           into a container that cannot move vertically and the page froze
+           under the cursor. Touch still needs preventing, or a sideways swipe
+           gets eaten by the page scroll. -->
+      <div class="rev-row" id="revRow" data-lenis-prevent-touch>
+        <blockquote class="rev"><span class="qm" aria-hidden="true">“</span><p data-i18n="rev1_t">I kept telling myself my skincare just needed more time. After a few months of tracking, it became pretty clear that my skin wasn’t actually improving. I changed the routine with my dermatologist, and now I’m tracking the new one.</p><cite class="who" data-i18n="rev1_w">Anna · tracking acne</cite></blockquote>
+        <blockquote class="rev"><span class="qm" aria-hidden="true">“</span><p data-i18n="rev2_t">I wasn’t imagining it! My face really did look more asymmetric after certain workouts. Seeing the photos next to each other made the pattern so much easier to notice.</p><cite class="who" data-i18n="rev2_w">Maria · tracking facial symmetry</cite></blockquote>
+        <blockquote class="rev"><span class="qm" aria-hidden="true">“</span><p data-i18n="rev3_t">I lost a lot of hair after a stressful period and honestly couldn’t tell if it was growing back. Now I take the same photo every few weeks and can finally see the changes!</p><cite class="who" data-i18n="rev3_w">Kate · tracking hair density</cite></blockquote>
+        <blockquote class="rev"><span class="qm" aria-hidden="true">“</span><p data-i18n="rev4_t">My skin can look great one week and terrible the next, so I was always guessing. Having all the photos in one timeline makes it way easier to see the actual trend.</p><cite class="who" data-i18n="rev4_w">Alex · tracking acne</cite></blockquote>
+      </div>
+
+      <div class="rev-foot">
+        <div class="rev-nav">
+          <button type="button" id="revPrev" aria-label="Previous reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
+          <button type="button" id="revNext" aria-label="More reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="show" style="padding:0">
-    <div class="wrap">
-      <div class="row" data-reveal>
-        <div class="rtext">
-          <p class="eyebrow" data-i18n="cmp_eyebrow">Compare</p>
-          <h3 data-i18n="cmp_h3">See two moments <span class="serif">at once</span>.</h3>
-          <p data-i18n="cmp_p">Line up any two photos and read the difference for yourself — no guessing from memory.</p>
-          <ul class="rlist">
-            <li data-i18n="cmp_li1"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span> Slider, side-by-side, or overlay</li>
-            <li data-i18n="cmp_li2"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span> Auto-aligned by angle &amp; framing</li>
-            <li data-i18n="cmp_li3"><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></span> Any two dates across the timeline</li>
-          </ul>
-        </div>
-        <div class="device-wrap"><div class="device"><img src="/img/compare.jpg" width="640" height="1390" alt="MorphTrack compare — a slider revealing two photos of the same face over time" loading="lazy" decoding="async"></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="how">
-    <div class="wrap">
+  <!-- =========================================================== privacy -->
+  <section id="privacy">
+    <div class="wrap two-col">
       <div class="sec-head" data-reveal>
-        <p class="eyebrow" data-i18n="loop_eyebrow">The loop</p>
-        <h2 data-i18n="loop_h2">Three steps, a few seconds a day.</h2>
+        <p class="eyebrow" data-i18n="pr_eyebrow">Private by default</p>
+        <h2 data-i18n="pr_h2">Photos of your face deserve <em class="ser">real</em> rules.</h2>
       </div>
-      <div class="loop">
-        <div class="lstep" data-reveal>
-          <div class="lshot"><img src="/img/loop-1.webp" width="860" height="1102" alt="Taking today&#39;s selfie for a MorphTrack timeline" loading="lazy" decoding="async"></div>
-          <div class="lbody"><span class="n" data-i18n="loop1_n"><b>01</b> Capture</span><h3 data-i18n="loop1_h3">Take today's photo</h3>
-            <p data-i18n="loop1_p">Shoot in the same light, at the same angle — the app remembers your last frame so the shots line up.</p></div>
-          
-        </div>
-        <div class="lstep" data-reveal>
-          <div class="lshot"><img src="/img/loop-2.webp" width="860" height="1102" alt="MorphTrack factors — today&#39;s kept routine: Retinol, Gentle cleanser, Pilates" loading="lazy" decoding="async"></div>
-          <div class="lbody"><span class="n" data-i18n="loop2_n"><b>02</b> Log</span><h3 data-i18n="loop2_h3">Mark your routine</h3>
-            <p data-i18n="loop2_p">One tap for the factors you kept — retinol, cleanser, pilates, sleep — and each one is linked to the trackers it might touch.</p></div>
-          
-        </div>
-        <div class="lstep" data-reveal>
-          <div class="lshot"><img src="/img/loop-3.webp" width="860" height="1102" alt="MorphTrack AI analysis — Skin looks calmer, zone by zone" loading="lazy" decoding="async"></div>
-          <div class="lbody"><span class="n" data-i18n="loop3_n"><b>03</b> Notice</span><h3 data-i18n="loop3_h3">Read what changed</h3>
-            <p data-i18n="loop3_p">Run an AI reading whenever you want — a plain-language summary, then zone by zone, with the limits stated.</p></div>
-        </div>
+      <div data-reveal>
+        <ul class="checks pos">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="pr_li1">Stored in the EU and encrypted</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="pr_li2">Location and camera metadata stripped at upload</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="pr_li3">Never sold, never used to train AI, and no ads or analytics SDKs in the app</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="pr_li4">Delete a photo, a tracker or your whole account at any time</span></li>
+        </ul>
       </div>
-      <span class="loop-note" data-i18n="loop_note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v4h4"/></svg> Repeat daily · the picture builds itself</span>
     </div>
   </section>
 
+  <!-- =============================================================== faq -->
   <section id="faq">
-    <div class="wrap faq-layout">
-      <div class="faq-aside">
-        <div class="sec-head" data-reveal>
-          <p class="eyebrow" data-i18n="faq_eyebrow">Good to know</p>
-          <h2 data-i18n="faq_h2">Questions, <span class="serif">answered</span>.</h2>
-        </div>
-        <p class="ask" data-i18n="faq_ask">Still curious? Write us at <a href="mailto:morphtrack.app@gmail.com">morphtrack.app@gmail.com</a> — a person replies.</p>
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow" data-i18n="faq_eyebrow">Straight answers</p>
+        <h2 data-i18n="faq_h2">Before you download.</h2>
       </div>
-      <div class="faq">
-        <details data-reveal><summary data-i18n="faq1_q">Is it actually private? <span class="plus"></span></summary><p data-i18n="faq1_a">Yes. Your photos are visible only to you and stored securely in the EU (Frankfurt). All camera metadata, including location, is removed at upload. No ads, no analytics SDKs, no tracking — we never sell your data or use it to train AI models, and you can delete any photo, tracker, or your whole account at any time.</p></details>
-        <details data-reveal><summary data-i18n="faq2_q">What can I track? <span class="plus"></span></summary><p data-i18n="faq2_a">Anything visible you want to follow over time — skin and acne, body and posture, facial symmetry, hair, or a personal goal of your own. Each gets its own tracker and timeline.</p></details>
-        <details data-reveal><summary data-i18n="faq3_q">How does the AI reading work? <span class="plus"></span></summary><p data-i18n="faq3_a">It runs only when you ask. MorphTrack compares the photos in a tracker across time and describes, zone by zone, what visibly changed — then lines it up with the routine you logged. It's a plain-language observation, not medical advice or a diagnosis.</p></details>
-        <details data-reveal><summary data-i18n="faq4_q">Is it free? <span class="plus"></span></summary><p data-i18n="faq4_a">MorphTrack is free to start. A free account can run a limited number of AI readings each month; MorphTrack Pro unlocks unlimited analyses.</p></details>
-        <details data-reveal><summary data-i18n="faq5_q">How do I sign in? <span class="plus"></span></summary><p data-i18n="faq5_a">With email, or one tap using Google or Apple. Sign-in is only for syncing your own account across devices.</p></details>
+      <div class="faq-list" data-reveal>
+        <details>
+          <summary><span data-i18n="faq1_q">What do I actually get?</span><span class="plus" aria-hidden="true"></span></summary>
+          <p class="ans" data-i18n="faq1_a">A private timeline of your own photos, grouped by tracker and by month. A compare view that puts any two dates against each other. A calendar where you tick off the routine you actually followed. And an AI reading, run when you ask for it, that describes what visibly changed and which of your logged factors line up with it.</p>
+        </details>
+        <details>
+          <summary><span data-i18n="faq2_q">Is it free?</span><span class="plus" aria-hidden="true"></span></summary>
+          <p class="ans" data-i18n="faq2_a">Photos, comparisons, the calendar and an unlimited number of routine factors are free. A free account can run a limited number of AI readings each month; MorphTrack Pro unlocks unlimited analyses.</p>
+        </details>
+        <details>
+          <summary><span data-i18n="faq3_q">How many habits can I track?</span><span class="plus" aria-hidden="true"></span></summary>
+          <p class="ans" data-i18n="faq3_a">There is no cap. Add as many factors as the treatment needs, across as many trackers as you like — no slot limits, no per-tracker fees.</p>
+        </details>
+        <details>
+          <summary><span data-i18n="faq4_q">How long before it tells me anything?</span><span class="plus" aria-hidden="true"></span></summary>
+          <p class="ans" data-i18n="faq4_a">Two comparable photos are enough for a first reading. A trend takes three to four weeks — that is roughly how long a real change needs to separate itself from a difference in light or angle.</p>
+        </details>
+        <details>
+          <summary><span data-i18n="faq5_q">Is this medical advice?</span><span class="plus" aria-hidden="true"></span></summary>
+          <p class="ans" data-i18n="faq5_a">No. MorphTrack describes what is visible in your photos and notes which logged factors line up with it. Those are correlations worth checking, not causes, and not a diagnosis. For anything that worries you, see a doctor.</p>
+        </details>
+      </div>
+      <p class="faq-ask" data-i18n="faq_ask">Something else? Write to <a href="mailto:morphtrack.app@gmail.com">morphtrack.app@gmail.com</a> — a person answers.</p>
+    </div>
+  </section>
+
+  <!-- ======================================================= closing block -->
+  <section class="close" id="get">
+    <div class="wrap close-in" data-reveal>
+      <p class="eyebrow" data-i18n="cta_eyebrow">Start with today’s photo</p>
+      <h2 data-i18n="cta_h2">Stop guessing. <em class="ser">See</em> the answer.</h2>
+      <p class="lead" data-i18n="cta_lead">About eight seconds a day. The first tracker takes a minute to set up, and your photos stay yours the whole time.</p>
+      <div class="cta-row">
+        <a class="badge" href="/go/ios/" target="_blank" rel="noopener" aria-label="Download on the App Store">
+          <svg viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+          <span class="bt"><small data-i18n="dl_appstore_small">Download on the</small><b>App&nbsp;Store</b></span>
+        </a>
+        <a class="badge" href="/go/android/" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+          <svg viewBox="0 0 512 512" aria-hidden="true"><path fill="#00d2ff" d="M47 27c-6 4-9 11-9 20v418c0 9 3 16 9 20l2 2 235-235v-6L49 25z"/><path fill="#00e676" d="M362 341 285 264v-8l77-77 2 1 91 52c26 15 26 39 0 54z"/><path fill="#ff3d00" d="M364 340 285 260 49 496c9 6 22 6 37-2z"/><path fill="#ffea00" d="M364 172 86 18c-15-8-28-8-37 2l236 236z"/></svg>
+          <span class="bt"><small data-i18n="dl_gplay_small">GET IT ON</small><b>Google&nbsp;Play</b></span>
+        </a>
       </div>
     </div>
   </section>
 
-  <section id="get">
-    <div class="wrap">
-      <div class="cta-card" data-reveal>
-        <h2 data-i18n="cta_h2">Start your <span class="serif">timeline</span> today.</h2>
-        <p data-i18n="cta_p">Free to download. Your first tracker takes about a minute — and your photos never leave your control.</p>
-        <div class="cta-row">
-          <a class="badge" href="/go/ios/" target="_blank" rel="noopener" aria-label="Download on the App Store">
-            <svg viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-            <span class="bt"><small data-i18n="dl_appstore_small">Download on the</small><b>App&nbsp;Store</b></span>
-          </a>
-          <a class="badge" href="/go/android/" target="_blank" rel="noopener" aria-label="Get it on Google Play">
-            <svg viewBox="0 0 512 512" aria-hidden="true"><path fill="#00d2ff" d="M47 27c-6 4-9 11-9 20v418c0 9 3 16 9 20l2 2 235-235v-6L49 25z"/><path fill="#00e676" d="M362 341 285 264v-8l77-77 2 1 91 52c26 15 26 39 0 54z"/><path fill="#ff3d00" d="M364 340 285 260 49 496c9 6 22 6 37-2z"/><path fill="#ffea00" d="M364 172 86 18c-15-8-28-8-37 2l236 236z"/></svg>
-            <span class="bt"><small data-i18n="dl_gplay_small">GET IT ON</small><b>Google&nbsp;Play</b></span>
-          </a>
-        </div>
-        <p class="support" data-i18n="cta_support">Need a hand? Email <a href="mailto:morphtrack.app@gmail.com">morphtrack.app@gmail.com</a></p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <a href="#top" class="brand"><img src="/img/logo.png" alt="MorphTrack logo" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"> MorphTrack</a>
+      <div class="foot-links">
+        <a href="v2/privacy-policy" data-i18n="foot_privacy">Privacy Policy</a>
+        <a href="v2/terms" data-i18n="foot_terms">Terms</a>
+        <a href="v2/support" data-i18n="foot_support">Support</a>
       </div>
     </div>
-  </section>
-
-  </main>
-  <footer>
-    <div class="wrap">
-      <div class="foot-in">
-        <a href="#top" class="brand"><img src="/img/logo.png" alt="MorphTrack logo" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"> MorphTrack</a>
-        <div class="foot-links">
-          <a href="v2/privacy-policy" data-i18n="foot_privacy">Privacy Policy</a>
-          <a href="v2/terms" data-i18n="foot_terms">Terms</a>
-          <a href="v2/support" data-i18n="foot_support">Support</a>
-        </div>
-      </div>
-      <p class="disclaimer" data-i18n="disclaimer">MorphTrack is a personal progress tool, not a medical service — its readings are observational and are not a diagnosis.</p>
-      <p class="disclaimer copyright" data-i18n="copyright">© 2026 MorphTrack · Photos stored in the EU, never sold or used to train AI.</p>
-    </div>
-  </footer>
-</div>
-
-
-<script>
-(function(){
-  var I18N={ru:{"nav_features": "Возможности", "nav_how": "Как это работает", "nav_faq": "Вопросы", "nav_cta": "Скачать", "hero_eyebrow": "Кожа · осанка · тело", "hero_h1": "Пойми, на что стоит <br class=\"lb\">тратить время — <span class=\"serif\">пока <br class=\"lb\">не ушли месяцы</span>.", "hero_lede": "Отмечай, что ты правда делаешь — кремы, тренировки, растяжку, сон, — и MorphTrack покажет, что из этого совпадает с изменениями на фото, а что нет.", "cr_eyebrow": "Лицо · акне", "cr_meta": "7 месяцев · 46 фото · 5 факторов", "cr_t1": "Совпадение есть", "cr_p1": "<b>Азелаиновая кислота</b> — улучшение совпадает с регулярным применением", "cr_t2": "Совпадений нет", "cr_p2": "<b>Вторая сыворотка</b> — шесть недель отмечена, рядом ничего не менялось", "cr_t3": "Совпадение в минус", "cr_p3": "<b>Новый пилинг</b> — краснота усилилась в недели после добавления", "cr_t4": "Сравнивать не с чем", "cr_p4": "<b>Очищение</b> — отмечено каждый день", "cr_foot": "Это совпадения, которые стоит проверить, а не доказательства.", "dl_appstore_small": "Загрузите в", "dl_gplay_small": "Доступно в", "trust_eu": "<i class=\"dot\"></i> Фото хранятся в ЕС", "trust_exif": "<i class=\"dot\"></i> EXIF и геоданные удаляются", "trust_noads": "<i class=\"dot\"></i> Без рекламы · без трекинга", "feat_eyebrow": "Всё в одном спокойном месте", "feat_h2": "Не просто галерея — способ <span class=\"serif\">по-настоящему увидеть</span> изменения.", "feat_sub": "Четыре вещи, которые MorphTrack делает хорошо — и ничего лишнего.", "f1_h3": "ИИ-анализ по запросу", "f1_p": "Запроси разбор — MorphTrack сравнит твои фото за период и опишет, что заметно изменилось, зона за зоной, и как это связано с твоей рутиной.", "f2_h3": "Сравнение фото", "f2_p": "Слайдер, рядом или наложением — совмести любые два снимка по ракурсу и кадру, чтобы точно увидеть, что изменилось.", "f3_h3": "Лента под каждую цель", "f3_p": "Раскладывай фото по трекерам — кожа, тело, осанка, волосы — у каждого своя приватная лента прогресса.", "f4_h3": "Приватно по умолчанию", "f4_p": "Фото только твои, хранятся в ЕС. Геоданные удаляются при загрузке. Без рекламы и аналитических SDK; никогда не продаются и не используются для обучения ИИ.", "cmp_eyebrow": "Сравнение", "cmp_h3": "Два момента <span class=\"serif\">рядом</span>.", "cmp_p": "Совмести любые два фото и сам увидь разницу — не полагаясь на память.", "cmp_li1": "<span class=\"ck\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 13l4 4L19 7\"/></svg></span> Слайдер, рядом или наложением", "cmp_li2": "<span class=\"ck\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 13l4 4L19 7\"/></svg></span> Авто-выравнивание по ракурсу и кадру", "cmp_li3": "<span class=\"ck\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 13l4 4L19 7\"/></svg></span> Любые две даты в ленте", "loop_eyebrow": "Цикл", "loop_h2": "Три шага, пара секунд в день.", "loop1_n": "<b>01</b> Съёмка", "loop1_h3": "Сделай фото дня", "loop1_p": "Снимай при том же свете и ракурсе — приложение помнит последний кадр, чтобы снимки совпадали.", "loop2_n": "<b>02</b> Отметка", "loop2_h3": "Отметь рутину", "loop2_p": "Одно касание для того, что ты соблюдал — ретинол, очищение, пилатес, сон — и каждый фактор связан с трекерами, на которые может влиять.", "loop3_n": "<b>03</b> Итог", "loop3_h3": "Читай, что изменилось", "loop3_p": "Запусти ИИ-разбор в любой момент — простое резюме, затем зона за зоной, с честными оговорками.", "loop_note": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 12a9 9 0 1 0 3-6.7M3 4v4h4\"/></svg> Повторяй ежедневно · картина складывается сама", "faq_eyebrow": "Полезно знать", "faq_h2": "Ответы на <span class=\"serif\">вопросы</span>.", "faq_ask": "Остались вопросы? Напиши на <a href=\"mailto:morphtrack.app@gmail.com\">morphtrack.app@gmail.com</a> — ответит живой человек.", "faq1_q": "Это правда приватно? <span class=\"plus\"></span>", "faq1_a": "Да. Твои фото видны только тебе и надёжно хранятся в ЕС (Франкфурт). Все метаданные камеры, включая геолокацию, удаляются при загрузке. Без рекламы, аналитических SDK и трекинга — мы никогда не продаём твои данные и не обучаем на них ИИ, а любое фото, трекер или весь аккаунт можно удалить в любой момент.", "faq2_q": "Что можно отслеживать? <span class=\"plus\"></span>", "faq2_a": "Всё видимое, что хочешь наблюдать во времени — кожу и акне, тело и осанку, симметрию лица, волосы или свою личную цель. У каждого — свой трекер и лента.", "faq3_q": "Как работает ИИ-разбор? <span class=\"plus\"></span>", "faq3_a": "Только когда ты просишь. MorphTrack сравнивает фото в трекере за период и описывает, зона за зоной, что заметно изменилось — и соотносит это с отмеченной рутиной. Это наблюдение простым языком, а не медицинский совет или диагноз.", "faq4_q": "Это бесплатно? <span class=\"plus\"></span>", "faq4_a": "MorphTrack бесплатен для старта. Бесплатный аккаунт может запускать ограниченное число ИИ-разборов в месяц; MorphTrack Pro открывает безлимитные анализы.", "faq5_q": "Как войти? <span class=\"plus\"></span>", "faq5_a": "По email или в одно касание через Google или Apple. Вход нужен только для синхронизации твоего аккаунта между устройствами.", "cta_h2": "Начни свою <span class=\"serif\">ленту</span> сегодня.", "cta_p": "Скачать бесплатно. Первый трекер — около минуты, и твои фото всегда под твоим контролем.", "cta_support": "Нужна помощь? Пиши на <a href=\"mailto:morphtrack.app@gmail.com\">morphtrack.app@gmail.com</a>", "foot_privacy": "Политика конфиденциальности", "foot_terms": "Условия", "foot_support": "Поддержка", "disclaimer": "MorphTrack — личный инструмент прогресса, а не медицинский сервис: его разборы носят наблюдательный характер и не являются диагнозом.", "copyright": "© 2026 MorphTrack · Фото хранятся в ЕС, никогда не продаются и не используются для обучения ИИ."}};
-  var els=document.querySelectorAll('[data-i18n]');
-  var EN=new Map();
-  els.forEach(function(el){ EN.set(el, el.innerHTML); });
-  function apply(lang){
-    els.forEach(function(el){
-      var k=el.getAttribute('data-i18n'); var ru=I18N.ru[k];
-      el.innerHTML=(lang==='ru'&&ru!=null)?ru:EN.get(el);
-    });
-    document.documentElement.lang=lang; if(window.ScrollTrigger){window.ScrollTrigger.refresh();}
-    document.querySelectorAll('.lang-btn').forEach(function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-lang')===lang)); });
-    try{localStorage.setItem('mt_lang',lang);}catch(e){}
-  }
-  var lang='en';
-  try{ var s=localStorage.getItem('mt_lang');
-    if(s==='en'||s==='ru') lang=s;
-    else if((navigator.language||navigator.userLanguage||'').toLowerCase().indexOf('ru')===0) lang='ru';
-  }catch(e){ if((navigator.language||'').toLowerCase().indexOf('ru')===0) lang='ru'; }
-  document.querySelectorAll('.lang-btn').forEach(function(b){ b.addEventListener('click',function(){ apply(b.getAttribute('data-lang')); }); });
-  apply(lang);
-})();
-</script>
+    <!-- Kept visible on purpose. The brief's footer is copyright and links
+         only, which would demote this line into a collapsed FAQ row. -->
+    <p class="fine" data-i18n="disclaimer">MorphTrack is a personal progress tool, not a medical service — its readings are observational and are not a diagnosis.</p>
+    <p class="fine" data-i18n="copyright">© 2026 MorphTrack · Photos stored in the EU, never sold or used to train AI.</p>
+  </div>
+</footer>
 
 <!-- Self-hosted rather than pulled from unpkg/cdnjs: same-origin means no extra
      DNS+TLS handshake to two third-party CDNs (measurably faster LCP), no SRI
@@ -555,13 +779,23 @@ html[lang="ru"] .hero h1 { font-size: clamp(34px, 4.4vw, 48px); }
 <script src="vendor/gsap-3.12.5.min.js"></script>
 <script src="vendor/ScrollTrigger-3.12.5.min.js"></script>
 <script>
-(function(){
+/* Smooth scroll + block reveals.
+ *
+ * Nothing is hidden by CSS: the opacity:0 is set by gsap itself, so if any of
+ * the three files fail to load — or this script's hash goes stale and CSP
+ * refuses it — the page renders fully visible instead of blank. That is the
+ * whole reason the hiding lives here and not in the stylesheet.
+ *
+ * Reveals are desktop-only and skipped under prefers-reduced-motion.
+ */
+(function () {
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var nav = document.querySelector('.nav');
   var lenis = null;
+
   if (window.Lenis && !reduce) {
     lenis = new Lenis({ lerp: 0.09 });
-    var raf = function(t){ lenis.raf(t); requestAnimationFrame(raf); };
+    var raf = function (t) { lenis.raf(t); requestAnimationFrame(raf); };
     requestAnimationFrame(raf);
   }
 
@@ -569,60 +803,256 @@ html[lang="ru"] .hero h1 { font-size: clamp(34px, 4.4vw, 48px); }
     gsap.registerPlugin(ScrollTrigger);
     if (lenis) lenis.on('scroll', ScrollTrigger.update);
     if (!reduce && matchMedia('(min-width: 900px)').matches) {
-      gsap.utils.toArray('[data-reveal]').forEach(function(el){
-        gsap.set(el, { opacity: 0, y: 40 });
+      gsap.utils.toArray('[data-reveal]').forEach(function (el) {
+        gsap.set(el, { opacity: 0, y: 34 });
         ScrollTrigger.create({
           trigger: el, start: 'top 88%', once: true,
-          onEnter: function(){
-            gsap.to(el, { opacity:1, y:0, duration:0.85, ease:'power3.out', clearProps:'transform', force3D:true });
+          onEnter: function () {
+            gsap.to(el, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', clearProps: 'transform', force3D: true });
           }
         });
       });
-      // anything already in view on load reveals right away
-      ScrollTrigger.refresh();
+      ScrollTrigger.refresh();   // anything already in view on load shows at once
     }
   }
 
-  // in-page anchors -> smooth scroll (offset for the sticky header)
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){
-    a.addEventListener('click', function(e){
+  // In-page anchors have to go through Lenis, or they jump while it eases.
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
       if (!lenis) return;
       var id = a.getAttribute('href');
       if (id === '#top') { e.preventDefault(); lenis.scrollTo(0); return; }
       var el = id.length > 1 ? document.querySelector(id) : null;
-      if (el) { e.preventDefault(); lenis.scrollTo(el, { offset:-70 }); }
+      if (el) { e.preventDefault(); lenis.scrollTo(el, { offset: -70 }); }
     });
   });
 
-  // subtle shadow once the page is scrolled
-  function onScroll(){ if (nav) nav.classList.toggle('scrolled', window.scrollY > 8); }
-  if (lenis) lenis.on('scroll', onScroll); else window.addEventListener('scroll', onScroll, { passive:true });
+  function onScroll() { if (nav) nav.classList.toggle('scrolled', window.scrollY > 8); }
+  if (lenis) lenis.on('scroll', onScroll); else window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // re-measure reveals once web fonts settle (fixes RU/mobile layout-shift jerk)
-  if (window.ScrollTrigger && document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(function(){ ScrollTrigger.refresh(); });
+  /* Routine chips fill in one by one, hold, then clear — a day's worth of
+   * ticking off, on a loop. Under prefers-reduced-motion it settles on a
+   * finished state instead of animating. */
+  var taps = [].slice.call(document.querySelectorAll('.chip.tap'));
+  if (taps.length) {
+    if (reduce) {
+      taps.forEach(function (c, i) { if (i % 2 === 0) c.classList.add('on'); });
+    } else {
+      var i = 0, filling = true;
+      setInterval(function () {
+        if (filling) {
+          taps[i].classList.add('on');
+          if (++i >= taps.length) { filling = false; i = 0; }
+        } else {
+          taps[i].classList.remove('on');
+          if (++i >= taps.length) { filling = true; i = 0; }
+        }
+      }, 620);
+    }
   }
 
-  // gentle proximity snap to sections (desktop only; mobile keeps free scroll)
-  if (lenis && matchMedia('(min-width: 900px)').matches) {
-    var snapTargets = [].slice.call(document.querySelectorAll('header.hero, section'));
-    var navH = 64, snapT;
-    lenis.on('scroll', function(){
-      clearTimeout(snapT);
-      snapT = setTimeout(function(){
+  /* Review carousel. Native overflow scrolling does the work — the arrows just
+   * nudge it by one card, so it stays swipeable on a phone and keyboard-
+   * reachable everywhere without a slider library. */
+  var row = document.getElementById('revRow');
+  if (row) {
+    var prev = document.getElementById('revPrev'), next = document.getElementById('revNext');
+    var step = function () {
+      var card = row.querySelector('.rev');
+      return card ? card.getBoundingClientRect().width + 20 : 340;
+    };
+    /* Arrow state is read straight off scrollLeft, sampled for as long as the
+     * smooth scroll runs. Deliberately not a 'scroll' listener and not an
+     * IntersectionObserver: both were measured firing zero times against this
+     * element, and a control whose enabled state cannot be verified is worse
+     * than one recomputed on a short timer. Swiping does not update the arrows,
+     * which is why they are hidden on touch widths — a thumb does not need them. */
+    var sync = function () {
+      var max = row.scrollWidth - row.clientWidth;
+      prev.disabled = row.scrollLeft < 4;
+      next.disabled = row.scrollLeft > max - 4;
+    };
+    var settle = function () {
+      var n = 0, t = setInterval(function () { sync(); if (++n > 14) clearInterval(t); }, 60);
+    };
+    prev.addEventListener('click', function () { row.scrollBy({ left: -step() }); settle(); });
+    next.addEventListener('click', function () { row.scrollBy({ left: step() }); settle(); });
+    window.addEventListener('resize', sync);
+    sync();
+  }
+
+  // Trigger positions are measured from text that has not been laid out in its
+  // real font yet; without this the reveals fire early on the Russian page.
+  if (window.ScrollTrigger && document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
+  }
+
+  /* Proximity snap: once scrolling has been still for a moment, ease to the
+   * nearest section edge. Desktop only — on a phone it fights the thumb.
+   *
+   * The window is deliberately narrow. Sections are ~600px tall, so no point
+   * in one is ever more than ~300px from an edge — a half-viewport threshold
+   * would fire on every single stop, including when someone paused to read
+   * the middle of a block. 170px means it only finishes a movement that was
+   * already heading for a boundary, and leaves a deliberate stop alone.
+   */
+  if (lenis && !reduce && matchMedia('(min-width: 900px)').matches) {
+    var targets = [].slice.call(document.querySelectorAll('main > header, main > section'));
+    var navH = 68, timer;
+    lenis.on('scroll', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
         var cur = window.scrollY, best = null, bestD = Infinity;
-        snapTargets.forEach(function(s){
+        targets.forEach(function (s) {
           var top = Math.round(s.getBoundingClientRect().top + window.scrollY - navH);
           var d = Math.abs(top - cur);
           if (d < bestD) { bestD = d; best = top; }
         });
-        if (best != null && bestD > 6 && bestD < window.innerHeight * 0.5) {
-          lenis.scrollTo(best, { duration: 0.85, easing: function(t){ return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2; } });
+        if (best != null && bestD > 6 && bestD < 170) {
+          lenis.scrollTo(best, {
+            duration: 0.85,
+            easing: function (t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+          });
         }
       }, 220);
     });
   }
+})();
+</script>
+<script>
+/* Language toggle. Ported unchanged from the shipped page — it is 23 lines and
+ * rewriting it buys nothing but new bugs. Four things it depends on:
+ *   - it runs at the end of <body>, after the DOM, with no DOMContentLoaded;
+ *   - it swaps innerHTML, so RU strings may carry markup, and no element
+ *     carrying data-i18n may ever contain scripted or stateful DOM;
+ *   - it stamps documentElement.lang, which the RU h1 rule keys off;
+ *   - it remembers the choice and auto-detects Russian on first visit.
+ * Missing keys fall back to English, so the dictionary can land incrementally.
+ */
+(function () {
+  var I18N = { ru: {
+    "nav_track": "Что отслеживать",
+    "nav_analysis": "ИИ-разбор",
+    "nav_privacy": "Приватность",
+    "nav_faq": "Вопросы",
+    "nav_cta": "Скачать",
+    "hero_eyebrow": "Кожа · акне · осанка · тело · волосы",
+    "hero_h1": "Пойми, на что стоит тратить время&nbsp;— <em class=\"ser\">пока не ушли месяцы</em>.",
+    "hero_lead": "Снимай фото прогресса, отмечай рутину — а ИИ отследит, как меняется вид со временем, и покажет, какие привычки совпадают с изменениями.",
+    "dl_appstore_small": "Загрузите в",
+    "dl_gplay_small": "Доступно в",
+    "foot_privacy": "Политика конфиденциальности",
+    "foot_terms": "Условия",
+    "foot_support": "Поддержка",
+    "disclaimer": "MorphTrack — личный инструмент прогресса, а не медицинский сервис: его разборы носят наблюдательный характер и не являются диагнозом.",
+    "copyright": "© 2026 MorphTrack · Фото хранятся в ЕС, никогда не продаются и не используются для обучения ИИ.",
+    "t1_eyebrow": "Что ты отмечаешь",
+    "t1_h2": "Любая привычка, за которой хочешь следить&nbsp;— <em class=\"ser\">без ограничений</em>.",
+    "t1_lead": "Отмечай всё, что может влиять на результат: уход, тренировки, сон, процедуры или свои собственные факторы. Отмечай по ходу дня — MorphTrack держит их рядом с лентой фотографий. Фото занимает секунды, отметка фактора — одно касание.",
+    "t1_chip_own": "+ свои, сколько угодно",
+    "t1_pill": "Факторы без ограничений · фото без ограничений · отметки бесплатно",
+    "t2_eyebrow": "Фото и сравнение",
+    "t2_h2": "Увидь изменения, которых не замечаешь&nbsp;— <em class=\"ser\">рядом</em>.",
+    "t2_lead": "Фотографии раскладываются сами. Выбери любые две даты и сравни слайдером, рядом или наложением — так мелкие изменения заметнее.",
+    "t2_li1": "Сравнение любых двух дат",
+    "t2_li2": "Слайдер, рядом и наложение",
+    "t2_li3": "Подсказка кадра помогает повторить тот же ракурс",
+    "t2_li4": "Фото без ограничений, раскладываются сами",
+    "t3_eyebrow": "ИИ-разбор",
+    "t3_h2": "ИИ отслеживает, как ты меняешься&nbsp;— <em class=\"ser\">от фото к фото</em>.",
+    "t3_lead": "Он сравнивает фотографии за период, отслеживает изменения по разным зонам и кладёт их рядом с отмеченными факторами. Видно, что улучшилось, что ухудшилось и какие привычки шли рядом с этими изменениями.",
+    "t3_li1": "Отслеживает изменения по фотографиям за период",
+    "t3_li2": "Разбирает их по зонам, а не выдаёт бессмысленную оценку красоты",
+    "t3_li3": "Сопоставляет изменения с отмеченными факторами",
+    "t3_li4": "Показывает возможные совпадения — и никогда не называет их причиной",
+    "free_eyebrow": "Отметки бесплатно. Без лимитов.",
+    "free_h2": "Отметки рутины остаются <em class=\"ser\">бесплатными и без лимитов</em>.",
+    "free_p": "Отмечай сколько угодно факторов. Фото, сравнения, календарь и отметки рутины остаются бесплатными и без лимитов. Платишь только за дополнительные ИИ-разборы.",
+    "free_c1": "Трекеров без лимита",
+    "free_c2": "Фото без лимита",
+    "free_c3": "Без рекламы",
+    "free_c4": "Данные не продаются",
+    "pr_eyebrow": "Приватно по умолчанию",
+    "pr_h2": "Фотографии твоего лица заслуживают <em class=\"ser\">настоящих</em> правил.",
+    "pr_li1": "Хранятся в ЕС и зашифрованы",
+    "pr_li2": "Геоданные и метаданные камеры удаляются при загрузке",
+    "pr_li3": "Никогда не продаются, не используются для обучения ИИ, и в приложении нет ни рекламных, ни аналитических SDK",
+    "pr_li4": "Удалить фото, трекер или весь аккаунт — в любой момент",
+    "faq_eyebrow": "Прямые ответы",
+    "faq_h2": "Перед тем как скачать.",
+    "faq1_q": "Что я получаю на самом деле?",
+    "faq1_a": "Приватную ленту своих фотографий, разложенную по трекерам и месяцам. Сравнение, где любые две даты стоят друг против друга. Календарь, в котором отмечаешь рутину, которую правда соблюдаешь. И ИИ-разбор по запросу: он описывает, что заметно изменилось и какие из отмеченных факторов с этим совпадают.",
+    "faq2_q": "Это бесплатно?",
+    "faq2_a": "Фото, сравнения, календарь и неограниченное число факторов рутины — бесплатно. Бесплатный аккаунт может запускать ограниченное число ИИ-разборов в месяц; MorphTrack Pro открывает безлимитные анализы.",
+    "faq3_q": "Сколько привычек можно отслеживать?",
+    "faq3_a": "Ограничения нет. Добавляй столько факторов, сколько требует лечение, и столько трекеров, сколько нужно, — без лимита слотов и без платы за каждый трекер.",
+    "faq4_q": "Через сколько появится первый вывод?",
+    "faq4_a": "Для первого разбора хватит двух сопоставимых фотографий. На тенденцию нужно три-четыре недели — примерно столько настоящему изменению требуется, чтобы отделиться от разницы в свете и ракурсе.",
+    "faq5_q": "Это медицинский совет?",
+    "faq5_a": "Нет. MorphTrack описывает то, что видно на твоих фотографиях, и отмечает, какие из отмеченных факторов с этим совпадают. Это совпадения, которые стоит проверить, а не причины и не диагноз. Если что-то беспокоит — сходи к врачу.",
+    "faq_ask": "Остался вопрос? Напиши на <a href=\"mailto:morphtrack.app@gmail.com\">morphtrack.app@gmail.com</a> — ответит живой человек.",
+    "cta_eyebrow": "Начни с сегодняшнего фото",
+    "cta_h2": "Хватит гадать. <em class=\"ser\">Увидь</em> ответ.",
+    "cta_lead": "Секунд восемь в день. Первый трекер настраивается за минуту, и фотографии всё это время остаются твоими.",
+    "rev_eyebrow": "Своими словами",
+    "rev_h2": "Люди, которые следят <em class=\"ser\">за своим</em>.",
+    "rev_lead": "Кожа, симметрия лица, волосы — и то, что тракинг им показал.",
+    "rev1_t": "Я всё убеждала себя, что уходу просто нужно больше времени. Через пару месяцев наблюдений стало довольно ясно, что кожа лучше не становится. Поменяла уход вместе с дерматологом — и теперь веду новый.",
+    "rev1_w": "Анна · отслеживает акне",
+    "rev2_t": "Мне не казалось! Лицо и правда выглядело асимметричнее после некоторых тренировок. Когда фотографии стоят рядом, закономерность заметить куда проще.",
+    "rev2_w": "Мария · отслеживает симметрию лица",
+    "rev3_t": "После тяжёлого периода у меня сильно выпали волосы, и я, честно, не понимала, отрастают они или нет. Теперь снимаю один и тот же кадр раз в пару недель и наконец вижу изменения!",
+    "rev3_w": "Катя · отслеживает плотность волос",
+    "rev4_t": "Кожа может выглядеть отлично одну неделю и ужасно другую, так что оставалось только гадать. Когда все фотографии в одной ленте, увидеть настоящую картину гораздо проще.",
+    "rev4_w": "Алекс · отслеживает акне",
+    "t1_c1": "Азелаиновая кислота",
+    "t1_c2": "Ретинол",
+    "t1_c3": "Визит к дерматологу",
+    "t1_c4": "Сон 7 ч+",
+    "t1_c5": "День цикла",
+    "t1_c6": "Без молочного",
+    "t1_c7": "Зал",
+    "t1_c8": "Вечерняя растяжка",
+    "t1_c9": "Вода 2 л"
+  } };
+  var els = document.querySelectorAll('[data-i18n]');
+  var EN = new Map();
+  els.forEach(function (el) { EN.set(el, el.innerHTML); });
+
+  /* Screenshots swap with the language too. The English src stays in the
+   * markup as the default and is captured here; the Russian one rides along
+   * in data-i18n-src. Both files are normalised to the same canvas, so the
+   * frame does not resize when they trade places. */
+  var pics = document.querySelectorAll('img[data-i18n-src]');
+  var PIC_EN = new Map();
+  pics.forEach(function (el) { PIC_EN.set(el, el.getAttribute('src')); });
+  function apply(lang) {
+    els.forEach(function (el) {
+      var k = el.getAttribute('data-i18n'); var ru = I18N.ru[k];
+      el.innerHTML = (lang === 'ru' && ru != null) ? ru : EN.get(el);
+    });
+    pics.forEach(function (el) {
+      el.setAttribute('src', lang === 'ru' ? el.getAttribute('data-i18n-src') : PIC_EN.get(el));
+    });
+    document.documentElement.lang = lang;
+    // Russian copy is a different length, so every trigger position moves.
+    if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+    document.querySelectorAll('.lang-btn').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang));
+    });
+    try { localStorage.setItem('mt_lang', lang); } catch (e) {}
+  }
+  var lang = 'en';
+  try {
+    var s = localStorage.getItem('mt_lang');
+    if (s === 'en' || s === 'ru') lang = s;
+    else if ((navigator.language || navigator.userLanguage || '').toLowerCase().indexOf('ru') === 0) lang = 'ru';
+  } catch (e) { if ((navigator.language || '').toLowerCase().indexOf('ru') === 0) lang = 'ru'; }
+  document.querySelectorAll('.lang-btn').forEach(function (b) {
+    b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); });
+  });
+  apply(lang);
 })();
 </script>
 <script>
@@ -636,6 +1066,9 @@ html[lang="ru"] .hero h1 { font-size: clamp(34px, 4.4vw, 48px); }
  *
  * All this does is forward the query string so the source survives the hop.
  * Whitelisted, because it is being spliced into a URL the user will follow.
+ *
+ * NOTE the selector: a.badge[href^="/go/"]. Point a badge straight at Apple or
+ * Google and this silently stops matching — no error, just no attribution.
  */
 (function () {
   var q = new URLSearchParams(location.search);
