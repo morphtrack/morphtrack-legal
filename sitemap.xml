@@ -10,6 +10,18 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.morphtrack.app/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.morphtrack.app/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.morphtrack.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.morphtrack.app/"/>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.morphtrack.app/ru/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.morphtrack.app/"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.morphtrack.app/ru/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.morphtrack.app/"/>
     <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>

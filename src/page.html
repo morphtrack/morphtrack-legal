@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-FQQ5wC3+Vcei988r2PGpTtz72AL6zTG/phg1TziZ59A=' 'sha256-tMlLby7qV/DVcTNQNLbqc4hgloCbPVnDkdb0GgwbKWY=' 'sha256-hja7Jb0ouGL9GJV0Ks6NVzN2EFLD1vNMeB457Rzs06o=' 'sha256-eziCozHvpPr49/G/5EQstYo4Mh7QWxAKwzvXJTkVZZw=' 'sha256-EplCGSqOAump5A1sJbC9QMZQm7blug08rtJXJr0sBLg=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MorphTrack — Private Photo Progress &amp; AI Change Tracking</title>
+<meta name="description" content="Turn your own photos into a private timeline. Compare any two, log your routine, and get an on-demand AI reading of what changed — zone by zone. Stored in the EU, no ads, no tracking.">
+<meta name="keywords" content="skin progress tracker, progress photos app, AI skin analysis, face change tracking, before after photos, acne tracker, body progress, posture tracker, private photo journal, compare photos over time">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.morphtrack.app/">
+
+<meta name="theme-color" content="#f6f5f8">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MorphTrack">
+<meta property="og:title" content="MorphTrack — see what actually changed">
+<meta property="og:description" content="Turn your own photos into a private timeline. Compare any two, log your routine, and get an on-demand AI reading of what changed — zone by zone. Stored in the EU, no ads, no tracking.">
+<meta property="og:url" content="https://www.morphtrack.app/">
+<meta property="og:image" content="https://www.morphtrack.app/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MorphTrack — private photo progress with AI analysis">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MorphTrack — see what actually changed">
+<meta name="twitter:description" content="Turn your own photos into a private timeline. Compare any two, log your routine, and get an on-demand AI reading of what changed — zone by zone. Stored in the EU, no ads, no tracking.">
+<meta name="twitter:image" content="https://www.morphtrack.app/og-image.jpg">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "MorphTrack", "operatingSystem": "iOS, Android", "applicationCategory": "HealthApplication", "url": "https://www.morphtrack.app/", "image": "https://www.morphtrack.app/og-image.jpg", "description": "Turn your own photos into a private timeline. Compare any two, log your routine, and get an on-demand AI reading of what changed — zone by zone. Stored in the EU, no ads, no tracking.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "MorphTrack", "email": "morphtrack.app@gmail.com", "url": "https://www.morphtrack.app/"}}</script>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What do I actually get?", "acceptedAnswer": {"@type": "Answer", "text": "A private timeline of your own photos, grouped by tracker and by month. A compare view that puts any two dates against each other. A calendar where you tick off the routine you actually followed. And an AI reading, run when you ask for it, that describes what visibly changed and which of your logged factors line up with it."}}, {"@type": "Question", "name": "Is it free?", "acceptedAnswer": {"@type": "Answer", "text": "Photos, comparisons, the calendar and an unlimited number of routine factors are free. A free account can run a limited number of AI readings each month; MorphTrack Pro unlocks unlimited analyses."}}, {"@type": "Question", "name": "How many habits can I track?", "acceptedAnswer": {"@type": "Answer", "text": "There is no cap. Add as many factors as the treatment needs, across as many trackers as you like — no slot limits, no per-tracker fees."}}, {"@type": "Question", "name": "How long before it tells me anything?", "acceptedAnswer": {"@type": "Answer", "text": "Two comparable photos are enough for a first reading. A trend takes three to four weeks — that is roughly how long a real change needs to separate itself from a difference in light or angle."}}, {"@type": "Question", "name": "Is this medical advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. MorphTrack describes what is visible in your photos and notes which logged factors line up with it. Those are correlations worth checking, not causes, and not a diagnosis. For anything that worries you, see a doctor."}}]}</script>
+<style>
+
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/IBMPlexMono-400-normal-cyrillic-ext.woff2) format("woff2");unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/IBMPlexMono-400-normal-cyrillic.woff2) format("woff2");unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/IBMPlexMono-400-normal-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/IBMPlexMono-400-normal-latin.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/IBMPlexMono-500-normal-cyrillic-ext.woff2) format("woff2");unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/IBMPlexMono-500-normal-cyrillic.woff2) format("woff2");unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/IBMPlexMono-500-normal-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/IBMPlexMono-500-normal-latin.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/InstrumentSerif-400-italic-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/InstrumentSerif-400-italic-latin.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/InstrumentSerif-400-normal-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/InstrumentSerif-400-normal-latin.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/Inter-400-normal-cyrillic-ext.woff2) format("woff2");unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/Inter-400-normal-cyrillic.woff2) format("woff2");unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/Inter-400-normal-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/Inter-400-normal-latin.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:"Inter";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/Inter-500-normal-cyrillic-ext.woff2) format("woff2");unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:"Inter";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/Inter-500-normal-cyrillic.woff2) format("woff2");unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:"Inter";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/Inter-500-normal-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:"Inter";font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/Inter-500-normal-latin.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/Inter-600-normal-cyrillic-ext.woff2) format("woff2");unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/Inter-600-normal-cyrillic.woff2) format("woff2");unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/Inter-600-normal-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/Inter-600-normal-latin.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:"Inter";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/Inter-700-normal-cyrillic-ext.woff2) format("woff2");unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+@font-face{font-family:"Inter";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/Inter-700-normal-cyrillic.woff2) format("woff2");unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+@font-face{font-family:"Inter";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/Inter-700-normal-latin-ext.woff2) format("woff2");unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:"Inter";font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/Inter-700-normal-latin.woff2) format("woff2");unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+
+:root {
+  color-scheme: only light;
+
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, monospace;
+
+  --bg:        oklch(0.978 0.004 250);
+  --elev:      #fff;
+  --surface:   oklch(0.955 0.005 250);
+  --ink:       oklch(0.17 0.005 250);
+  --inkSoft:   oklch(0.34 0.006 250);
+  --muted:     oklch(0.50 0.006 250);
+  --border:    oklch(0.88 0.006 250);
+  --soft:      oklch(0.93 0.005 250);
+  --accent:    oklch(0.40 0.180 270);
+  --accentSoft:oklch(0.94 0.026 265);
+  --plum:      oklch(0.45 0.12 320);
+  --pos:       oklch(0.52 0.12 150);
+  --posSoft:   oklch(0.95 0.03 150);
+  --tint:      oklch(0.945 0.028 280);
+  --tintMid:   oklch(0.955 0.018 275);
+  --tintWarm:  oklch(0.96 0.02 70);
+
+  --onInk:       oklch(0.97 0.004 250);
+  --onInkMuted:  oklch(0.74 0.008 250);
+  --onInkBorder: oklch(0.32 0.012 260);
+
+  --headerBg:   oklch(0.978 0.004 250 / 0.86);
+  --bezel:      oklch(0.20 0.012 275);
+  --shadowCard: 0 24px 50px -34px oklch(0.17 0.02 260 / 0.32);
+  --shadowPhone:0 40px 80px -34px oklch(0.17 0.02 260 / 0.42);
+
+  --wrap: 1240px;
+  --gutter: 40px;
+  --section: 62px;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--plum); }
+img { max-width: 100%; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+h1, h2, h3 { margin: 0; text-wrap: balance; font-weight: 700; }
+h1 { font-size: clamp(40px, 5vw, 70px); line-height: 1.02; letter-spacing: -0.032em; }
+h2 { font-size: clamp(28px, 3.1vw, 42px); line-height: 1.06; letter-spacing: -0.026em; }
+
+html[lang="ru"] h1 { font-size: clamp(34px, 4.2vw, 56px); }
+
+.ser, .serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--accent);
+}
+.lead { font-size: 19px; line-height: 1.55; color: var(--inkSoft); text-wrap: pretty; margin: 0; }
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+
+.wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
+section { padding: var(--section) 0; }
+
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--headerBg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-in { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 68px; }
+.nav { transition: box-shadow 0.25s ease; }
+.nav.scrolled { box-shadow: 0 10px 30px -26px oklch(0.17 0.02 260 / 0.6); }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-size: 21px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em; }
+.brand:hover { color: var(--ink); }
+.brand img { width: 34px; height: 34px; border-radius: 10px; display: block; }
+.nav-links { display: flex; align-items: center; gap: 8px; }
+.nav-links > a.nav-link { color: var(--inkSoft); font-size: 15px; font-weight: 500; padding: 8px 12px; border-radius: 999px; }
+.nav-links > a.nav-link:hover { color: var(--ink); background: var(--surface); }
+.lang { display: inline-flex; gap: 2px; background: var(--surface); border-radius: 999px; padding: 3px; margin: 0 4px; }
+.lang-btn {
+  border: 0; background: transparent; color: var(--muted);
+  font-family: var(--font-sans); font-size: 13px; font-weight: 600; letter-spacing: 0.02em;
+  padding: 6px 11px; border-radius: 999px; cursor: pointer; line-height: 1;
+  text-decoration: none; display: inline-block;
+}
+.lang-btn:hover { color: var(--ink); }
+.lang-btn.is-on { background: var(--ink); color: var(--elev); }
+.nav-cta {
+  background: var(--ink); color: var(--elev); font-size: 15px; font-weight: 600;
+  padding: 10px 18px; border-radius: 999px; white-space: nowrap;
+}
+.nav-cta:hover { color: var(--elev); opacity: 0.9; }
+
+.hero {
+  background: linear-gradient(180deg, var(--tint) 0%, var(--tintMid) 52%, oklch(0.962 0.014 272) 100%);
+  padding: 50px 0 0;
+  text-align: center;
+}
+.hero-in { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+
+.hero-in .eyebrow { margin-bottom: -8px; }
+.hero .lead { max-width: 34em; }
+
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.badge {
+  display: inline-flex; align-items: center; gap: 11px;
+  background: var(--ink); color: var(--elev);
+  border-radius: 14px; padding: 11px 20px 11px 17px;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+.badge:hover { color: var(--elev); opacity: 0.92; transform: translateY(-2px); }
+
+.badge.soon {
+  background: transparent; border: 1px solid var(--border); color: var(--muted);
+  cursor: default; transform: none;
+}
+.badge.soon:hover { transform: none; opacity: 1; color: var(--muted); }
+.badge svg { width: 25px; height: 25px; flex: none; }
+.badge .bt { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.12; }
+.badge .bt small { font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.82; }
+.badge .bt b { font-size: 18px; font-weight: 600; letter-spacing: -0.015em; }
+
+footer { background: var(--tint); padding: 46px 0 40px; }
+.foot-in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 20px; font-size: 15px; }
+.foot-links a { color: var(--inkSoft); }
+.foot-links a:hover { color: var(--plum); }
+.fine { font-size: 13.5px; line-height: 1.55; color: var(--muted); margin: 26px 0 0; max-width: 72ch; }
+
+.pf {
+  border: 7px solid var(--bezel); border-radius: 40px;
+  background: var(--bezel); overflow: hidden; flex: none;
+  box-shadow: var(--shadowPhone);
+}
+.scrn {
+  position: relative; display: block; aspect-ratio: 1177 / 2586; overflow: hidden;
+  background: linear-gradient(163deg, oklch(0.972 0.006 250), oklch(0.938 0.014 262));
+}
+.scrn img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.fan {
+  --pw: clamp(190px, 20.5vw, 300px);
+  width: 100%; margin-top: 20px;
+  height: clamp(350px, 34vw, 492px);
+  overflow: hidden;
+  display: flex; justify-content: center; align-items: flex-start;
+  padding-top: 22px;
+}
+.fan .pf { width: var(--pw); margin: 0 calc(var(--pw) * -0.105); transform-origin: top center; }
+
+.fan .s1 { transform: rotate(-9deg)   translateY(46px) scale(0.90); z-index: 1; }
+.fan .s2 { transform: rotate(-4.5deg) translateY(18px) scale(0.96); z-index: 2; }
+.fan .s3 { transform: translateY(-10px) scale(1.06);               z-index: 3; }
+.fan .s4 { transform: rotate(4.5deg)  translateY(18px) scale(0.96); z-index: 2; }
+.fan .s5 { transform: rotate(9deg)    translateY(46px) scale(0.90); z-index: 1; }
+
+.feat { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: center; }
+.feat > .feat-art { order: 2; }
+
+.feat.flip > .feat-art { order: -1; }
+.sec-head { display: flex; flex-direction: column; gap: 15px; }
+.sec-head h2 { margin-top: 3px; }
+
+.stage {
+  border-radius: 28px; padding: 46px 0; display: grid; place-items: center;
+  overflow: hidden;
+}
+.stage.lav  { background: linear-gradient(157deg, oklch(0.945 0.030 280 / 0.9), oklch(0.968 0.014 274 / 0.5) 60%, transparent); }
+.stage.warm { background: linear-gradient(157deg, oklch(0.955 0.028 68 / 0.9),  oklch(0.974 0.013 66 / 0.5) 60%, transparent); }
+.stage.mint { background: linear-gradient(157deg, oklch(0.950 0.030 158 / 0.85), oklch(0.970 0.014 158 / 0.45) 60%, transparent); }
+.stage .pf { width: 300px; }
+
+.duo { position: relative; width: 100%; display: flex; align-items: center; justify-content: center; }
+
+.duo .back {
+  position: absolute; left: 50%; width: 252px; z-index: 1;
+  transform: translateX(-208px) rotate(-10deg);
+}
+.duo .front { position: relative; z-index: 2; transform: translateX(100px); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 24px 0 0; padding: 0; list-style: none; }
+.chip {
+  font-size: 14px; line-height: 1.3; padding: 8px 14px; border-radius: 999px;
+  background: var(--elev); border: 1px solid var(--soft); color: var(--inkSoft);
+}
+.chip.dash { background: transparent; border-style: dashed; border-color: var(--border); color: var(--muted); }
+
+.chip.tap {
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background 0.28s ease, border-color 0.28s ease, color 0.28s ease;
+}
+.chip.tap .tick { width: 17px; height: 17px; flex: none; color: var(--border); }
+.chip.tap .tick path { opacity: 0; transition: opacity 0.28s ease; }
+.chip.tap.on { background: var(--ink); border-color: var(--ink); color: var(--elev); }
+.chip.tap.on .tick { color: currentColor; }
+.chip.tap.on .tick path { opacity: 1; }
+.pill-accent {
+  display: inline-block; margin-top: 22px; padding: 10px 18px; border-radius: 999px;
+  background: var(--accentSoft); color: var(--accent); font-size: 14.5px; font-weight: 600;
+}
+.checks { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 14px; }
+.checks li { display: flex; gap: 12px; align-items: flex-start; font-size: 16.5px; color: var(--inkSoft); }
+.ck {
+  flex: none; width: 21px; height: 21px; margin-top: 3px; border-radius: 50%;
+  background: var(--accentSoft); color: var(--accent); display: grid; place-items: center;
+}
+.ck svg { width: 12px; height: 12px; }
+.checks.pos .ck { background: var(--posSoft); color: var(--pos); }
+
+.band { background: var(--ink); color: var(--onInk); }
+.band-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: start; }
+.band .eyebrow { color: var(--onInkMuted); }
+.band p { color: var(--onInkMuted); margin: 0; }
+.band .ser { color: oklch(0.82 0.11 292); }
+.band .chip { background: transparent; border-color: var(--onInkBorder); color: var(--onInk); }
+.band .chip.dash { color: var(--onInkMuted); }
+
+.revs { background: linear-gradient(180deg, var(--tint), oklch(0.955 0.020 278) 60%, var(--tint)); }
+.revs .sec-head { max-width: 46em; }
+.rev-row {
+  display: flex; gap: 20px; align-items: flex-start;
+  margin: 22px 0 0;
+  --rail: max(var(--gutter), calc((100% - var(--wrap)) / 2 + var(--gutter)));
+  padding: 40px var(--rail) 46px;
+  scroll-padding-inline-start: var(--rail);
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.rev-row::-webkit-scrollbar { display: none; }
+.rev {
+  margin: 0;
+  flex: none; width: 340px; scroll-snap-align: start;
+  background: var(--elev); border-radius: 22px; padding: 30px;
+  box-shadow: var(--shadowCard);
+  display: flex; flex-direction: column; gap: 26px;
+}
+
+.rev:nth-child(2n)   { margin-top: 44px; }
+.rev:nth-child(4n+3) { margin-top: -18px; }
+.rev .qm {
+  display: block; width: 40px; height: 35px; flex: none;
+  fill: var(--ink);
+}
+.rev p { margin: 0; font-size: 16.5px; line-height: 1.5; color: var(--ink); }
+.rev .stars { display: flex; gap: 3px; color: oklch(0.76 0.14 45); }
+.rev .stars svg { width: 15px; height: 15px; }
+.rev .who { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+.two-col { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 72px; align-items: start; }
+
+#faq .wrap { max-width: 960px; }
+.faq-list { margin: 34px 0 0; }
+.faq-list details { border-top: 1px solid var(--border); }
+.faq-list details:last-of-type { border-bottom: 1px solid var(--border); }
+.faq-list summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; padding: 22px 0; font-size: 18.5px; font-weight: 600; letter-spacing: -0.015em;
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+
+.plus { position: relative; flex: none; width: 20px; height: 20px; }
+.plus::before, .plus::after { content: ""; position: absolute; background: var(--muted); border-radius: 2px; }
+.plus::before { left: 0; right: 0; top: 9px; height: 2px; }
+.plus::after { top: 0; bottom: 0; left: 9px; width: 2px; }
+details[open] > summary .plus::after { opacity: 0; }
+.ans { margin: 0; padding: 0 0 24px; max-width: 68ch; font-size: 16.5px; color: var(--inkSoft); }
+.faq-ask { margin: 30px 0 0; font-size: 16px; color: var(--muted); }
+
+.close { background: linear-gradient(180deg, var(--bg), var(--tint)); text-align: center; }
+.close-in { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.close .lead { max-width: 32em; }
+.close .note { font-size: 13.5px; color: var(--muted); margin: 4px 0 0; }
+
+@media (max-width: 1080px) {
+  :root { --gutter: 24px; --section: 46px; }
+  .hide-sm { display: none; }
+  .feat, .band-grid, .two-col { grid-template-columns: minmax(0, 1fr); gap: 42px; }
+  .feat > .feat-art, .feat.flip > .feat-art { order: 2; }
+  .fan {
+    --pw: 214px;
+    height: 384px; margin: 18px 0 0; padding: 14px var(--gutter) 0;
+    justify-content: flex-start; gap: 14px;
+    overflow-x: auto; overflow-y: hidden;
+    scroll-snap-type: x mandatory; scrollbar-width: none;
+  }
+  .fan::-webkit-scrollbar { display: none; }
+  .fan .pf { margin: 0; transform: none; scroll-snap-align: center; }
+      .rev { width: 296px; padding: 26px; gap: 22px; }
+  .pill-accent { display: block; border-radius: 14px; padding: 13px 16px; line-height: 1.45; }
+  .stage { padding: 34px 0; }
+  .stage .pf { width: 206px; }
+  .duo .back { width: 172px; transform: translateX(-140px) rotate(-10deg); }
+  .duo .front { transform: translateX(62px); }
+}
+@media (max-width: 560px) {
+  .nav-in { height: 60px; gap: 12px; }
+  .brand { font-size: 18px; }
+  .brand img { width: 28px; height: 28px; }
+  .nav-cta { display: none; }
+  .eyebrow { text-wrap: balance; font-size: 11.5px; letter-spacing: 0.14em; }
+  .cta-row { flex-direction: column; align-items: stretch; }
+  .badge { justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand"><img src="/img/logo.png" alt="MorphTrack logo" width="34" height="34"> MorphTrack</a>
+    <div class="nav-links">
+      <a class="nav-link hide-sm" href="#track" data-i18n="nav_track">What you can track</a>
+      <a class="nav-link hide-sm" href="#analysis" data-i18n="nav_analysis">AI analysis</a>
+      <a class="nav-link hide-sm" href="#privacy" data-i18n="nav_privacy">Privacy</a>
+      <a class="nav-link hide-sm" href="#faq" data-i18n="nav_faq">FAQ</a>
+      <div class="lang" role="group" aria-label="Language"><button class="lang-btn" type="button" data-lang="en" aria-pressed="true">EN</button><button class="lang-btn" type="button" data-lang="ru" aria-pressed="false">RU</button></div>
+      <a class="nav-cta" href="#get" data-i18n="nav_cta">Get the app</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <a id="top"></a>
+
+  <header class="hero">
+    <div class="wrap hero-in">
+      <p class="eyebrow" data-i18n="hero_eyebrow">Skin · acne · posture · body · hair</p>
+      <h1 data-i18n="hero_h1">Know what’s worth your time&nbsp;— <em class="ser">before you waste months on it</em>.</h1>
+      <p class="lead" data-i18n="hero_lead">Take progress photos, log your routine, and let AI track the visual changes over time — then see which habits line up with your progress.</p>
+      <div class="cta-row">
+        <span class="badge soon" role="img" aria-label="App Store — coming soon">
+          <svg viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+          <span class="bt"><small data-i18n="dl_appstore_soon">Coming soon to</small><b>App&nbsp;Store</b></span></span>
+        <a class="badge" href="/go/android/" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+          <svg viewBox="0 0 512 512" aria-hidden="true"><path fill="#00d2ff" d="M47 27c-6 4-9 11-9 20v418c0 9 3 16 9 20l2 2 235-235v-6L49 25z"/><path fill="#00e676" d="M362 341 285 264v-8l77-77 2 1 91 52c26 15 26 39 0 54z"/><path fill="#ff3d00" d="M364 340 285 260 49 496c9 6 22 6 37-2z"/><path fill="#ffea00" d="M364 172 86 18c-15-8-28-8-37 2l236 236z"/></svg>
+          <span class="bt"><small data-i18n="dl_gplay_small">GET IT ON</small><b>Google&nbsp;Play</b></span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="fan" data-lenis-prevent-touch>
+        <div class="pf s1"><span class="scrn"><img src="/img/screen-photos.2c3ff814.webp" data-i18n-src="/img/screen-photos-ru.05d02538.webp" width="760" height="1670" decoding="async" alt="MorphTrack photo timeline, grouped by month"></span></div>
+        <div class="pf s2"><span class="scrn"><img src="/img/screen-calendar.8a87b2b8.webp" data-i18n-src="/img/screen-calendar-ru.01ed9880.webp" width="760" height="1670" decoding="async" alt="MorphTrack calendar with the days you logged a photo or a routine"></span></div>
+        <div class="pf s3"><span class="scrn"><img src="/img/screen-analysis.b825109b.webp" data-i18n-src="/img/screen-analysis-ru.23f8aa50.webp" width="760" height="1670" fetchpriority="high" decoding="async" alt="An AI reading describing what changed, zone by zone"></span></div>
+        <div class="pf s4"><span class="scrn"><img src="/img/screen-compare.51aa3bec.webp" data-i18n-src="/img/screen-compare-ru.79881068.webp" width="760" height="1670" decoding="async" alt="Two dates compared with a slider"></span></div>
+        <div class="pf s5"><span class="scrn"><img src="/img/screen-connections.a7b9ab8c.webp" data-i18n-src="/img/screen-connections-ru.e13739a1.webp" width="760" height="1670" decoding="async" alt="Factors that line up with the change, and the trend line"></span></div>
+    </div>
+  </header>
+
+  <section id="track">
+    <div class="wrap feat">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow" data-i18n="t1_eyebrow">Track what you do</p>
+        <h2 data-i18n="t1_h2">Every habit you want to watch&nbsp;— <em class="ser">no limits</em>.</h2>
+        <p class="lead" data-i18n="t1_lead">Track anything that might affect your progress — skincare, workouts, sleep, treatments, or factors of your own. Check them off as you go and MorphTrack keeps them aligned with your photo timeline. A photo takes seconds; logging a factor takes one tap.</p>
+        <ul class="chips">
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t1_c1">Azelaic acid</span></li>
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t1_c2">Retinol</span></li>
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>SPF 50</span></li>
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t1_c3">Dermatologist visit</span></li>
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t1_c4">Sleep 7 h+</span></li>
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t1_c5">Cycle day</span></li>
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t1_c6">Dairy-free</span></li>
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t1_c7">Gym</span></li>
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t1_c8">Evening stretching</span></li>
+          <li class="chip tap"><svg class="tick" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.6"/><path d="M6.4 10.2l2.4 2.4 4.8-4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="t1_c9">Water 2 l</span></li>
+          <li class="chip dash" data-i18n="t1_chip_own">+ your own, unlimited</li>
+        </ul>
+        <p><span class="pill-accent" data-i18n="t1_pill">Unlimited factors · unlimited photos · free tracking</span></p>
+      </div>
+      <div class="feat-art" data-reveal>
+        <div class="stage lav"><div class="pf"><span class="scrn"><img src="/img/screen-calendar.8a87b2b8.webp" data-i18n-src="/img/screen-calendar-ru.01ed9880.webp" width="760" height="1670" loading="lazy" decoding="async" alt="The calendar: photo, AI reading and routine marked per day, with today’s routine chips below"></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="compare">
+    <div class="wrap feat flip">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow" data-i18n="t2_eyebrow">Photos &amp; compare</p>
+        <h2 data-i18n="t2_h2">See the changes you miss&nbsp;— <em class="ser">side by side</em>.</h2>
+        <p class="lead" data-i18n="t2_lead">Your progress photos stay organised on their own. Pick any two dates and compare them with a slider, side by side, or as an overlay — so small changes are easier to see.</p>
+        <ul class="checks">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="t2_li1">Compare any two dates</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="t2_li2">Slider, side-by-side and overlay views</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="t2_li3">A photo guide helps you repeat the same angle</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="t2_li4">Unlimited photos, organised automatically</span></li>
+        </ul>
+      </div>
+      <div class="feat-art" data-reveal>
+        <div class="stage warm"><div class="duo">
+          <div class="pf back"><span class="scrn"><img src="/img/screen-photos.2c3ff814.webp" data-i18n-src="/img/screen-photos-ru.05d02538.webp" width="760" height="1670" loading="lazy" decoding="async" alt="Photos grouped by month inside a tracker"></span></div>
+          <div class="pf front"><span class="scrn"><img src="/img/screen-compare.51aa3bec.webp" data-i18n-src="/img/screen-compare-ru.79881068.webp" width="760" height="1670" loading="lazy" decoding="async" alt="Compare: 22 April against 15 July, 84 days apart, split by a slider"></span></div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="analysis">
+    <div class="wrap feat">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow" data-i18n="t3_eyebrow">AI reading</p>
+        <h2 data-i18n="t3_h2">AI tracks how you change&nbsp;— <em class="ser">photo by photo</em>.</h2>
+        <p class="lead" data-i18n="t3_lead">It compares your progress photos over time, tracks changes across different areas, and lines that timeline up with the factors you logged. So you can see what improved, what got worse, and which habits appeared alongside those changes.</p>
+        <ul class="checks">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="t3_li1">Tracks visual changes across your photos over time</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="t3_li2">Breaks them down by area instead of a meaningless beauty score</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="t3_li3">Compares those changes with the factors you logged</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="t3_li4">Points out possible patterns — never claims a cause</span></li>
+        </ul>
+      </div>
+      <div class="feat-art" data-reveal>
+        <div class="stage mint"><div class="duo">
+          <div class="pf back"><span class="scrn"><img src="/img/screen-connections.a7b9ab8c.webp" data-i18n-src="/img/screen-connections-ru.e13739a1.webp" width="760" height="1670" loading="lazy" decoding="async" alt="Two factors noticed but not confirmed, above a trend line for the tracker"></span></div>
+          <div class="pf front"><span class="scrn"><img src="/img/screen-analysis.b825109b.webp" data-i18n-src="/img/screen-analysis-ru.23f8aa50.webp" width="760" height="1670" loading="lazy" decoding="async" alt="An AI reading: a period summary, then cheeks, under-eyes and jawline described one by one"></span></div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap band-grid">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow" data-i18n="free_eyebrow">Free tracking. No limits.</p>
+        <h2 data-i18n="free_h2">Routine tracking stays <em class="ser">free and unlimited</em>.</h2>
+      </div>
+      <div data-reveal>
+        <p data-i18n="free_p">Track as many factors as you want. Photos, comparisons, the calendar and routine tracking stay free and unlimited. You only pay when you want additional AI analyses.</p>
+        <ul class="chips">
+          <li class="chip" data-i18n="free_c1">Unlimited trackers</li>
+          <li class="chip" data-i18n="free_c2">Unlimited photos</li>
+          <li class="chip" data-i18n="free_c3">No ads</li>
+          <li class="chip" data-i18n="free_c4">No data selling</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="revs" id="reviews">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow" data-i18n="rev_eyebrow">In their words</p>
+        <h2 data-i18n="rev_h2">People tracking <em class="ser">something of their own</em>.</h2>
+        <p class="lead" data-i18n="rev_lead">Skin, facial symmetry, hair — and what tracking showed them.</p>
+      </div>
+
+    </div>
+
+    <div class="rev-row" id="revRow" data-lenis-prevent-touch>
+        <blockquote class="rev"><svg class="qm" viewBox="0 0 260 228" aria-hidden="true"><g transform="translate(16, 790) scale(1,-1)"><path d="M38 562Q13 562 -1.5 580.0Q-16 598 -16 629Q-16 675 4.5 713.0Q25 751 71 784Q83 793 90 788Q94 785 94.0 779.5Q94 774 87 769Q53 740 43.5 724.5Q34 709 34 692Q34 674 42.0 664.5Q50 655 60.0 648.5Q70 642 78.0 633.0Q86 624 86 606Q86 588 73.5 575.0Q61 562 38 562ZM188 562Q163 562 148.5 580.0Q134 598 134 629Q134 675 154.5 713.0Q175 751 221 784Q233 793 240 788Q244 785 244.0 779.5Q244 774 237 769Q203 740 193.5 724.5Q184 709 184 692Q184 674 192.0 664.5Q200 655 210.0 648.5Q220 642 228.0 633.0Q236 624 236 606Q236 588 223.5 575.0Q211 562 188 562Z"/></g></svg><p data-i18n="rev1_t">I kept telling myself my skincare just needed more time. After a few months of tracking, it became pretty clear that my skin wasn’t actually improving. I changed the routine with my dermatologist, and now I’m tracking the new one.</p><span class="stars" role="img" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></span><cite class="who" data-i18n="rev1_w">Anna · tracking acne</cite></blockquote>
+        <blockquote class="rev"><svg class="qm" viewBox="0 0 260 228" aria-hidden="true"><g transform="translate(16, 790) scale(1,-1)"><path d="M38 562Q13 562 -1.5 580.0Q-16 598 -16 629Q-16 675 4.5 713.0Q25 751 71 784Q83 793 90 788Q94 785 94.0 779.5Q94 774 87 769Q53 740 43.5 724.5Q34 709 34 692Q34 674 42.0 664.5Q50 655 60.0 648.5Q70 642 78.0 633.0Q86 624 86 606Q86 588 73.5 575.0Q61 562 38 562ZM188 562Q163 562 148.5 580.0Q134 598 134 629Q134 675 154.5 713.0Q175 751 221 784Q233 793 240 788Q244 785 244.0 779.5Q244 774 237 769Q203 740 193.5 724.5Q184 709 184 692Q184 674 192.0 664.5Q200 655 210.0 648.5Q220 642 228.0 633.0Q236 624 236 606Q236 588 223.5 575.0Q211 562 188 562Z"/></g></svg><p data-i18n="rev2_t">I wasn’t imagining it! My face really did look more asymmetric after certain workouts. Seeing the photos next to each other made the pattern so much easier to notice.</p><span class="stars" role="img" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></span><cite class="who" data-i18n="rev2_w">Maria · tracking facial symmetry</cite></blockquote>
+        <blockquote class="rev"><svg class="qm" viewBox="0 0 260 228" aria-hidden="true"><g transform="translate(16, 790) scale(1,-1)"><path d="M38 562Q13 562 -1.5 580.0Q-16 598 -16 629Q-16 675 4.5 713.0Q25 751 71 784Q83 793 90 788Q94 785 94.0 779.5Q94 774 87 769Q53 740 43.5 724.5Q34 709 34 692Q34 674 42.0 664.5Q50 655 60.0 648.5Q70 642 78.0 633.0Q86 624 86 606Q86 588 73.5 575.0Q61 562 38 562ZM188 562Q163 562 148.5 580.0Q134 598 134 629Q134 675 154.5 713.0Q175 751 221 784Q233 793 240 788Q244 785 244.0 779.5Q244 774 237 769Q203 740 193.5 724.5Q184 709 184 692Q184 674 192.0 664.5Q200 655 210.0 648.5Q220 642 228.0 633.0Q236 624 236 606Q236 588 223.5 575.0Q211 562 188 562Z"/></g></svg><p data-i18n="rev3_t">I lost a lot of hair after a stressful period and honestly couldn’t tell if it was growing back. Now I take the same photo every few weeks and can finally see the changes!</p><span class="stars" role="img" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></span><cite class="who" data-i18n="rev3_w">Kate · tracking hair density</cite></blockquote>
+        <blockquote class="rev"><svg class="qm" viewBox="0 0 260 228" aria-hidden="true"><g transform="translate(16, 790) scale(1,-1)"><path d="M38 562Q13 562 -1.5 580.0Q-16 598 -16 629Q-16 675 4.5 713.0Q25 751 71 784Q83 793 90 788Q94 785 94.0 779.5Q94 774 87 769Q53 740 43.5 724.5Q34 709 34 692Q34 674 42.0 664.5Q50 655 60.0 648.5Q70 642 78.0 633.0Q86 624 86 606Q86 588 73.5 575.0Q61 562 38 562ZM188 562Q163 562 148.5 580.0Q134 598 134 629Q134 675 154.5 713.0Q175 751 221 784Q233 793 240 788Q244 785 244.0 779.5Q244 774 237 769Q203 740 193.5 724.5Q184 709 184 692Q184 674 192.0 664.5Q200 655 210.0 648.5Q220 642 228.0 633.0Q236 624 236 606Q236 588 223.5 575.0Q211 562 188 562Z"/></g></svg><p data-i18n="rev4_t">My skin can look great one week and terrible the next, so I was always guessing. Having all the photos in one timeline makes it way easier to see the actual trend.</p><span class="stars" role="img" aria-label="5 out of 5"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg></span><cite class="who" data-i18n="rev4_w">Alex · tracking acne</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy">
+    <div class="wrap two-col">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow" data-i18n="pr_eyebrow">Private by default</p>
+        <h2 data-i18n="pr_h2">Photos of your face deserve <em class="ser">real</em> rules.</h2>
+      </div>
+      <div data-reveal>
+        <ul class="checks pos">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="pr_li1">Stored in the EU and encrypted</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="pr_li2">Location and camera metadata stripped at upload</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="pr_li3">Never sold, never used to train AI, and no ads or analytics SDKs in the app</span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></span><span data-i18n="pr_li4">Delete a photo, a tracker or your whole account at any time</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head" data-reveal>
+        <p class="eyebrow" data-i18n="faq_eyebrow">Straight answers</p>
+        <h2 data-i18n="faq_h2">Before you download.</h2>
+      </div>
+      <div class="faq-list" data-reveal>
+        <details>
+          <summary><span data-i18n="faq1_q">What do I actually get?</span><span class="plus" aria-hidden="true"></span></summary>
+          <p class="ans" data-i18n="faq1_a">A private timeline of your own photos, grouped by tracker and by month. A compare view that puts any two dates against each other. A calendar where you tick off the routine you actually followed. And an AI reading, run when you ask for it, that describes what visibly changed and which of your logged factors line up with it.</p>
+        </details>
+        <details>
+          <summary><span data-i18n="faq2_q">Is it free?</span><span class="plus" aria-hidden="true"></span></summary>
+          <p class="ans" data-i18n="faq2_a">Photos, comparisons, the calendar and an unlimited number of routine factors are free. A free account can run a limited number of AI readings each month; MorphTrack Pro unlocks unlimited analyses.</p>
+        </details>
+        <details>
+          <summary><span data-i18n="faq3_q">How many habits can I track?</span><span class="plus" aria-hidden="true"></span></summary>
+          <p class="ans" data-i18n="faq3_a">There is no cap. Add as many factors as the treatment needs, across as many trackers as you like — no slot limits, no per-tracker fees.</p>
+        </details>
+        <details>
+          <summary><span data-i18n="faq4_q">How long before it tells me anything?</span><span class="plus" aria-hidden="true"></span></summary>
+          <p class="ans" data-i18n="faq4_a">Two comparable photos are enough for a first reading. A trend takes three to four weeks — that is roughly how long a real change needs to separate itself from a difference in light or angle.</p>
+        </details>
+        <details>
+          <summary><span data-i18n="faq5_q">Is this medical advice?</span><span class="plus" aria-hidden="true"></span></summary>
+          <p class="ans" data-i18n="faq5_a">No. MorphTrack describes what is visible in your photos and notes which logged factors line up with it. Those are correlations worth checking, not causes, and not a diagnosis. For anything that worries you, see a doctor.</p>
+        </details>
+      </div>
+      <p class="faq-ask" data-i18n="faq_ask">Something else? Write to <a href="mailto:morphtrack.app@gmail.com">morphtrack.app@gmail.com</a> — a person answers.</p>
+    </div>
+  </section>
+
+  <section class="close" id="get">
+    <div class="wrap close-in" data-reveal>
+      <p class="eyebrow" data-i18n="cta_eyebrow">Start with today’s photo</p>
+      <h2 data-i18n="cta_h2">Stop guessing. <em class="ser">See</em> the answer.</h2>
+      <p class="lead" data-i18n="cta_lead">About eight seconds a day. The first tracker takes a minute to set up, and your photos stay yours the whole time.</p>
+      <div class="cta-row">
+        <span class="badge soon" role="img" aria-label="App Store — coming soon">
+          <svg viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+          <span class="bt"><small data-i18n="dl_appstore_soon">Coming soon to</small><b>App&nbsp;Store</b></span></span>
+        <a class="badge" href="/go/android/" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+          <svg viewBox="0 0 512 512" aria-hidden="true"><path fill="#00d2ff" d="M47 27c-6 4-9 11-9 20v418c0 9 3 16 9 20l2 2 235-235v-6L49 25z"/><path fill="#00e676" d="M362 341 285 264v-8l77-77 2 1 91 52c26 15 26 39 0 54z"/><path fill="#ff3d00" d="M364 340 285 260 49 496c9 6 22 6 37-2z"/><path fill="#ffea00" d="M364 172 86 18c-15-8-28-8-37 2l236 236z"/></svg>
+          <span class="bt"><small data-i18n="dl_gplay_small">GET IT ON</small><b>Google&nbsp;Play</b></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-in">
+      <a href="#top" class="brand"><img src="/img/logo.png" alt="MorphTrack logo" width="26" height="26" style="width:26px;height:26px" loading="lazy" decoding="async"> MorphTrack</a>
+      <div class="foot-links">
+        <a href="v2/privacy-policy" data-i18n-href="v2/ru/privacy-policy" data-i18n="foot_privacy">Privacy Policy</a>
+        <a href="v2/terms" data-i18n-href="v2/ru/terms" data-i18n="foot_terms">Terms</a>
+        <a href="v2/support" data-i18n-href="v2/ru/support" data-i18n="foot_support">Support</a>
+      </div>
+    </div>
+    <p class="fine" data-i18n="disclaimer">MorphTrack is a personal progress tool, not a medical service — its readings are observational and are not a diagnosis.</p>
+    <p class="fine" data-i18n="copyright">© 2026 MorphTrack · Photos stored in the EU, never sold or used to train AI.</p>
+  </div>
+</footer>
+
+<script src="/vendor/lenis-1.1.14.min.js"></script>
+<script src="/vendor/gsap-3.12.5.min.js"></script>
+<script src="/vendor/ScrollTrigger-3.12.5.min.js"></script>
+<script>
+
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav = document.querySelector('.nav');
+  var lenis = null;
+
+  if (window.Lenis && !reduce) {
+    lenis = new Lenis({ lerp: 0.09 });
+    var raf = function (t) { lenis.raf(t); requestAnimationFrame(raf); };
+    requestAnimationFrame(raf);
+  }
+
+  if (window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+    if (lenis) lenis.on('scroll', ScrollTrigger.update);
+    if (!reduce && matchMedia('(min-width: 900px)').matches) {
+      gsap.utils.toArray('[data-reveal]').forEach(function (el) {
+        gsap.set(el, { opacity: 0, y: 34 });
+        ScrollTrigger.create({
+          trigger: el, start: 'top 88%', once: true,
+          onEnter: function () {
+            gsap.to(el, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', clearProps: 'transform', force3D: true });
+          }
+        });
+      });
+      ScrollTrigger.refresh();   
+    }
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (!lenis) return;
+      var id = a.getAttribute('href');
+      if (id === '#top') { e.preventDefault(); lenis.scrollTo(0); return; }
+      var el = id.length > 1 ? document.querySelector(id) : null;
+      if (el) { e.preventDefault(); lenis.scrollTo(el, { offset: -70 }); }
+    });
+  });
+
+  function onScroll() { if (nav) nav.classList.toggle('scrolled', window.scrollY > 8); }
+  if (lenis) lenis.on('scroll', onScroll); else window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var taps = [].slice.call(document.querySelectorAll('.chip.tap'));
+  if (taps.length) {
+    if (reduce) {
+      taps.forEach(function (c, i) { if (i % 2 === 0) c.classList.add('on'); });
+    } else {
+      var i = 0, filling = true;
+      setInterval(function () {
+        if (filling) {
+          taps[i].classList.add('on');
+          if (++i >= taps.length) { filling = false; i = 0; }
+        } else {
+          taps[i].classList.remove('on');
+          if (++i >= taps.length) { filling = true; i = 0; }
+        }
+      }, 620);
+    }
+  }
+
+  
+  if (window.ScrollTrigger && document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
+  }
+
+  if (lenis && !reduce && matchMedia('(min-width: 900px)').matches) {
+    var targets = [].slice.call(document.querySelectorAll('main > header, main > section'));
+    var navH = 68, timer;
+    lenis.on('scroll', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        var cur = window.scrollY, best = null, bestD = Infinity;
+        targets.forEach(function (s) {
+          var top = Math.round(s.getBoundingClientRect().top + window.scrollY - navH);
+          var d = Math.abs(top - cur);
+          if (d < bestD) { bestD = d; best = top; }
+        });
+        if (best != null && bestD > 6 && bestD < 170) {
+          lenis.scrollTo(best, {
+            duration: 0.85,
+            easing: function (t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+          });
+        }
+      }, 220);
+    });
+  }
+})();
+</script>
+<script>
+
+(function () {
+  var I18N = { ru: {
+    "nav_track": "Что отслеживать",
+    "nav_analysis": "ИИ-разбор",
+    "nav_privacy": "Приватность",
+    "nav_faq": "Вопросы",
+    "nav_cta": "Скачать",
+    "hero_eyebrow": "Кожа · акне · осанка · тело · волосы",
+    "hero_h1": "Пойми, на что стоит тратить время&nbsp;— <em class=\"ser\">пока не ушли месяцы</em>.",
+    "hero_lead": "Снимай фото прогресса, отмечай рутину — а ИИ отследит, как меняется вид со временем, и покажет, какие привычки совпадают с изменениями.",
+    "dl_appstore_small": "Загрузите в",
+    "dl_gplay_small": "Доступно в",
+    "foot_privacy": "Политика конфиденциальности",
+    "foot_terms": "Условия",
+    "foot_support": "Поддержка",
+    "disclaimer": "MorphTrack — личный инструмент прогресса, а не медицинский сервис: его разборы носят наблюдательный характер и не являются диагнозом.",
+    "copyright": "© 2026 MorphTrack · Фото хранятся в ЕС, никогда не продаются и не используются для обучения ИИ.",
+    "t1_eyebrow": "Что ты отмечаешь",
+    "t1_h2": "Любая привычка, за которой хочешь следить&nbsp;— <em class=\"ser\">без ограничений</em>.",
+    "t1_lead": "Отмечай всё, что может влиять на результат: уход, тренировки, сон, процедуры или свои собственные факторы. Отмечай по ходу дня — MorphTrack держит их рядом с лентой фотографий. Фото занимает секунды, отметка фактора — одно касание.",
+    "t1_chip_own": "+ свои, сколько угодно",
+    "t1_pill": "Факторы без ограничений · фото без ограничений · отметки бесплатно",
+    "t2_eyebrow": "Фото и сравнение",
+    "t2_h2": "Увидь изменения, которых не замечаешь&nbsp;— <em class=\"ser\">рядом</em>.",
+    "t2_lead": "Фотографии раскладываются сами. Выбери любые две даты и сравни слайдером, рядом или наложением — так мелкие изменения заметнее.",
+    "t2_li1": "Сравнение любых двух дат",
+    "t2_li2": "Слайдер, рядом и наложение",
+    "t2_li3": "Подсказка кадра помогает повторить тот же ракурс",
+    "t2_li4": "Фото без ограничений, раскладываются сами",
+    "t3_eyebrow": "ИИ-разбор",
+    "t3_h2": "ИИ отслеживает, как ты меняешься&nbsp;— <em class=\"ser\">от фото к фото</em>.",
+    "t3_lead": "Он сравнивает фотографии за период, отслеживает изменения по разным зонам и кладёт их рядом с отмеченными факторами. Видно, что улучшилось, что ухудшилось и какие привычки шли рядом с этими изменениями.",
+    "t3_li1": "Отслеживает изменения по фотографиям за период",
+    "t3_li2": "Разбирает их по зонам, а не выдаёт бессмысленную оценку красоты",
+    "t3_li3": "Сопоставляет изменения с отмеченными факторами",
+    "t3_li4": "Показывает возможные совпадения — и никогда не называет их причиной",
+    "free_eyebrow": "Отметки бесплатно. Без лимитов.",
+    "free_h2": "Отметки рутины остаются <em class=\"ser\">бесплатными и без лимитов</em>.",
+    "free_p": "Отмечай сколько угодно факторов. Фото, сравнения, календарь и отметки рутины остаются бесплатными и без лимитов. Платишь только за дополнительные ИИ-разборы.",
+    "free_c1": "Трекеров без лимита",
+    "free_c2": "Фото без лимита",
+    "free_c3": "Без рекламы",
+    "free_c4": "Данные не продаются",
+    "pr_eyebrow": "Приватно по умолчанию",
+    "pr_h2": "Фотографии твоего лица заслуживают <em class=\"ser\">настоящих</em> правил.",
+    "pr_li1": "Хранятся в ЕС и зашифрованы",
+    "pr_li2": "Геоданные и метаданные камеры удаляются при загрузке",
+    "pr_li3": "Никогда не продаются, не используются для обучения ИИ, и в приложении нет ни рекламных, ни аналитических SDK",
+    "pr_li4": "Удалить фото, трекер или весь аккаунт — в любой момент",
+    "faq_eyebrow": "Прямые ответы",
+    "faq_h2": "Перед тем как скачать.",
+    "faq1_q": "Что я получаю на самом деле?",
+    "faq1_a": "Приватную ленту своих фотографий, разложенную по трекерам и месяцам. Сравнение, где любые две даты стоят друг против друга. Календарь, в котором отмечаешь рутину, которую правда соблюдаешь. И ИИ-разбор по запросу: он описывает, что заметно изменилось и какие из отмеченных факторов с этим совпадают.",
+    "faq2_q": "Это бесплатно?",
+    "faq2_a": "Фото, сравнения, календарь и неограниченное число факторов рутины — бесплатно. Бесплатный аккаунт может запускать ограниченное число ИИ-разборов в месяц; MorphTrack Pro открывает безлимитные анализы.",
+    "faq3_q": "Сколько привычек можно отслеживать?",
+    "faq3_a": "Ограничения нет. Добавляй столько факторов, сколько требует лечение, и столько трекеров, сколько нужно, — без лимита слотов и без платы за каждый трекер.",
+    "faq4_q": "Через сколько появится первый вывод?",
+    "faq4_a": "Для первого разбора хватит двух сопоставимых фотографий. На тенденцию нужно три-четыре недели — примерно столько настоящему изменению требуется, чтобы отделиться от разницы в свете и ракурсе.",
+    "faq5_q": "Это медицинский совет?",
+    "faq5_a": "Нет. MorphTrack описывает то, что видно на твоих фотографиях, и отмечает, какие из отмеченных факторов с этим совпадают. Это совпадения, которые стоит проверить, а не причины и не диагноз. Если что-то беспокоит — сходи к врачу.",
+    "faq_ask": "Остался вопрос? Напиши на <a href=\"mailto:morphtrack.app@gmail.com\">morphtrack.app@gmail.com</a> — ответит живой человек.",
+    "cta_eyebrow": "Начни с сегодняшнего фото",
+    "cta_h2": "Хватит гадать. <em class=\"ser\">Увидь</em> ответ.",
+    "cta_lead": "Секунд восемь в день. Первый трекер настраивается за минуту, и фотографии всё это время остаются твоими.",
+    "rev_eyebrow": "Своими словами",
+    "rev_h2": "Люди, которые следят <em class=\"ser\">за своим</em>.",
+    "rev_lead": "Кожа, симметрия лица, волосы — и то, что тракинг им показал.",
+    "rev1_t": "Я всё убеждала себя, что уходу просто нужно больше времени. Через пару месяцев наблюдений стало довольно ясно, что кожа лучше не становится. Поменяла уход вместе с дерматологом — и теперь веду новый.",
+    "rev1_w": "Анна · отслеживает акне",
+    "rev2_t": "Мне не казалось! Лицо и правда выглядело асимметричнее после некоторых тренировок. Когда фотографии стоят рядом, закономерность заметить куда проще.",
+    "rev2_w": "Мария · отслеживает симметрию лица",
+    "rev3_t": "После тяжёлого периода у меня сильно выпали волосы, и я, честно, не понимала, отрастают они или нет. Теперь снимаю один и тот же кадр раз в пару недель и наконец вижу изменения!",
+    "rev3_w": "Катя · отслеживает плотность волос",
+    "rev4_t": "Кожа может выглядеть отлично одну неделю и ужасно другую, так что оставалось только гадать. Когда все фотографии в одной ленте, увидеть настоящую картину гораздо проще.",
+    "rev4_w": "Алекс · отслеживает акне",
+    "t1_c1": "Азелаиновая кислота",
+    "t1_c2": "Ретинол",
+    "t1_c3": "Визит к дерматологу",
+    "t1_c4": "Сон 7 ч+",
+    "t1_c5": "День цикла",
+    "t1_c6": "Без молочного",
+    "t1_c7": "Зал",
+    "t1_c8": "Вечерняя растяжка",
+    "t1_c9": "Вода 2 л",
+    "dl_appstore_soon": "Скоро в"
+  } };
+  var els = document.querySelectorAll('[data-i18n]');
+  var EN = new Map();
+  els.forEach(function (el) { EN.set(el, el.innerHTML); });
+
+  var pics = document.querySelectorAll('img[data-i18n-src]');
+  var PIC_EN = new Map();
+  pics.forEach(function (el) { PIC_EN.set(el, el.getAttribute('src')); });
+
+  var hrefs = document.querySelectorAll('a[data-i18n-href]');
+  var HREF_EN = new Map();
+  hrefs.forEach(function (el) { HREF_EN.set(el, el.getAttribute('href')); });
+  function apply(lang) {
+    els.forEach(function (el) {
+      var k = el.getAttribute('data-i18n'); var ru = I18N.ru[k];
+      el.innerHTML = (lang === 'ru' && ru != null) ? ru : EN.get(el);
+    });
+    pics.forEach(function (el) {
+      el.setAttribute('src', lang === 'ru' ? el.getAttribute('data-i18n-src') : PIC_EN.get(el));
+    });
+    hrefs.forEach(function (el) {
+      el.setAttribute('href', lang === 'ru' ? el.getAttribute('data-i18n-href') : HREF_EN.get(el));
+    });
+    document.documentElement.lang = lang;
+    if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+    document.querySelectorAll('.lang-btn').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-lang') === lang));
+    });
+    try { localStorage.setItem('mt_lang', lang); } catch (e) {}
+  }
+  var lang = 'en';
+  try {
+    var s = localStorage.getItem('mt_lang');
+    if (s === 'en' || s === 'ru') lang = s;
+    else if ((navigator.language || navigator.userLanguage || '').toLowerCase().indexOf('ru') === 0) lang = 'ru';
+  } catch (e) { if ((navigator.language || '').toLowerCase().indexOf('ru') === 0) lang = 'ru'; }
+  document.querySelectorAll('.lang-btn').forEach(function (b) {
+    b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); });
+  });
+  apply(lang);
+})();
+</script>
+<script>
+
+(function () {
+  var q = new URLSearchParams(location.search);
+  function clean(v) {
+    if (!v) return '';
+    return String(v).toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 40);
+  }
+  var keep = new URLSearchParams();
+  ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function (k) {
+    var v = clean(q.get(k));
+    if (v) keep.set(k, v);
+  });
+  var qs = keep.toString();
+  if (!qs) return;
+  document.querySelectorAll('a.badge[href^="/go/"]').forEach(function (a) {
+    a.setAttribute('href', a.getAttribute('href') + '?' + qs);
+  });
+})();
+</script>
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "90aa9d690f2e4361a9aa97f5c2857793"}'></script>
+</body>
+</html>
