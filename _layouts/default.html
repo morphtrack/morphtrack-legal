@@ -4,21 +4,41 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title | default: site.title }} · MorphTrack</title>
+  {%- assign self = page.url | remove: '.html' -%}
   {%- if page.redirect_to %}
   <!-- A superseded document. GitHub Pages serves static files only, so there is
        no 301 to give: the meta refresh moves a visitor, the canonical link
-       moves a crawler, and the body below is what a client that honours
-       neither will read. -->
+       moves a crawler, and the body below is what a client that honours neither
+       will read. No robots meta here on purpose — noindex alongside a canonical
+       pointing elsewhere risks the noindex being applied to the target, and the
+       target is a URL in the sitemap. -->
   <meta http-equiv="refresh" content="0; url={{ page.redirect_to }}">
-  <link rel="canonical" href="{{ page.redirect_to }}">
-  <meta name="robots" content="noindex, follow">
-  {%- elsif page.noindex %}
+  <link rel="canonical" href="{{ site.url }}{{ page.redirect_to }}">
+  {%- else %}
+  <!-- Self-canonical, absolute, extensionless. Every clean URL also answers at
+       its .html twin with byte-identical content, so without this each page is
+       two indexable documents competing with each other. -->
+  <link rel="canonical" href="{{ site.url }}{{ self }}">
+  {%- if page.noindex %}
   <!-- Superseded but kept reachable: someone may have accepted this version,
        so it stays readable while search engines are told to prefer the one in
        force. -->
   <meta name="robots" content="noindex, follow">
   {%- else %}
   <meta name="robots" content="index, follow">
+  {%- endif %}
+  {%- if self contains '/v2/' %}
+  {%- if page.lang == 'ru' -%}
+    {%- assign en_url = self | replace: '/v2/ru/', '/v2/' -%}
+    {%- assign ru_url = self -%}
+  {%- else -%}
+    {%- assign en_url = self -%}
+    {%- assign ru_url = self | replace: '/v2/', '/v2/ru/' -%}
+  {%- endif %}
+  <link rel="alternate" hreflang="en" href="{{ site.url }}{{ en_url }}">
+  <link rel="alternate" hreflang="ru" href="{{ site.url }}{{ ru_url }}">
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ en_url }}">
+  {%- endif %}
   {%- endif %}
   <style>
     :root{
@@ -65,7 +85,10 @@
 </head>
 <body>
   <div class="wrap">
-    <a class="brand" href="https://morphtrack.github.io/morphtrack-legal/v2/support"><b>Morph</b>Track</a>
+    <!-- Root-relative, and in the reader's language. It pointed at
+         morphtrack.github.io, which 301s here — an off-domain hop on every
+         legal page, and a link to a hostname we do not want indexed. -->
+    <a class="brand" href="{% if page.lang == 'ru' %}/v2/ru/support{% else %}/v2/support{% endif %}"><b>Morph</b>Track</a>
     {{ content }}
     <footer>© MorphTrack · Raisat Ramazanova · <a href="mailto:morphtrack.app@gmail.com">morphtrack.app@gmail.com</a></footer>
   </div>

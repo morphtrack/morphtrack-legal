@@ -2,6 +2,7 @@
 # No remote theme — pages use the local _layouts/default.html so we control the
 # look (clean legal typography, no repo-name header) and keep the existing
 # clean URLs (/v2/terms, /v2/privacy-policy, …) unchanged.
+url: https://www.morphtrack.app
 title: MorphTrack
 description: MorphTrack legal documents
 # Apply the default layout to every page so the .md files need only a title.
@@ -10,3 +11,10 @@ defaults:
       path: ""
     values:
       layout: default
+
+# Не собирать в сайт: это внутренние документы, а не страницы.
+# BRIEF.md уже был опубликован по адресу /BRIEF с index, follow.
+exclude:
+  - BRIEF.md
+  - README.md
+  - tools/
