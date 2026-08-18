@@ -74,6 +74,51 @@ def strip_i18n_script(html):
     return "".join(out).replace("\n\n\n", "\n\n")
 
 
+def strip_comments(html):
+    """Вырезать комментарии из готовой страницы.
+
+    Они нужны в src/page.html и не нужны посетителю: это 16 КБ, которые
+    отдаются каждому и читаются любым, кто откроет исходник. Скрипты разбираем
+    посимвольно с учётом кавычек, иначе `//` внутри строки съест половину кода.
+    """
+    def js(src):
+        out, i, n = [], 0, len(src)
+        while i < n:
+            c = src[i]
+            if c in "\"'`":
+                q = c; out.append(c); i += 1
+                while i < n:
+                    if src[i] == "\\":
+                        out.append(src[i:i + 2]); i += 2; continue
+                    out.append(src[i])
+                    if src[i] == q:
+                        i += 1; break
+                    i += 1
+                continue
+            if c == "/" and i + 1 < n:
+                if src[i + 1] == "/":
+                    j = src.find("\n", i); i = n if j < 0 else j; continue
+                if src[i + 1] == "*":
+                    j = src.find("*/", i + 2); i = n if j < 0 else j + 2; continue
+            out.append(c); i += 1
+        return "".join(out)
+
+    res = []
+    for part in re.split(r"(?s)(<script\b[^>]*>.*?</script>|<style\b[^>]*>.*?</style>)", html):
+        if part.startswith("<script"):
+            m = re.match(r"(?s)(<script\b[^>]*>)(.*?)(</script>)", part)
+            body = m.group(2) if "application/ld+json" in m.group(1) else js(m.group(2))
+            res.append(m.group(1) + body + m.group(3))
+        elif part.startswith("<style"):
+            m = re.match(r"(?s)(<style\b[^>]*>)(.*?)(</style>)", part)
+            res.append(m.group(1) + re.sub(r"(?s)/\*.*?\*/", "", m.group(2)) + m.group(3))
+        else:
+            res.append(re.sub(r"(?s)<!--.*?-->", "", part))
+    out = "".join(res)
+    out = re.sub(r"\n[ \t]*\n[ \t]*\n+", "\n\n", out)
+    return re.sub(r"\n[ \t]+\n", "\n", out)
+
+
 def swap_toggle(html, lang):
     """Кнопки -> ссылки между двумя адресами."""
     en_cls = ' class="lang-btn is-on"' if lang == "en" else ' class="lang-btn"'
@@ -202,6 +247,9 @@ def main():
 
     if missing:
         sys.exit(f"нет перевода для ключей: {sorted(set(missing))}")
+
+    en = strip_comments(en)
+    ru_html = strip_comments(ru_html)
 
     open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8").write(en)
     os.makedirs(os.path.join(ROOT, "ru"), exist_ok=True)

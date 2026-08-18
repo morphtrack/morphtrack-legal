@@ -6,8 +6,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-FQQ5wC3+Vcei988r2PGpTtz72AL6zTG/phg1TziZ59A=' 'sha256-tMlLby7qV/DVcTNQNLbqc4hgloCbPVnDkdb0GgwbKWY=' 'sha256-hja7Jb0ouGL9GJV0Ks6NVzN2EFLD1vNMeB457Rzs06o=' 'sha256-eziCozHvpPr49/G/5EQstYo4Mh7QWxAKwzvXJTkVZZw=' 'sha256-EplCGSqOAump5A1sJbC9QMZQm7blug08rtJXJr0sBLg=' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MorphTrack — Private Photo Progress &amp; AI Change Tracking</title>
-<meta name="description" content="Turn your own photos into a private timeline. Compare any two, log your routine, and get an on-demand AI reading of what changed — zone by zone. Stored in the EU, no ads, no tracking.">
-<meta name="keywords" content="skin progress tracker, progress photos app, AI skin analysis, face change tracking, before after photos, acne tracker, body progress, posture tracker, private photo journal, compare photos over time">
+<meta name="description" content="Photograph what you are changing, log your routine, and let AI track the visual changes over time — then see which habits line up with your progress.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.morphtrack.app/">
 
@@ -28,7 +27,7 @@
 <meta name="twitter:image" content="https://www.morphtrack.app/og-image.jpg">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/favicon.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "MorphTrack", "operatingSystem": "iOS, Android", "applicationCategory": "HealthApplication", "url": "https://www.morphtrack.app/", "image": "https://www.morphtrack.app/og-image.jpg", "description": "Turn your own photos into a private timeline. Compare any two, log your routine, and get an on-demand AI reading of what changed — zone by zone. Stored in the EU, no ads, no tracking.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "MorphTrack", "email": "morphtrack.app@gmail.com", "url": "https://www.morphtrack.app/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MobileApplication", "name": "MorphTrack", "operatingSystem": "Android", "applicationCategory": "HealthApplication", "inLanguage": "en", "installUrl": "https://www.morphtrack.app/go/android/", "url": "https://www.morphtrack.app/", "image": "https://www.morphtrack.app/og-image.jpg", "description": "Turn your own photos into a private timeline. Compare any two, log your routine, and get an on-demand AI reading of what changed — zone by zone. Stored in the EU, no ads, no tracking.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "MorphTrack", "email": "morphtrack.app@gmail.com", "url": "https://www.morphtrack.app/"}}</script>
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What do I actually get?", "acceptedAnswer": {"@type": "Answer", "text": "A private timeline of your own photos, grouped by tracker and by month. A compare view that puts any two dates against each other. A calendar where you tick off the routine you actually followed. And an AI reading, run when you ask for it, that describes what visibly changed and which of your logged factors line up with it."}}, {"@type": "Question", "name": "Is it free?", "acceptedAnswer": {"@type": "Answer", "text": "Photos, comparisons, the calendar and an unlimited number of routine factors are free. A free account can run a limited number of AI readings each month; MorphTrack Pro unlocks unlimited analyses."}}, {"@type": "Question", "name": "How many habits can I track?", "acceptedAnswer": {"@type": "Answer", "text": "There is no cap. Add as many factors as the treatment needs, across as many trackers as you like — no slot limits, no per-tracker fees."}}, {"@type": "Question", "name": "How long before it tells me anything?", "acceptedAnswer": {"@type": "Answer", "text": "Two comparable photos are enough for a first reading. A trend takes three to four weeks — that is roughly how long a real change needs to separate itself from a difference in light or angle."}}, {"@type": "Question", "name": "Is this medical advice?", "acceptedAnswer": {"@type": "Answer", "text": "No. MorphTrack describes what is visible in your photos and notes which logged factors line up with it. Those are correlations worth checking, not causes, and not a diagnosis. For anything that worries you, see a doctor."}}]}</script>
 <style>
@@ -623,8 +622,6 @@ details[open] > summary .plus::after { opacity: 0; }
 </footer>
 
 <script src="/vendor/lenis-1.1.14.min.js"></script>
-<script src="/vendor/gsap-3.12.5.min.js"></script>
-<script src="/vendor/ScrollTrigger-3.12.5.min.js"></script>
 <script>
 
 (function () {
@@ -638,21 +635,39 @@ details[open] > summary .plus::after { opacity: 0; }
     requestAnimationFrame(raf);
   }
 
-  if (window.gsap && window.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
-    if (lenis) lenis.on('scroll', ScrollTrigger.update);
-    if (!reduce && matchMedia('(min-width: 900px)').matches) {
-      gsap.utils.toArray('[data-reveal]').forEach(function (el) {
-        gsap.set(el, { opacity: 0, y: 34 });
-        ScrollTrigger.create({
-          trigger: el, start: 'top 88%', once: true,
-          onEnter: function () {
-            gsap.to(el, { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', clearProps: 'transform', force3D: true });
-          }
-        });
+  /* Появление блоков. Прозрачность выставляет скрипт, а не стили: если он не
+   * выполнится — например, из-за протухшего хеша в политике безопасности —
+   * страница покажется целиком, а не останется пустой.
+   *
+   * Считаем по прокрутке, а не через IntersectionObserver: наблюдатель удобнее,
+   * но проверить его в нашей среде предпросмотра не удалось — он не даёт ни
+   * одного вызова. Событие прокрутки здесь измеримо работает, а разница в цене
+   * между ними на пятнадцати элементах неразличима. Плюс страховка по таймеру:
+   * ни один сбой не должен уметь спрятать содержимое насовсем. */
+  var pending = [].slice.call(document.querySelectorAll('[data-reveal]'));
+  if (pending.length && !reduce && matchMedia('(min-width: 900px)').matches) {
+    var show = function (el) { el.style.opacity = '1'; el.style.transform = 'none'; };
+    pending.forEach(function (el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(34px)';
+      el.style.transition = 'opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1)';
+    });
+    var sweep = function () {
+      var line = window.innerHeight * 0.88;
+      pending = pending.filter(function (el) {
+        if (el.getBoundingClientRect().top > line) return true;
+        show(el);
+        return false;
       });
-      ScrollTrigger.refresh();   
-    }
+    };
+    if (lenis) lenis.on('scroll', sweep); else window.addEventListener('scroll', sweep, { passive: true });
+    window.addEventListener('resize', sweep);
+    /* Первый проход — только после раскладки. Вызванный сразу, он видел ещё не
+       разложенную страницу, где все блоки помещались в экран, и показывал их
+       разом: анимации не было вовсе. */
+    if (document.readyState === 'complete') sweep();
+    else window.addEventListener('load', sweep);
+    setTimeout(function () { pending.forEach(show); pending = []; }, 6000);
   }
 
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
@@ -688,10 +703,6 @@ details[open] > summary .plus::after { opacity: 0; }
   }
 
   
-  if (window.ScrollTrigger && document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
-  }
-
   if (lenis && !reduce && matchMedia('(min-width: 900px)').matches) {
     var targets = [].slice.call(document.querySelectorAll('main > header, main > section'));
     var navH = 68, timer;
