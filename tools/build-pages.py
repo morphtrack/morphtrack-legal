@@ -132,30 +132,61 @@ def swap_toggle(html, lang):
     return re.sub(r'<div class="lang".*?</div>', new, html, count=1, flags=re.S)
 
 
+I18N_TAGS = "p|h1|h2|h3|span|small|li|cite|a|b|em"
+
+OPEN_WITH_KEY = re.compile(
+    rf'<(?P<tag>{I18N_TAGS})\b[^>]*\bdata-i18n="(?P<key>[a-z0-9_]+)"[^>]*>'
+)
+
+
+def matching_close(html, tag, start):
+    """Позиция парного `</tag>` для элемента, чей открывающий тег кончился на start.
+
+    Считаем вложенность: девять заголовков содержат внутри себя <em> или <a>, а
+    hero_h1 — и то и другое. Возвращает (начало, конец) закрывающего тега.
+    """
+    scan = re.compile(rf"<(?P<slash>/?){tag}\b", re.I)
+    depth, pos = 1, start
+    while True:
+        m = scan.search(html, pos)
+        if not m:
+            return None
+        depth += -1 if m.group("slash") else 1
+        if depth == 0:
+            return m.start(), html.index(">", m.end()) + 1
+        pos = m.end()
+
+
 def apply_ru(html, ru):
-    """Подставить русские строки в тело страницы."""
+    """Подставить русские строки в тело страницы.
+
+    Границу элемента ищем по ПАРНОМУ закрывающему тегу того же имени. Раньше здесь
+    была одна регулярка с нежадным `.*?` до закрывающего тега из общего списка — и в
+    `<h2 data-i18n="pr_h2">… <em class="ser">real</em> rules.</h2>` она обрывалась на
+    `</em>`, подставляя русский текст вместо куска до него и оставляя ` rules.` жить
+    на русской странице. Так сломалось девять элементов из 84.
+    """
     missing = []
-
-    def text(m):
-        key = m.group(1)
-        if key not in ru:
+    out, pos = [], 0
+    while True:
+        m = OPEN_WITH_KEY.search(html, pos)
+        if not m:
+            out.append(html[pos:])
+            break
+        tag, key = m.group("tag"), m.group("key")
+        span = matching_close(html, tag, m.end())
+        if span is None:
+            sys.exit(f"не найден закрывающий </{tag}> для ключа {key}")
+        close_start, close_end = span
+        out.append(html[pos : m.end()])
+        if key in ru:
+            out.append(ru[key])
+        else:
             missing.append(key)
-            return m.group(0)
-        return m.group(0)[: m.end(2) - m.start(0)] + ru[key] + m.group(4)
-
-    # содержимое элементов с ключами
-    pat = re.compile(
-        r'(?s)(<(?:p|h1|h2|h3|span|small|li|cite|a|b|em)\b[^>]*\bdata-i18n="([a-z0-9_]+)"[^>]*>)(.*?)(</(?:p|h1|h2|h3|span|small|li|cite|a|b|em)>)'
-    )
-
-    def repl(m):
-        open_tag, key, _old, close_tag = m.group(1), m.group(2), m.group(3), m.group(4)
-        if key not in ru:
-            missing.append(key)
-            return m.group(0)
-        return open_tag + ru[key] + close_tag
-
-    html = pat.sub(repl, html)
+            out.append(html[m.end() : close_start])
+        out.append(html[close_start:close_end])
+        pos = close_end
+    html = "".join(out)
 
     # картинки: русский вариант становится основным
     html = re.sub(
