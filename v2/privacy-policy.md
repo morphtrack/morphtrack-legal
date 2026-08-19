@@ -163,7 +163,7 @@ You also have the right to **lodge a complaint with a supervisory authority**: i
 
 ## 14. Security
 
-We use reasonable technical and organizational measures to protect your information, including encryption in transit, access controls, and private storage for uploaded photos. However, no method of transmission or storage is completely secure.
+We use reasonable technical and organizational measures to protect your information, including encryption in transit, encryption at rest provided by our storage platform, access controls, and private storage for uploaded photos. However, no method of transmission or storage is completely secure.
 
 ## 15. International transfers
 
