@@ -5,178 +5,99 @@ lang: en
 
 # Privacy Policy
 
-_Last updated: 2026-08-18_
+_Updated: 19 October 2026_
 
-Читать по-русски: [Политика конфиденциальности](ru/privacy-policy)
+[Русская версия](/v2/ru/privacy-policy) · [Health data policy](/v2/consumer-health-data) · [Deletion](/v2/delete-account)
 
-This Privacy Policy describes how Morph (also referred to as MorphTrack, "we", "us", "the app") collects, uses, and protects your information when you use the app.
+This update clarifies processing, recipients and deletion options. It does not constitute consent to new processing purposes.
 
-## 0. Who we are (data controller)
+## 1. Who is responsible
 
-The data controller responsible for your personal data is **Raisat Ramazanova, an individual developer based in Serbia**. Morph / MorphTrack is the app's trade name, not a legal entity.
+**Raisat Ramazanova, an individual developer based in Serbia**, operates MorphTrack (also called Morph). MorphTrack is a trade name, not a separate legal entity. Contact: **[morphtrack.app@gmail.com](mailto:morphtrack.app@gmail.com)**.
 
-Contact for all privacy matters: **morphtrack.app@gmail.com**.
+This policy covers the app and website. Our separate [Consumer Health Data Privacy Policy](/v2/consumer-health-data) explains health-related information.
 
-## 1. What we collect
+## 2. Information we handle
 
-- **Account information**: email address and authentication credentials. Passwords are stored in hashed form and are not stored in plain text. We also store whether your email address has been verified.
-- **Photos**: images that you upload to the app, and the notes you optionally attach to them.
-- **Trackers and routine data**: the trackers you create (their names and goal descriptions), the routine factors you log (for example skincare steps, supplements, sleep), and the links between them and your photos.
-- **Optional profile details**: if you choose to fill in your profile, we store attributes such as age, gender, skin type, activity level, typical sleep, and smoking habits. Providing them is voluntary and they can be removed at any time.
-- **AI analysis results**: when you run an AI analysis (see section 5), we store the resulting observations in your account.
-- **Subscription status**: if you purchase a subscription, we receive and store your entitlement status and a purchase receipt from Apple or Google for validation. To link the purchase to your account and prevent misuse, the app attaches a pseudonymous account identifier (your Morph account ID) to the store transaction; Apple or Google stores it with the purchase and returns it to us with the receipt. We also keep the store's purchase token and use it to re-verify your subscription status with the store. We never receive or store your card or payment details.
-- **Server logs**: when the app communicates with our servers, we record technical request information (the endpoint called, result status, timing, and your account ID) to secure the service and diagnose errors. Your IP address is processed transiently for rate limiting and may appear in short-lived infrastructure logs of our hosting provider; we do not store it in your account or profile.
+- **Account and sign-in:** email, display name, password hash for email sign-in, verification status and sessions. With Apple or Google sign-in, we receive a provider identifier and the name/email it makes available, including an Apple relay address where chosen. We do not receive your Apple or Google password. Linking and token records support sign-in and disconnection.
+- **Your journal:** photos and generated image sizes, avatars, photo dates and notes, trackers and goals, capture settings, routine factors and dates. These can reveal health information.
+- **Optional profile:** details you provide, such as age, gender, skin type, activity, sleep and smoking habits. You can leave them blank or remove them.
+- **AI records:** requested analyses, observations, retained input context and your AI-consent setting. Where age confirmation is collected, we record it; this is not identity-document verification.
+- **Purchases:** store, product, receipt/purchase token, transaction identifiers and entitlement. A pseudonymous account identifier links a purchase to your account. Apple or Google handles payment details; we do not receive your card number.
+- **Support:** messages, contact details and information you include.
+- **Technical information:** request route, status, timing, account identifiers and error/security events. IP addresses are used for network delivery and abuse prevention and may appear in infrastructure records.
 
-**Photo metadata.** Photos from your camera may contain embedded metadata such as the capture date, device model, or GPS location. **We automatically remove all such metadata from every photo during upload** — the files we store contain no camera metadata and no location data. Photos that cannot be safely re-encoded are rejected rather than stored with metadata.
+**Photo metadata:** uploaded images are re-encoded to remove embedded camera metadata, including GPS tags. We separately retain photo dates and image dimensions for the journal. Re-encoding does not remove information visible in a picture or text you enter.
 
-## 2. Health-related data and your explicit consent
+## 3. Purposes and legal grounds
 
-Morph is a body/skin change tracker, so some of the data you choose to add — photos of your skin or body, notes about them, and optional profile details such as skin type, sleep, or smoking — may reveal information related to your health.
+Account and journal data provide the features you request; purchase records validate subscriptions; support messages let us answer you; limited technical records support operation, security and troubleshooting.
 
-We process this data **only** to provide the features you use: storing and showing your photos and trackers, and generating the AI analyses you explicitly request. By uploading such photos, adding such details, and starting an AI analysis, you give your **explicit consent** to this processing. You can withdraw it at any time by deleting the relevant data or your account (see sections 12–12); withdrawal does not affect processing that already happened.
+Where GDPR or comparable rules apply, our grounds are performance of the service contract, legitimate interests in security and reliability, legal obligations, and consent for optional processing that requires it. **Health data also requires a separate permitted basis under sensitive-data rules.** Where explicit consent is required, it must cover the relevant purpose and be obtained separately. Accepting this policy or uploading a photo does not by itself establish that consent. The current in-app consent setting covers optional AI sharing; it is not a general consent for all health-data processing.
 
-## 3. Photographs that show your face, and biometric data
+You may withdraw consent without affecting processing already lawfully carried out. A feature may stop working if it needs the data covered by withdrawal. Controls and requests are described below.
 
-Many people use Morph to follow changes in their skin, so the photographs you take will often show your face. This section explains exactly what that does and does not mean.
+## 4. Optional AI analysis
 
-**What we collect.** Ordinary photographs — a still image taken with your camera, or a file you choose from your photo library. Nothing else is captured: the app does not record video, does not read a live camera stream, and does not process the image on your device beyond a crop you perform yourself.
+AI journal analysis starts when you request it and have enabled AI sharing. We send OpenAI selected photos and dates, tracker name/goal and capture settings, relevant routine/ongoing factors and dates, app language, and previous-analysis context where used. A photo note is included only when marked shareable with AI. Your email and optional profile fields are not included as separate AI inputs; a goal, note or picture can still reveal them.
 
-**We do not create biometric data.** Morph does not generate a face template, face mesh, landmark geometry, faceprint, or any other numerical representation of a face, and it does not perform face detection, face recognition, or face tracking. It does not use ARKit face tracking, the Vision framework, TrueDepth, Face ID, or any comparable technology. The app cannot identify a person from a photograph and does not attempt to. A photograph you have taken is stored and shown back to you as a picture, and nothing is derived from the face in it.
+Results and retained input context remain in your account. **Deleting a source photo or changing a note's sharing setting does not erase a saved analysis or recall a previous provider request.** Delete the analysis too, or ask us to delete associated data.
 
-**About the framing guide.** The camera screen can optionally show an oval outline to help you frame a shot the same way each time. It is drawn at a fixed position calculated only from the size of your screen; it does not read the camera image, does not detect or follow a face, and is not part of the photograph that is saved. It is switched off each time the camera opens and appears only if you turn it on.
+We do not use your journal to train our models. OpenAI's API does not train on customer inputs/outputs by default. Standard abuse-monitoring retention is up to 30 days, with legal and safety exceptions, including flagged image review. We do not promise zero provider retention. See [OpenAI's data controls](https://developers.openai.com/api/docs/guides/your-data).
 
-**How photographs are used.** They are stored so that you can look at them, compare them, and see them on your timeline. They are sent for AI analysis only when you ask for one, and only with your explicit consent — see section 5.
+Turn off future AI sharing in **More → About → AI and your data**, or contact us. This does not delete past results. AI can be wrong; it is not medical advice and does not make decisions about you with legal or similarly significant effects.
 
-**Sharing.** Photographs are never sold, never used for advertising, and never used to train AI models. The only third party that ever receives them is our AI provider, OpenAI, and only for an analysis you have requested — see sections 5 and 8.
+## 5. Photos, permissions and advertising
 
-**Where they are stored.** In Frankfurt, Germany — see section 7.
+The camera provides preview and capture when you take a photo; library access is used for selected uploads. The optional framing guide is fixed, not face recognition. We do not create faceprints or identify people from photos. AI may describe visible features; that is different from identifying you.
 
-**How long they are kept.** For as long as you keep them. A photograph you delete is removed, and deleting your account removes them all — see sections 11 and 12.
+Camera, library and notification permissions are controlled in device settings. The app keeps private local caches and sign-in tokens in device secure storage. Signing out clears app caches; exports and device/OS backups are separate copies under your control.
 
-## 4. Why we collect it, and what we do NOT do
+We do not sell personal or consumer health data, use journal content for advertising, or disclose it for cross-context behavioural advertising. The app has no advertising or usage-analytics SDKs. Website analytics is separate.
 
-We use your information:
+## 6. Recipients and locations
 
-- to create and maintain your account;
-- to store and display your photos, trackers, and routine data to you;
-- to generate AI analyses that you explicitly request;
-- to provide and validate subscriptions;
-- to secure your account and protect against abuse;
-- to provide customer support;
-- to diagnose errors and maintain app security and reliability.
+- **DigitalOcean:** backend, account database and private photo storage in Frankfurt, Germany.
+- **OpenAI:** the AI inputs/outputs above; processing may occur in the US and other provider locations.
+- **Resend:** verification and password-reset emails, including destination address and message content. Email data is stored in the US. These emails do not include journal photos or AI results.
+- **Google/Gmail:** correspondence sent to our support mailbox. Avoid medical records or unnecessary sensitive attachments.
+- **Apple and Google:** store payments and, if selected, sign-in. These functions receive transaction/sign-in information, not your photo journal.
+- **GitHub Pages and Cloudflare:** public website hosting and measurement. They can process network/browser information, visited pages and performance events. Cloudflare Web Analytics measures site traffic and performance; it is not connected to your private journal.
 
-We **do not**:
+Providers process data for the relevant service under applicable terms and data-protection arrangements. Some also act independently for payment, account, security or legal obligations. Not every provider acts only as our processor.
 
-- analyze the content of your photos, **except when you explicitly run an AI analysis** (see section 5);
-- use your photos or any of your content to train AI models, or permit our AI provider to do so (see section 5);
-- use your photos for advertising;
-- sell your photos or your personal information;
-- share your photos with other users;
-- use analytics or advertising SDKs, or collect crash reports from your device.
+Internal access is restricted to necessary support, operations, security and legal compliance. Journal content is not public to other users. Limited disclosure may be required by law or necessary to establish or defend legal claims, subject to applicable safeguards.
 
-## 5. AI analysis of your photos
+Processing may occur outside your country, including in Serbia through operation/support, Germany and the US. Where law requires transfer safeguards, these must cover the transfer, such as applicable standard contractual clauses. Contact us for information about safeguards relevant to your data.
 
-The app can generate observations about visible changes between your photos ("AI analysis"). This happens **only when you explicitly start an analysis** — never automatically in the background.
+## 7. Storage periods
 
-When you run an analysis, the following is sent to our AI provider for processing:
+- **Journal and profile:** while you keep the content/account, subject to deletion. AI results may outlive individual source photos.
+- **Deleted trackers and factors:** hidden immediately; scheduled cleanup becomes eligible after 30 days and runs periodically. This is not a guarantee of complete erasure by day 30. An explicit legal deletion request follows the applicable deadline.
+- **Application logs:** our central log service is configured for 30 days. Provider security records and narrowly justified legal/security holds may have different periods.
+- **Transactional emails:** Resend publishes default 30-day email/log retention, with separate backup/legal exceptions; see its [security information](https://resend.com/security).
+- **Support and legal records:** while needed to resolve the request and for applicable legal obligations or claims. We limit retained records to that purpose, rather than keeping the whole journal.
 
-- the photos selected for the analysis (with metadata already removed) and their dates;
-- the name, goal / description text, and photo-capture settings (angle, framing, frequency) of the tracker being analyzed;
-- the routine factors you logged for the analyzed period (their names and dates), and ongoing factors linked to the tracker (their names and start/end dates);
-- a short summary (headline and date) of your most recent previous analysis of the same tracker, so results can reference earlier observations;
-- a photo note **only if** you marked that note as "share with AI" — notes without this mark are never sent;
-- the app language, so the result comes back in your language.
+We do not promise instant disappearance of every residual/provider copy or an unverified fixed backup lifetime. For an applicable deletion request, we identify relevant copies, instruct recipients where required, and explain lawful exceptions and deadlines. See the [deletion procedure](/v2/delete-account).
 
-Your optional profile details (age, gender, skin type, and similar) and your email address are **not** sent to the AI provider.
+## 8. Security
 
-Our AI provider is **OpenAI** (USA), acting as our data processor. Under OpenAI's API terms, data submitted through the API is not used to train their models. Analysis results are stored in your account until you delete the analysis, delete the tracker it belongs to (its analyses are erased together with the tracker, see section 11), or delete your account. Deleting individual photos does not automatically delete analyses that referenced them — you can delete each analysis separately in the app.
+We use HTTPS, authenticated access, private photo storage and access restrictions. No system is completely secure. Storage is not end-to-end encrypted: the service processes content to provide requested features.
 
-AI analyses are generated only at your request, are informational observations only, and are not used to make any automated decision about you that produces legal or similarly significant effects. They can be incomplete or wrong, and they are not medical advice (see the [Terms of Use](terms)).
+## 9. Choices and rights
 
-## 6. Legal basis for processing
+You can edit profile details, delete content, disable future AI sharing, or delete your account in **More → Profile → Delete account**. For access/export, correction, withdrawal, restriction, objection, deletion or recipient information, email **morphtrack.app@gmail.com**, subject **Privacy request**. Rights depend on applicable law.
 
-If you are located in the European Economic Area or the United Kingdom, we process your information under the following legal bases:
+We verify identity proportionately, preferably through an authenticated account or verified control of its email. We do not require a new account, payment, your password or unnecessary health information. An authorised representative may contact us; we may verify their authority.
 
-- **Contract**: to create your account and provide the app's functionality, including photo storage, trackers, analyses you request, and subscriptions you purchase.
-- **Explicit consent**: for health-related data described in section 2, and for optional features such as optional profile details or sharing a photo note with the AI provider. You can withdraw consent at any time (section 13).
-- **Legitimate interests**: to secure the app, prevent abuse, diagnose errors, and maintain reliability.
-- **Legal obligation**: where we are required to comply with applicable laws.
+Under GDPR, we respond within one month, with a lawful extension explained within that month. Under applicable US consumer-health rules, the usual response period is 45 days; shorter deletion deadlines can apply. See the [health policy](/v2/consumer-health-data). We explain refusals and review appeals sent with subject **Privacy appeal**, within 45 days or an earlier applicable deadline.
 
-## 7. Where your data is stored
+You may complain to the authority competent under the law that applies to your case: for example, Serbia's Commissioner under Serbian data-protection law, the competent supervisory authority under EEA/UK law, or a state's Attorney General where that US state's law applies. US complaint channels are not intended as universal destinations for all users. Complaining is optional, and our internal appeal does not limit statutory complaint rights. The [Health Data Policy](/v2/consumer-health-data) provides further details. We do not discriminate for exercising privacy rights.
 
-Your photos and account data are stored on secure servers located in Germany (Frankfurt region).
+## 10. Age and changes
 
-When you run an AI analysis, the data described in section 5 is processed by OpenAI, which may process it in the United States (see section 15).
+MorphTrack is intended for adults **18 and over**. Contact us if you believe we hold information from someone under 18 so we can investigate and address it.
 
-The app also keeps a local cache of your data (including downloaded photos) on your device so it loads faster; it lives in the app's private storage and is cleared when you sign out or uninstall the app. Sign-in tokens are kept in your device's secure storage (Keychain / Keystore).
+We communicate material changes through an appropriate notice, such as in the app or by email. New consent-required purposes require new consent; changing this document does not itself provide it.
 
-## 8. Service providers
-
-We use third-party service providers to operate the app:
-
-- **Cloud hosting and storage** — DigitalOcean (servers in Frankfurt, Germany): application hosting and private photo storage.
-- **AI processing** — OpenAI (USA): only for analyses you explicitly request, as described in section 5.
-- **Email delivery** — a transactional email provider used to send account verification and password reset emails.
-- **Payment processing** — Apple App Store, Google Play: subscription purchases are processed entirely by the stores.
-
-These providers process information only on our behalf and only as necessary to provide their services to us. We do not allow these providers to use your photos or content for their own purposes.
-
-We share your information with them only under written agreements that require them to protect it to at least the same standard as this policy describes, to use it solely for the purposes set out here, and to keep it confidential.
-
-## 9. Who has access
-
-Your uploaded photos, trackers, notes, and analyses are private to your account and are not visible to other users.
-
-We restrict internal access to user content to the minimum necessary to operate, secure, troubleshoot, or support the app. We do not access your content except when necessary for security, support requested by you, legal compliance, or troubleshooting a technical issue.
-
-## 10. Device permissions
-
-The app requests access to your camera or photo library only when you choose to take or upload photos. The app will ask for permission to show notifications the first time a photo reminder is due; you can turn reminders off in the app or in your device settings at any time. You can change any of these permissions in your device settings.
-
-## 11. Retention
-
-We store your photos, notes, and analysis results until you delete them or delete your account.
-
-When you delete a tracker or a routine factor in the app, it is hidden from your account immediately and permanently erased from our servers within 30 days.
-
-Server logs are retained for up to 90 days, unless a longer period is required for security, fraud prevention, or legal compliance.
-
-## 12. Deletion
-
-You can delete individual photos, notes, trackers, factors, and analyses at any time from within the app.
-
-You may also delete your entire account from within the app (Profile → Delete account), which permanently removes your photos, trackers, routine data, analyses, and account data. Deleted data may remain in encrypted backups for up to 30 days before being permanently removed.
-
-Deleting your account does **not** cancel an active store subscription — manage subscriptions in your Apple or Google account settings.
-
-See also: [account deletion details](delete-account) — including how to request deletion by email, without the app.
-
-## 13. Your rights
-
-Depending on your location, you may have rights to access, correct, delete, export, or object to the processing of your personal information.
-
-Where processing is based on your consent, you may **withdraw it at any time** — for example by removing profile details, unmarking a note's "share with AI" setting, deleting the relevant data, or deleting your account. Withdrawal does not affect processing that happened before it.
-
-You can delete your content and account in the app. For other requests, contact us at morphtrack.app@gmail.com.
-
-You also have the right to **lodge a complaint with a supervisory authority**: in Serbia, the Commissioner for Information of Public Importance and Personal Data Protection (Poverenik); in the EEA or the UK, the data-protection authority of your country of residence.
-
-## 14. Security
-
-We use reasonable technical and organizational measures to protect your information, including encryption in transit, encryption at rest provided by our storage platform, access controls, and private storage for uploaded photos. However, no method of transmission or storage is completely secure.
-
-## 15. International transfers
-
-Depending on your location, your information may be processed in countries other than your country of residence — in particular, data is stored in Germany (EU), and AI analyses are processed by OpenAI in the United States. Transfers to OpenAI are protected by appropriate safeguards, including the standard contractual clauses incorporated into our data processing agreement with OpenAI.
-
-## 16. Children
-
-The app is not intended for use by anyone under the age of 18. We do not knowingly collect personal information from anyone under 18.
-
-## 17. Changes to this policy
-
-We may update this Privacy Policy from time to time. The "Last updated" date at the top reflects the most recent revision. Material changes will be communicated within the app or by email.
-
-## 18. Contact
-
-For questions, requests, or concerns related to your data, contact us at morphtrack.app@gmail.com.
+[Terms](/v2/terms) · [Health data policy](/v2/consumer-health-data) · [Account and data deletion](/v2/delete-account)

@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated from the pages that actually exist; `lastmod` is each
-     file's last commit date. The v1 pages at the root (/terms,
-     /privacy-policy, /delete-account) are deliberately absent: they must
-     stay reachable for the shipped v1 app, but promoting a second set of
-     legal documents would only split the search results. /support is
-     absent for the same kind of reason — it is a redirect to
-     /v2/support, and a sitemap should list canonical URLs only. -->
+<!-- Canonical pages only. Legacy root URLs redirect to /v2/. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
@@ -13,7 +7,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.morphtrack.app/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.morphtrack.app/ru/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.morphtrack.app/"/>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -22,13 +16,13 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.morphtrack.app/"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.morphtrack.app/ru/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.morphtrack.app/"/>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.morphtrack.app/v2/terms</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.morphtrack.app/v2/terms"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.morphtrack.app/v2/ru/terms"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.morphtrack.app/v2/terms"/>
@@ -37,7 +31,7 @@
   </url>
   <url>
     <loc>https://www.morphtrack.app/v2/ru/terms</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.morphtrack.app/v2/terms"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.morphtrack.app/v2/ru/terms"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.morphtrack.app/v2/terms"/>
@@ -46,7 +40,7 @@
   </url>
   <url>
     <loc>https://www.morphtrack.app/v2/privacy-policy</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.morphtrack.app/v2/privacy-policy"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.morphtrack.app/v2/ru/privacy-policy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.morphtrack.app/v2/privacy-policy"/>
@@ -55,7 +49,7 @@
   </url>
   <url>
     <loc>https://www.morphtrack.app/v2/ru/privacy-policy</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.morphtrack.app/v2/privacy-policy"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.morphtrack.app/v2/ru/privacy-policy"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.morphtrack.app/v2/privacy-policy"/>
@@ -82,7 +76,7 @@
   </url>
   <url>
     <loc>https://www.morphtrack.app/v2/delete-account</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.morphtrack.app/v2/delete-account"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.morphtrack.app/v2/ru/delete-account"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.morphtrack.app/v2/delete-account"/>
@@ -91,10 +85,28 @@
   </url>
   <url>
     <loc>https://www.morphtrack.app/v2/ru/delete-account</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.morphtrack.app/v2/delete-account"/>
     <xhtml:link rel="alternate" hreflang="ru" href="https://www.morphtrack.app/v2/ru/delete-account"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.morphtrack.app/v2/delete-account"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.morphtrack.app/v2/consumer-health-data</loc>
+    <lastmod>2026-10-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.morphtrack.app/v2/consumer-health-data"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.morphtrack.app/v2/ru/consumer-health-data"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.morphtrack.app/v2/consumer-health-data"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.morphtrack.app/v2/ru/consumer-health-data</loc>
+    <lastmod>2026-10-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.morphtrack.app/v2/consumer-health-data"/>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://www.morphtrack.app/v2/ru/consumer-health-data"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.morphtrack.app/v2/consumer-health-data"/>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>

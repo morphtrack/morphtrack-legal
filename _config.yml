@@ -12,9 +12,10 @@ defaults:
     values:
       layout: default
 
-# Не собирать в сайт: это внутренние документы, а не страницы.
-# BRIEF.md уже был опубликован по адресу /BRIEF с index, follow.
+# Keep build sources and local working notes out of the public site.
 exclude:
-  - BRIEF.md
   - README.md
+  - src/
+  - build/
   - tools/
+  - _drafts/

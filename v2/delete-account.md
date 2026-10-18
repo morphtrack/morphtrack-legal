@@ -1,45 +1,57 @@
 ---
-title: Delete Account
+title: Account and Data Deletion
 lang: en
 ---
 
-# Morph account deletion
+# Account and data deletion
 
-Читать по-русски: [Удаление аккаунта](ru/delete-account)
+_Updated: 19 October 2026_
 
-You can delete your Morph account and all associated data directly in the app: open **More → Profile**, scroll to the **Danger zone**, tap **Delete account** and confirm.
+[Русская версия](/v2/ru/delete-account)
 
-When you delete your account, we delete:
+**Deleting an account is permanent. Deleting the app alone does not delete your account or cancel a subscription.**
 
-- your account information (email, display name, password hash, profile details)
-- all photos you have uploaded, including their generated thumbnails and preview sizes — both the image files in our storage and the database records that reference them
-- all photo notes
-- all trackers, routine factors, and their links to your photos
-- all AI analysis results
-- your subscription entitlement records and active sessions
-- all other app data associated with your account
+## Delete your account in the app
 
-Account deletion is permanent and cannot be undone. You do not need to email us — the in‑app action triggers full deletion on our servers.
+1. Open **More → Profile**.
+2. Find **Danger zone → Delete account**.
+3. Read the confirmation and confirm deletion.
 
-Deleting your account does **not** cancel an active store subscription. Cancel it in your Apple App Store or Google Play account settings — otherwise the store will keep charging you.
+This removes active account records and requests removal of stored images. It covers your email/profile, avatar, uploaded photos and generated image sizes, notes, trackers, factors and logs, saved AI analyses, entitlement records and sessions.
 
-Some data may be retained for a limited period if required for security, fraud prevention, legal, or operational reasons. Deleted data may also remain in encrypted backups for up to 30 days before being permanently removed.
+File removal and deletion of records held by providers are separate steps. The in-app confirmation covers account removal; it does not separately confirm erasure of every stored file or provider copy. Storage cleanup may finish later or require an error to be resolved. Contact us to check retained copies and obtain confirmation of the outcome.
 
 ## Request deletion without the app
 
-You can also request deletion of your account and all associated data **without installing or opening the app**: send an email to **morphtrack.app@gmail.com** from the email address linked to your Morph account, with the subject "Delete my account". We will verify that the request comes from the account's email address and complete the deletion, normally within 30 days, and confirm by reply.
+Email **[morphtrack.app@gmail.com](mailto:morphtrack.app@gmail.com)** with the subject **Delete my account**. Include the email associated with your account and whether you want the entire account or particular data deleted. You do not need to reinstall the app, create an account or pay.
 
-The same applies if you can no longer sign in: contact us at morphtrack.app@gmail.com and include the email address linked to your Morph account.
+If possible, write from your account email. We verify control of the account/email, not just the displayed sender address. If you used Apple's Hide My Email or cannot access your account, tell us; we will use a proportionate alternative verification method. Do not send your password, medical records or identity documents unless specifically needed through an appropriate secure process.
 
-# Photo deletion
+After verification, we explain the scope, handle deletion and confirm the outcome, including any lawful exceptions. We do not require you to cancel your subscription before submitting a deletion request.
 
-You can delete an individual photo at any time from inside the app.
+## Delete only some data
 
-When you delete a photo, we delete:
+- **A photo:** open the photo and use its delete action. This removes its journal record and requests deletion of its stored image sizes and attached note.
+- **An AI analysis:** use the analysis menu to delete the saved analysis.
+- **Profile fields/avatar:** edit or remove them in Profile.
+- **Trackers/factors:** use their delete actions. They disappear from active views immediately; scheduled permanent cleanup becomes eligible after 30 days and runs periodically.
 
-- the original image file from our storage
-- the generated thumbnail and preview sizes of that image from our storage
-- the note attached to the photo, if any
-- the database records that linked the photo to your account and your trackers
+**An existing AI analysis can still contain observations or context derived from a deleted photo, note or factor.** Changing “share with AI” affects future submissions. Delete the related analysis too, or request deletion of all associated data. Tell us if your request includes health data and derived observations; it need not be limited to an entire account.
 
-Photo deletion is permanent and cannot be undone. Other photos in your account are not affected.
+## Timing and exceptions
+
+We act without undue delay. For requests governed by GDPR, the response period is one month; a permitted extension is explained within that month. Applicable US health-data periods differ: Washington ordinarily requires a response within 45 days of receipt; Nevada requires deletion and recipient notification within 30 days of authentication. See the [Health Data Policy](/v2/consumer-health-data) for response and appeal details.
+
+A response deadline is not a blanket licence to keep data until that date. We instruct relevant processors/recipients where required. Our central application logs have a configured 30-day retention period. Providers may retain restricted security or legally required records; we explain relevant exceptions. We do not promise a universal backup period or instant removal of every copy.
+
+If backup copies are retained under a lawful exception, their use must be restricted and deletions reapplied before restored data returns to ordinary service. Files you exported, screenshots, your device backups and copies you shared elsewhere are outside our account-deletion process. Apple/Google may retain their own purchase records under their policies.
+
+## Cancel a subscription separately
+
+Manage cancellation in [Apple subscriptions](https://apps.apple.com/account/subscriptions) or [Google Play subscriptions](https://play.google.com/store/account/subscriptions). The store can continue billing after account deletion if renewal remains enabled.
+
+## Questions or refusal
+
+Contact **morphtrack.app@gmail.com** for status or to clarify a request. If we refuse it, we explain why. Reply with **Privacy appeal** for review; the [Health Data Policy](/v2/consumer-health-data) explains the appeal process and complaint channels.
+
+[Privacy Policy](/v2/privacy-policy) · [Health data policy](/v2/consumer-health-data) · [Terms](/v2/terms)

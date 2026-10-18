@@ -2,10 +2,10 @@
 # Refresh the self-hosted webfonts in fonts/ from the Google Fonts CSS2 API.
 #
 # The landing inlines its @font-face rules (see the top of the <style> block in
-# index.html) and serves the .woff2 files itself, so there is no third-party
+# src/page.html) and serves the .woff2 files itself, so there is no third-party
 # font origin and no render-blocking font stylesheet. Run this only when the
 # family/weight list changes — then paste the regenerated rules from
-# build/fonts.css over the inlined block in index.html.
+# build/fonts.css over the inlined block in src/page.html, then run build-pages.py.
 #
 #   ./tools/update-fonts.sh
 set -euo pipefail
@@ -56,4 +56,4 @@ for f in fonts/*.woff2; do
 done
 
 echo "fonts/ now holds $(ls fonts/*.woff2 | wc -l | tr -d ' ') files"
-echo "Now paste build/fonts.css over the inlined @font-face block in index.html."
+echo "Paste build/fonts.css over the @font-face block in src/page.html, then run python3 tools/build-pages.py."

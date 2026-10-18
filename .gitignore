@@ -1,2 +1,6 @@
 __pycache__/
 *.pyc
+build/
+_site/
+.jekyll-cache/
+_drafts/

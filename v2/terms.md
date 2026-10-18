@@ -5,105 +5,89 @@ lang: en
 
 # Terms of Use
 
-_Last updated: 2026-07-28_
+_Updated: 19 October 2026_
 
-Читать по-русски: [Условия использования](ru/terms)
+[Русская версия](/v2/ru/terms)
 
-## 1. Who we are and acceptance of these Terms
+This revision was published on 19 October 2026. For existing accounts, changes requiring advance notice or renewed agreement apply only after those requirements have been met. Publication alone does not replace them. [Previous Terms](/archive/before-2026-10-19/terms).
 
-Morph (also referred to as MorphTrack, "the app", "we", "us") is operated by **Raisat Ramazanova, an individual developer based in Serbia**. Contact: morphtrack.app@gmail.com.
+## 1. Operator and agreement
 
-By creating an account or using Morph, you agree to these Terms of Use. If you do not agree, please do not use the application.
+MorphTrack (Morph) is operated by **Raisat Ramazanova, an individual developer based in Serbia**. Contact: **[morphtrack.app@gmail.com](mailto:morphtrack.app@gmail.com)**. MorphTrack is a trade name, not a separate company.
 
-## 2. Eligibility
+These Terms govern your use of the service. If you do not agree, do not create an account or use it. Acceptance of these Terms is not consent to optional processing of health data; privacy choices are explained in the [Privacy Policy](/v2/privacy-policy) and [Health Data Policy](/v2/consumer-health-data).
 
-You must be **at least 18 years old** and legally capable of entering into a binding agreement to use Morph. By creating an account you confirm that you meet this requirement. We may suspend or delete accounts that do not.
+## 2. Adults and accounts
 
-## 3. Description of Service
+You must be **at least 18** and legally able to enter into this agreement. Provide accurate account information and keep your sign-in credentials secure. Tell us if you suspect unauthorised access. Do not share your account.
 
-Morph allows users to upload, store, and compare photos over time for personal tracking purposes; to organize them into trackers with goals and routine factors; and to request AI-generated observations about visible changes between photos.
+Age confirmation is a declaration, not a medical or identity assessment. If we learn that an account belongs to someone under 18, we may restrict it and address its data under applicable law.
 
-Some features may require a paid subscription. The application may evolve, change, or discontinue features; for material reductions of paid features we will give reasonable advance notice (see sections 8 and 12).
+## 3. What the service provides
 
-## 4. User Accounts
+MorphTrack is a personal photo journal: you can store and compare photos, organise trackers, log routine factors and request AI observations of visible differences. Some features require payment; availability and limits are shown in the app.
 
-You are responsible for maintaining the security of your account and password.
+The service does not guarantee a particular appearance, health outcome, improvement or accuracy. Lighting, angle, clothing and gaps between photos can affect observations.
 
-You agree to provide accurate information when creating an account.
+## 4. AI and health limitations
 
-## 5. User Content and Acceptable Use
+**AI observations are not medical advice, diagnosis, screening or treatment.** The service is intended for nonmedical visual tracking, not detecting disease, assessing a lesion's safety or deciding whether professional care is needed.
 
-You retain ownership of the photos and content you upload.
+AI can be incomplete or wrong. A comparison does not establish that a product, habit or treatment caused a change. Do not start, stop or change treatment based on an analysis. Seek qualified care for health concerns regardless of what the app says; do not use the app for emergencies.
 
-By uploading content, you grant us permission to store and process it for the purpose of operating the application — including generating the AI analyses that you explicitly request.
+You choose whether to enable AI sharing and request an analysis. Details of data sent to the provider are in the Privacy Policy.
 
-You agree to:
+## 5. Your content and permitted use
 
-- upload only photos of **yourself**, or of another adult who has given you their explicit permission;
-- not upload illegal, harmful, infringing, or abusive content;
-- not upload pornographic or sexually explicit content; photos of skin or body areas for legitimate health and appearance tracking are permitted;
-- not reverse engineer, scrape, use automated access to, or interfere with the service;
-- not attempt to misuse the AI features (for example, to extract unrelated outputs or bypass usage limits).
+You keep your rights in uploaded content. You give us a limited, non-exclusive permission to host, reproduce, resize and process it as needed to provide and secure the features you use, including AI processing you separately enable and request. This is not permission to sell your photos, use them in advertising or train models on them.
 
-We may remove content that violates these Terms.
+Upload only your own content or content of another adult for which you have the necessary rights and informed permission. Do not upload photos or health information about children. Do not upload unlawful, infringing, abusive, pornographic or sexually explicit material. Nonsexual photos of skin/body areas for personal tracking are permitted.
 
-## 6. License to Use the App
+Do not bypass access controls, interfere with the service, extract other users' data, misuse AI, or evade payment/usage limits. Restrictions on reverse engineering and automated access apply only to the extent permitted by law; they do not remove non-waivable rights.
 
-We grant you a limited, personal, non-exclusive, non-transferable, revocable license to install and use the app for your own personal, non-commercial purposes, subject to these Terms. We and our licensors retain all rights in the app, its software, design, and branding. AI analysis results are generated for your personal use as part of the service.
+We may restrict or remove violating content. Save a copy of anything you need to retain; see the deletion procedure before deleting content.
 
-## 7. AI Observations and Medical Disclaimer
+## 6. App and store licences
 
-AI-generated analyses are produced automatically from the photos and data you select. They are informational observations, not facts: they may be incomplete, inaccurate, or wrong. AI analyses run only when you request them and are not used to make any automated decision about you with legal or similarly significant effects.
+You receive a personal, non-exclusive, non-transferable permission to use the app, subject to these Terms and applicable store terms. We and our licensors retain rights in the app's software, design and branding.
 
-**Morph is not a medical device and does not provide medical advice, diagnosis, or treatment.** Morph does not detect, diagnose, screen for, or monitor any disease or medical condition — including skin cancer or other skin diseases — and is not a substitute for examination by a dermatologist or other qualified professional. If you notice a new, changing, or otherwise concerning skin change, see a doctor regardless of anything shown in the app.
+For an App Store download, the licence shown by Apple applies; where no custom EULA is provided, this is [Apple's standard EULA](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/). Google Play downloads also remain subject to applicable Google Play terms. These service Terms do not replace the store's purchase or licence conditions or exclude mandatory rights.
 
-Do not rely on AI observations for medical, health, or treatment decisions.
+## 7. Subscriptions, cancellation and refunds
 
-## 8. Subscriptions
+Where offered, subscriptions renew automatically. The store purchase screen shows the price, currency, billing period, trial/introductory conditions and renewal terms before purchase.
 
-Where offered, Morph Pro is an auto-renewing subscription purchased through the Apple App Store or Google Play.
+- Apple or Google charges your store account. Cancel by the deadline specified by your store to avoid the next renewal. There is no single cancellation deadline that we impose across both stores.
+- Manage subscriptions in [Apple account settings](https://apps.apple.com/account/subscriptions) or [Google Play](https://play.google.com/store/account/subscriptions).
+- **Deleting the app or MorphTrack account does not cancel a store subscription.**
+- Trial conversion, access after cancellation and any introductory offer follow the conditions shown by the store.
+- Price changes follow applicable law and store notice/consent requirements.
+- Use the relevant store's refund process; you may also contact us for assistance. Nothing here removes statutory refunds, withdrawal rights or digital-content guarantees. Where a withdrawal right can lawfully be lost after immediate supply, the legally required consent and acknowledgement are still necessary.
 
-- Prices and billing periods are shown in the store purchase dialog before you buy.
-- Payment is charged to your store account. The subscription renews automatically unless cancelled at least 24 hours before the end of the current period.
-- You can manage or cancel the subscription at any time in your Apple or Google account settings. Deleting the app or your Morph account does **not** cancel a store subscription.
-- Where a free trial is offered, the unused portion is forfeited when you purchase a subscription.
-- We may change subscription prices. Price changes apply no earlier than your next renewal and only after advance notice through the store or the app; if you do not agree, cancel before the renewal date. Depending on your platform, the store may additionally ask for your explicit consent to a price increase.
-- Refunds are handled by Apple or Google under their respective policies. If you are a consumer in the EU/UK, any statutory 14-day withdrawal right for digital purchases is likewise exercised through the store's refund process.
+## 8. Privacy and deletion
 
-## 9. App Store and Google Play
+Our [Privacy Policy](/v2/privacy-policy) and [Health Data Policy](/v2/consumer-health-data) explain processing, providers, locations, retention and choices. Core app storage is in Germany; some processing occurs elsewhere.
 
-Purchases and app distribution are provided by Apple or Google. These Terms are an agreement between you and us only — Apple Inc. and Google LLC are not parties to it, have no obligation to provide maintenance or support for the app, and are not responsible for any product, warranty, or intellectual-property claims relating to the app. Where you download the app from the Apple App Store, Apple's standard Licensed Application End User License Agreement also applies to your use of the app, and Apple and its subsidiaries are third-party beneficiaries of this section with the right to enforce it.
+You can delete your account in the app or request deletion by email without installing it. Account deletion is permanent. Deleting a photo does not automatically delete an analysis based on it. Provider records and lawful retention exceptions are explained in the [deletion procedure](/v2/delete-account).
 
-## 10. Data and Privacy
+## 9. Restrictions, changes and ending the service
 
-Your data is stored and processed on servers located in Germany (Frankfurt region). AI analyses that you request are processed by our AI provider in the United States. See the [Privacy Policy](privacy-policy) for details.
+We may restrict access when reasonably necessary for a material breach, security, abuse prevention or compliance with law. Where practical and lawful, we explain the reason and provide a way to contact us to challenge or resolve it.
 
-## 11. Termination
+If we discontinue the service or materially reduce paid functionality, we provide reasonable notice where possible so you can retrieve content and manage your subscription. Refunds and other remedies remain governed by applicable law and store conditions; a suspension does not automatically eliminate statutory rights.
 
-We may suspend or terminate access to the application if these Terms are violated; in that case no refund is due except where required by law.
+We will notify you of material changes to these Terms before they take effect, state the effective date and obtain any legally required agreement. You may stop using the service, cancel renewal and request deletion if you do not accept the change.
 
-If we discontinue the service or materially reduce paid features, we will give reasonable advance notice in the app or by email so you can cancel your subscription and export or download your content; where required by law, you may be entitled to a pro-rated refund from the store.
+## 10. Responsibility and mandatory rights
 
-You may stop using the application at any time and may delete your account in the app (see the [account deletion page](delete-account)). Account deletion permanently removes your content.
+We aim to provide a reliable service, but do not promise uninterrupted access, error-free AI or suitability for medical decisions. You remain responsible for your use of observations.
 
-## 12. Changes to These Terms
+To the extent law permits, we exclude implied warranties beyond those required by law and liability for losses that were not reasonably foreseeable. **Nothing excludes liability for fraud, intent, gross negligence, death or personal injury caused by negligence, or any liability or consumer right that cannot lawfully be excluded.** Mandatory remedies for faulty digital services remain available.
 
-We may update these Terms from time to time. For material changes we will notify you in the app or by email before they take effect, stating the effective date; if you do not agree, stop using the app and cancel any subscription before that date. Non-material changes take effect when published on this page.
+## 11. Law and contact
 
-## 13. Disclaimer and Limitation of Liability
+Serbian law governs these Terms, without depriving consumers of mandatory protections or courts available under the law of their residence. No mandatory arbitration or class-action waiver is imposed by these Terms. If a provision is unenforceable, the remaining provisions continue to the extent permitted by law.
 
-The application is provided "as is", and to the extent permitted by applicable law we disclaim warranties of any kind and are not liable for damages or losses arising from use of the application, including decisions made based on AI observations.
+For support, privacy or legal enquiries: **morphtrack.app@gmail.com**.
 
-**Nothing in these Terms excludes or limits** liability for death or personal injury caused by negligence, for intent or gross negligence, or any other liability that cannot be excluded or limited under applicable law. If you are a consumer, you retain all statutory rights (including legal guarantees for digital content) granted by the mandatory law of your country of residence, and nothing in these Terms deprives you of them.
-
-If any provision of these Terms is found invalid or unenforceable, the remaining provisions remain in full force.
-
-## 14. Governing Law
-
-These Terms are governed by the laws of the Republic of Serbia. If you are a consumer, you additionally benefit from any mandatory consumer-protection provisions of the law of the country where you reside, and disputes may be brought before the courts of that country where the law so provides.
-
-## 15. Contact
-
-For support or questions:
-
-morphtrack.app@gmail.com
+[Privacy Policy](/v2/privacy-policy) · [Health data policy](/v2/consumer-health-data) · [Deletion](/v2/delete-account)

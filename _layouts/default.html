@@ -81,6 +81,9 @@
       color:var(--muted); }
     footer{ margin-top:56px; padding-top:20px; border-top:1px solid var(--border);
       color:var(--muted); font-size:13px; }
+    .legal-nav{ display:flex; flex-wrap:wrap; gap:8px 18px; margin-bottom:16px; }
+    .archive-notice{ padding:16px; border-left:3px solid var(--accent);
+      background:var(--surface); margin-bottom:24px; }
   </style>
 </head>
 <body>
@@ -89,8 +92,28 @@
          morphtrack.github.io, which 301s here — an off-domain hop on every
          legal page, and a link to a hostname we do not want indexed. -->
     <a class="brand" href="{% if page.lang == 'ru' %}/v2/ru/support{% else %}/v2/support{% endif %}"><b>Morph</b>Track</a>
+    {% if page.archived %}
+    <p class="archive-notice" role="note">{% if page.lang == 'ru' %}Архив прежней опубликованной редакции. Описание сервиса могло измениться. <a href="{{ page.current_url }}">Открыть актуальный документ</a>.{% else %}Archive of a previously published revision. The service description may have changed. <a href="{{ page.current_url }}">Read the current document</a>.{% endif %}</p>
+    {% endif %}
     {{ content }}
-    <footer>© MorphTrack · Raisat Ramazanova · <a href="mailto:morphtrack.app@gmail.com">morphtrack.app@gmail.com</a></footer>
+    <footer>
+      <nav class="legal-nav" aria-label="{% if page.lang == 'ru' %}Правовые документы{% else %}Legal documents{% endif %}">
+        {% if page.lang == 'ru' %}
+        <a href="/v2/ru/privacy-policy">Конфиденциальность</a>
+        <a href="/v2/ru/terms">Условия</a>
+        <a href="/v2/ru/consumer-health-data">Политика данных о здоровье</a>
+        <a href="/v2/ru/delete-account">Удаление аккаунта и данных</a>
+        <a href="/archive/">Архив документов</a>
+        {% else %}
+        <a href="/v2/privacy-policy">Privacy Policy</a>
+        <a href="/v2/terms">Terms</a>
+        <a href="/v2/consumer-health-data">Consumer Health Data Privacy Policy</a>
+        <a href="/v2/delete-account">Delete account and data</a>
+        <a href="/archive/">Document archive</a>
+        {% endif %}
+      </nav>
+      © MorphTrack · Raisat Ramazanova · <a href="mailto:morphtrack.app@gmail.com">morphtrack.app@gmail.com</a>
+    </footer>
   </div>
 </body>
 </html>
