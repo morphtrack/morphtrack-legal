@@ -7,7 +7,7 @@ lang: en
 
 _Updated: 19 October 2026_
 
-[Русская версия](/v2/ru/privacy-policy) · [Health data policy](/v2/consumer-health-data) · [Deletion](/v2/delete-account)
+[Русская версия](https://www.morphtrack.app/v2/ru/privacy-policy) · [Health data policy](https://www.morphtrack.app/v2/consumer-health-data) · [Deletion](https://www.morphtrack.app/v2/delete-account)
 
 This update clarifies processing, recipients and deletion options. It does not constitute consent to new processing purposes.
 
@@ -15,7 +15,7 @@ This update clarifies processing, recipients and deletion options. It does not c
 
 **Raisat Ramazanova, an individual developer based in Serbia**, operates MorphTrack (also called Morph). MorphTrack is a trade name, not a separate legal entity. Contact: **[morphtrack.app@gmail.com](mailto:morphtrack.app@gmail.com)**.
 
-This policy covers the app and website. Our separate [Consumer Health Data Privacy Policy](/v2/consumer-health-data) explains health-related information.
+This policy covers the app and website. Our separate [Consumer Health Data Privacy Policy](https://www.morphtrack.app/v2/consumer-health-data) explains health-related information.
 
 ## 2. Information we handle
 
@@ -78,7 +78,7 @@ Processing may occur outside your country, including in Serbia through operation
 - **Transactional emails:** Resend publishes default 30-day email/log retention, with separate backup/legal exceptions; see its [security information](https://resend.com/security).
 - **Support and legal records:** while needed to resolve the request and for applicable legal obligations or claims. We limit retained records to that purpose, rather than keeping the whole journal.
 
-We do not promise instant disappearance of every residual/provider copy or an unverified fixed backup lifetime. For an applicable deletion request, we identify relevant copies, instruct recipients where required, and explain lawful exceptions and deadlines. See the [deletion procedure](/v2/delete-account).
+We do not promise instant disappearance of every residual/provider copy or an unverified fixed backup lifetime. For an applicable deletion request, we identify relevant copies, instruct recipients where required, and explain lawful exceptions and deadlines. See the [deletion procedure](https://www.morphtrack.app/v2/delete-account).
 
 ## 8. Security
 
@@ -90,9 +90,9 @@ You can edit profile details, delete content, disable future AI sharing, or dele
 
 We verify identity proportionately, preferably through an authenticated account or verified control of its email. We do not require a new account, payment, your password or unnecessary health information. An authorised representative may contact us; we may verify their authority.
 
-Under GDPR, we respond within one month, with a lawful extension explained within that month. Under applicable US consumer-health rules, the usual response period is 45 days; shorter deletion deadlines can apply. See the [health policy](/v2/consumer-health-data). We explain refusals and review appeals sent with subject **Privacy appeal**, within 45 days or an earlier applicable deadline.
+Under GDPR, we respond within one month, with a lawful extension explained within that month. Under applicable US consumer-health rules, the usual response period is 45 days; shorter deletion deadlines can apply. See the [health policy](https://www.morphtrack.app/v2/consumer-health-data). We explain refusals and review appeals sent with subject **Privacy appeal**, within 45 days or an earlier applicable deadline.
 
-You may complain to the authority competent under the law that applies to your case: for example, Serbia's Commissioner under Serbian data-protection law, the competent supervisory authority under EEA/UK law, or a state's Attorney General where that US state's law applies. US complaint channels are not intended as universal destinations for all users. Complaining is optional, and our internal appeal does not limit statutory complaint rights. The [Health Data Policy](/v2/consumer-health-data) provides further details. We do not discriminate for exercising privacy rights.
+You may complain to the authority competent under the law that applies to your case: for example, Serbia's Commissioner under Serbian data-protection law, the competent supervisory authority under EEA/UK law, or a state's Attorney General where that US state's law applies. US complaint channels are not intended as universal destinations for all users. Complaining is optional, and our internal appeal does not limit statutory complaint rights. The [Health Data Policy](https://www.morphtrack.app/v2/consumer-health-data) provides further details. We do not discriminate for exercising privacy rights.
 
 ## 10. Age and changes
 
@@ -100,4 +100,4 @@ MorphTrack is intended for adults **18 and over**. Contact us if you believe we 
 
 We communicate material changes through an appropriate notice, such as in the app or by email. New consent-required purposes require new consent; changing this document does not itself provide it.
 
-[Terms](/v2/terms) · [Health data policy](/v2/consumer-health-data) · [Account and data deletion](/v2/delete-account)
+[Terms](https://www.morphtrack.app/v2/terms) · [Health data policy](https://www.morphtrack.app/v2/consumer-health-data) · [Account and data deletion](https://www.morphtrack.app/v2/delete-account)

@@ -4,7 +4,7 @@ lang: en
 noindex: true
 ---
 
-> **Superseded.** This is the archived version of the Privacy Policy for the earlier release of the app, kept for reference. The document in force is at [/v2/privacy-policy](/v2/privacy-policy).
+> **Superseded.** This is the archived version of the Privacy Policy for the earlier release of the app, kept for reference. The document in force is at [/v2/privacy-policy](https://www.morphtrack.app/v2/privacy-policy).
 
 # Privacy Policy
 

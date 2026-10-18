@@ -7,7 +7,7 @@ lang: en
 
 _Updated: 19 October 2026_
 
-[Русская версия](/v2/ru/delete-account)
+[Русская версия](https://www.morphtrack.app/v2/ru/delete-account)
 
 **Deleting an account is permanent. Deleting the app alone does not delete your account or cancel a subscription.**
 
@@ -40,7 +40,7 @@ After verification, we explain the scope, handle deletion and confirm the outcom
 
 ## Timing and exceptions
 
-We act without undue delay. For requests governed by GDPR, the response period is one month; a permitted extension is explained within that month. Applicable US health-data periods differ: Washington ordinarily requires a response within 45 days of receipt; Nevada requires deletion and recipient notification within 30 days of authentication. See the [Health Data Policy](/v2/consumer-health-data) for response and appeal details.
+We act without undue delay. For requests governed by GDPR, the response period is one month; a permitted extension is explained within that month. Applicable US health-data periods differ: Washington ordinarily requires a response within 45 days of receipt; Nevada requires deletion and recipient notification within 30 days of authentication. See the [Health Data Policy](https://www.morphtrack.app/v2/consumer-health-data) for response and appeal details.
 
 A response deadline is not a blanket licence to keep data until that date. We instruct relevant processors/recipients where required. Our central application logs have a configured 30-day retention period. Providers may retain restricted security or legally required records; we explain relevant exceptions. We do not promise a universal backup period or instant removal of every copy.
 
@@ -52,6 +52,6 @@ Manage cancellation in [Apple subscriptions](https://apps.apple.com/account/subs
 
 ## Questions or refusal
 
-Contact **morphtrack.app@gmail.com** for status or to clarify a request. If we refuse it, we explain why. Reply with **Privacy appeal** for review; the [Health Data Policy](/v2/consumer-health-data) explains the appeal process and complaint channels.
+Contact **morphtrack.app@gmail.com** for status or to clarify a request. If we refuse it, we explain why. Reply with **Privacy appeal** for review; the [Health Data Policy](https://www.morphtrack.app/v2/consumer-health-data) explains the appeal process and complaint channels.
 
-[Privacy Policy](/v2/privacy-policy) · [Health data policy](/v2/consumer-health-data) · [Terms](/v2/terms)
+[Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) · [Health data policy](https://www.morphtrack.app/v2/consumer-health-data) · [Terms](https://www.morphtrack.app/v2/terms)

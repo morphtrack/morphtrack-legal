@@ -13,12 +13,12 @@ These are previous published versions, kept so you can review the information an
 
 ## Before the update of 19 October 2026 / До обновления 19 октября 2026
 
-- Privacy Policy, updated 18 August 2026: [English](/archive/before-2026-10-19/privacy-policy) · [Русский](/archive/before-2026-10-19/ru/privacy-policy).
-- Terms of Use, updated 28 July 2026: [English](/archive/before-2026-10-19/terms) · [Русский](/archive/before-2026-10-19/ru/terms).
+- Privacy Policy, updated 18 August 2026: [English](https://www.morphtrack.app/archive/before-2026-10-19/privacy-policy) · [Русский](https://www.morphtrack.app/archive/before-2026-10-19/ru/privacy-policy).
+- Terms of Use, updated 28 July 2026: [English](https://www.morphtrack.app/archive/before-2026-10-19/terms) · [Русский](https://www.morphtrack.app/archive/before-2026-10-19/ru/terms).
 
 ## Earlier app release / Ранняя версия приложения
 
-- [Privacy Policy — 14 May 2026](/v1/privacy-policy).
-- [Terms of Use — 14 May 2026](/v1/terms).
+- [Privacy Policy — 14 May 2026](https://www.morphtrack.app/v1/privacy-policy).
+- [Terms of Use — 14 May 2026](https://www.morphtrack.app/v1/terms).
 
-For deletion, use the current instructions: [English](/v2/delete-account) · [Русский](/v2/ru/delete-account).
+For deletion, use the current instructions: [English](https://www.morphtrack.app/v2/delete-account) · [Русский](https://www.morphtrack.app/v2/ru/delete-account).

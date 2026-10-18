@@ -10,7 +10,7 @@ current_url: /v2/privacy-policy
 
 _Last updated: 2026-08-18_
 
-Читать по-русски: [Политика конфиденциальности](/archive/before-2026-10-19/ru/privacy-policy)
+Читать по-русски: [Политика конфиденциальности](https://www.morphtrack.app/archive/before-2026-10-19/ru/privacy-policy)
 
 This Privacy Policy describes how Morph (also referred to as MorphTrack, "we", "us", "the app") collects, uses, and protects your information when you use the app.
 
@@ -94,7 +94,7 @@ Your optional profile details (age, gender, skin type, and similar) and your ema
 
 Our AI provider is **OpenAI** (USA), acting as our data processor. Under OpenAI's API terms, data submitted through the API is not used to train their models. Analysis results are stored in your account until you delete the analysis, delete the tracker it belongs to (its analyses are erased together with the tracker, see section 11), or delete your account. Deleting individual photos does not automatically delete analyses that referenced them — you can delete each analysis separately in the app.
 
-AI analyses are generated only at your request, are informational observations only, and are not used to make any automated decision about you that produces legal or similarly significant effects. They can be incomplete or wrong, and they are not medical advice (see the [Terms of Use](/archive/before-2026-10-19/terms)).
+AI analyses are generated only at your request, are informational observations only, and are not used to make any automated decision about you that produces legal or similarly significant effects. They can be incomplete or wrong, and they are not medical advice (see the [Terms of Use](https://www.morphtrack.app/archive/before-2026-10-19/terms)).
 
 ## 6. Legal basis for processing
 
@@ -152,7 +152,7 @@ You may also delete your entire account from within the app (Profile → Delete 
 
 Deleting your account does **not** cancel an active store subscription — manage subscriptions in your Apple or Google account settings.
 
-See also: [account deletion details](/v2/delete-account) — including how to request deletion by email, without the app.
+See also: [account deletion details](https://www.morphtrack.app/v2/delete-account) — including how to request deletion by email, without the app.
 
 ## 13. Your rights
 

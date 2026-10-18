@@ -7,11 +7,11 @@ lang: en
 
 _Updated: 19 October 2026_
 
-[Русская версия](/v2/ru/consumer-health-data)
+[Русская версия](https://www.morphtrack.app/v2/ru/consumer-health-data)
 
 **Operator:** Raisat Ramazanova, an individual developer based in Serbia. **Contact:** [morphtrack.app@gmail.com](mailto:morphtrack.app@gmail.com).
 
-This separate notice supplements our [Privacy Policy](/v2/privacy-policy). Health-related information can be protected even when an app is not a medical service.
+This separate notice supplements our [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy). Health-related information can be protected even when an app is not a medical service.
 
 ## What data, from which sources, and why
 
@@ -44,7 +44,7 @@ Email **morphtrack.app@gmail.com**, subject **Privacy request**, to request conf
 
 We verify identity proportionately through existing account access or verified control of its email, without requesting your password or unnecessary health details. An authorised representative may submit a request, subject to verification of authority. We do not discriminate for exercising these rights.
 
-You can edit your profile/notes and delete content in the app. Report an inaccurate AI observation or delete it; we cannot guarantee that every generated statement can be edited in place. To remove the whole account, use **More → Profile → Delete account**. Deleting a photo alone does not remove associated AI results. See the [deletion procedure](/v2/delete-account).
+You can edit your profile/notes and delete content in the app. Report an inaccurate AI observation or delete it; we cannot guarantee that every generated statement can be edited in place. To remove the whole account, use **More → Profile → Delete account**. Deleting a photo alone does not remove associated AI results. See the [deletion procedure](https://www.morphtrack.app/v2/delete-account).
 
 ## Response times and retained copies
 
@@ -69,4 +69,4 @@ Residence is not always the only test of coverage. For example, Washington's hea
 
 We notify you of material changes and identify their effective date. New categories or purposes are disclosed, and any required consent obtained, before the new processing begins. The revision date alone does not authorise new processing.
 
-[Privacy Policy](/v2/privacy-policy) · [Terms](/v2/terms) · [Account and data deletion](/v2/delete-account)
+[Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) · [Terms](https://www.morphtrack.app/v2/terms) · [Account and data deletion](https://www.morphtrack.app/v2/delete-account)

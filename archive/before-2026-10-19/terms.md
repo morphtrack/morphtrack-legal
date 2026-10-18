@@ -10,7 +10,7 @@ current_url: /v2/terms
 
 _Last updated: 2026-07-28_
 
-Читать по-русски: [Условия использования](/archive/before-2026-10-19/ru/terms)
+Читать по-русски: [Условия использования](https://www.morphtrack.app/archive/before-2026-10-19/ru/terms)
 
 ## 1. Who we are and acceptance of these Terms
 
@@ -79,7 +79,7 @@ Purchases and app distribution are provided by Apple or Google. These Terms are 
 
 ## 10. Data and Privacy
 
-Your data is stored and processed on servers located in Germany (Frankfurt region). AI analyses that you request are processed by our AI provider in the United States. See the [Privacy Policy](/archive/before-2026-10-19/privacy-policy) for details.
+Your data is stored and processed on servers located in Germany (Frankfurt region). AI analyses that you request are processed by our AI provider in the United States. See the [Privacy Policy](https://www.morphtrack.app/archive/before-2026-10-19/privacy-policy) for details.
 
 ## 11. Termination
 
@@ -87,7 +87,7 @@ We may suspend or terminate access to the application if these Terms are violate
 
 If we discontinue the service or materially reduce paid features, we will give reasonable advance notice in the app or by email so you can cancel your subscription and export or download your content; where required by law, you may be entitled to a pro-rated refund from the store.
 
-You may stop using the application at any time and may delete your account in the app (see the [account deletion page](/v2/delete-account)). Account deletion permanently removes your content.
+You may stop using the application at any time and may delete your account in the app (see the [account deletion page](https://www.morphtrack.app/v2/delete-account)). Account deletion permanently removes your content.
 
 ## 12. Changes to These Terms
 

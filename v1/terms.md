@@ -4,7 +4,7 @@ lang: en
 noindex: true
 ---
 
-> **Superseded.** This is the archived version of the Terms of Use for the earlier release of the app, kept for reference. The document in force is at [/v2/terms](/v2/terms).
+> **Superseded.** This is the archived version of the Terms of Use for the earlier release of the app, kept for reference. The document in force is at [/v2/terms](https://www.morphtrack.app/v2/terms).
 
 # Terms of Service
 

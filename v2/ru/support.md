@@ -5,7 +5,7 @@ lang: ru
 
 # Morph — Поддержка
 
-Read in English: [Support](../support)
+Read in English: [Support](https://www.morphtrack.app/v2/support)
 
 **Morph (MorphTrack)** — трекер изменений кожи и тела по фотографиям с ИИ-наблюдениями по запросу.
 
@@ -17,9 +17,9 @@ Read in English: [Support](../support)
 
 ## Полезные ссылки
 
-- [Политика конфиденциальности](privacy-policy)
-- [Условия использования](terms)
-- [Удаление аккаунта и данных](delete-account)
+- [Политика конфиденциальности](https://www.morphtrack.app/v2/ru/privacy-policy)
+- [Условия использования](https://www.morphtrack.app/v2/ru/terms)
+- [Удаление аккаунта и данных](https://www.morphtrack.app/v2/ru/delete-account)
 
 ## Частые вопросы
 
@@ -27,4 +27,4 @@ Read in English: [Support](../support)
 
 **Как управлять подпиской или отменить её?** Подписками управляет стор, в котором вы их купили: App Store — Настройки → Apple ID → Подписки; Google Play — Play Маркет → Профиль → Платежи и подписки. Удаление приложения или аккаунта не отменяет подписку.
 
-**Как удалить аккаунт?** В приложении: Ещё → Профиль → Удалить аккаунт. Подробнее: [удаление аккаунта](delete-account).
+**Как удалить аккаунт?** В приложении: Ещё → Профиль → Удалить аккаунт. Подробнее: [удаление аккаунта](https://www.morphtrack.app/v2/ru/delete-account).

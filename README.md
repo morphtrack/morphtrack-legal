@@ -37,7 +37,7 @@ Run these after editing `src/page.html` or the generator. The CSP hashes must ma
 
 1. Check the wording against the deployed service and applicable requirements. A policy update does not deploy features, obtain consent, prove legal compliance or notify existing account holders by itself.
 2. Update both languages and the actual publication/update date. Preserve the prior published Privacy Policy and Terms in `archive/`, retaining their original dates and marking them `noindex`.
-3. Keep all existing legal URLs working. Link new pages from both landing-page footers and the legal layout. Only current canonical pages belong in `sitemap.xml`.
+3. Keep all existing legal URLs working. In public Markdown documents, use full `https://www.morphtrack.app/...` links so they also work in GitHub's file preview; extensionless relative links are interpreted as missing repository files. Link new pages from both landing-page footers and the legal layout. Only current canonical pages belong in `sitemap.xml`.
 4. Check internal links, layout, generated pages and the Git diff. Commit only publication files; do not add local `_drafts/` material.
 5. Push `main`, wait for the GitHub Pages build to succeed, then check the live pages, both languages, archive links and old redirects. Confirm that source/build files return 404.
 

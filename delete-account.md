@@ -7,8 +7,7 @@ redirect_to: /v2/delete-account
 # Delete Account
 
 This page has moved. The current instructions are at
-[/v2/delete-account](/v2/delete-account).
+[/v2/delete-account](https://www.morphtrack.app/v2/delete-account).
 
-The version that used to live here told you to open Profile and tap Delete
-account. The control has since moved, so following it would send you looking in
-the wrong place; it is archived at [/v1/delete-account](/v1/delete-account).
+The earlier address [/v1/delete-account](https://www.morphtrack.app/v1/delete-account) also redirects to
+the current instructions.

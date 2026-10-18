@@ -7,15 +7,15 @@ lang: en
 
 _Updated: 19 October 2026_
 
-[Русская версия](/v2/ru/terms)
+[Русская версия](https://www.morphtrack.app/v2/ru/terms)
 
-This revision was published on 19 October 2026. For existing accounts, changes requiring advance notice or renewed agreement apply only after those requirements have been met. Publication alone does not replace them. [Previous Terms](/archive/before-2026-10-19/terms).
+This revision was published on 19 October 2026. For existing accounts, changes requiring advance notice or renewed agreement apply only after those requirements have been met. Publication alone does not replace them. [Previous Terms](https://www.morphtrack.app/archive/before-2026-10-19/terms).
 
 ## 1. Operator and agreement
 
 MorphTrack (Morph) is operated by **Raisat Ramazanova, an individual developer based in Serbia**. Contact: **[morphtrack.app@gmail.com](mailto:morphtrack.app@gmail.com)**. MorphTrack is a trade name, not a separate company.
 
-These Terms govern your use of the service. If you do not agree, do not create an account or use it. Acceptance of these Terms is not consent to optional processing of health data; privacy choices are explained in the [Privacy Policy](/v2/privacy-policy) and [Health Data Policy](/v2/consumer-health-data).
+These Terms govern your use of the service. If you do not agree, do not create an account or use it. Acceptance of these Terms is not consent to optional processing of health data; privacy choices are explained in the [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) and [Health Data Policy](https://www.morphtrack.app/v2/consumer-health-data).
 
 ## 2. Adults and accounts
 
@@ -66,9 +66,9 @@ Where offered, subscriptions renew automatically. The store purchase screen show
 
 ## 8. Privacy and deletion
 
-Our [Privacy Policy](/v2/privacy-policy) and [Health Data Policy](/v2/consumer-health-data) explain processing, providers, locations, retention and choices. Core app storage is in Germany; some processing occurs elsewhere.
+Our [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) and [Health Data Policy](https://www.morphtrack.app/v2/consumer-health-data) explain processing, providers, locations, retention and choices. Core app storage is in Germany; some processing occurs elsewhere.
 
-You can delete your account in the app or request deletion by email without installing it. Account deletion is permanent. Deleting a photo does not automatically delete an analysis based on it. Provider records and lawful retention exceptions are explained in the [deletion procedure](/v2/delete-account).
+You can delete your account in the app or request deletion by email without installing it. Account deletion is permanent. Deleting a photo does not automatically delete an analysis based on it. Provider records and lawful retention exceptions are explained in the [deletion procedure](https://www.morphtrack.app/v2/delete-account).
 
 ## 9. Restrictions, changes and ending the service
 
@@ -90,4 +90,4 @@ Serbian law governs these Terms, without depriving consumers of mandatory protec
 
 For support, privacy or legal enquiries: **morphtrack.app@gmail.com**.
 
-[Privacy Policy](/v2/privacy-policy) · [Health data policy](/v2/consumer-health-data) · [Deletion](/v2/delete-account)
+[Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) · [Health data policy](https://www.morphtrack.app/v2/consumer-health-data) · [Deletion](https://www.morphtrack.app/v2/delete-account)
