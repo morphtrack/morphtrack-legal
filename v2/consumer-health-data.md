@@ -5,7 +5,7 @@ lang: en
 
 # Consumer Health Data Privacy Policy
 
-_Updated: 19 October 2026_
+_Updated: 30 October 2026_
 
 [Русская версия](https://www.morphtrack.app/v2/ru/consumer-health-data)
 
@@ -24,6 +24,8 @@ We use this information to store and display your private journal, compare selec
 ## Who receives it and for what purpose
 
 - **DigitalOcean** hosts journal content and account records in Frankfurt, Germany.
+- **Cloudflare** delivers and protects the API, processing requests and their contents, including journal data sent through the API. Processing may occur outside Germany.
+- **GitHub Actions** processes database records for backup/recovery and stores encrypted backups in a private repository with a configured 30-day retention period. These can contain health-related journal text and AI results, but not original photo files. Processing may occur outside Germany.
 - **OpenAI** receives selected photos, dates, tracker/factor context and opted-in notes to generate an analysis you request.
 - **Google/Gmail** processes information you include in support correspondence.
 - **Authorised service personnel** access only what is needed for support, operation, security or legal compliance. Limited disclosure may also be required by law or for legal claims.
@@ -34,9 +36,9 @@ We do not sell consumer health data or use it for advertising or model training.
 
 ## Your consent and controls
 
-Collection or sharing must have the consent or other specific basis required by applicable law. An exception for processing necessary to provide a requested service, where available, does not authorise unrelated purposes or replace explicit consent required elsewhere. **This policy and acceptance of Terms are not a substitute for a separate required consent.** The current in-app consent setting covers optional AI sharing; it is not a general consent for all health-data processing.
+Collection or sharing must have the consent or other specific basis required by applicable law. An exception for processing necessary to provide a requested service, where available, does not authorise unrelated purposes or replace explicit consent required elsewhere. **This policy and acceptance of Terms are not a substitute for a separate required consent.** The journal-permission screen in the updated app explains the photos, dates, notes, trackers, factors and optional profile information we process to provide your private journal, and identifies the service providers involved. Continuing records your affirmative journal permission. A separate, initially unchecked choice on the same screen controls optional sharing with OpenAI; you can use the journal without selecting it. These choices are recorded against your account, with the disclosure version and date. Older app versions may not show the journal-permission control; update the app or contact us to exercise these choices.
 
-AI sharing is optional. Disable future sharing in **More → About → AI and your data**. You can also contact us to withdraw consent or stop particular processing. Withdrawal does not undo earlier lawful processing or erase previously saved results; you can request their deletion too.
+AI sharing is optional. Review or withdraw journal permission and future AI sharing in **More → About → AI and your data**. Withdrawing journal permission also stops new AI requests. New journal entries and changes that require this permission are blocked; reading and deleting existing content remain available. Withdrawal does not cancel a store subscription. You can also contact us to withdraw consent or stop particular processing. Withdrawal does not undo earlier lawful processing or erase previously saved results; you can request their deletion too.
 
 ## Access, correction and deletion
 
