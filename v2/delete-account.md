@@ -5,7 +5,7 @@ lang: en
 
 # Account and data deletion
 
-_Updated: 19 October 2026_
+_Updated: 30 October 2026_
 
 [Русская версия](https://www.morphtrack.app/v2/ru/delete-account)
 
@@ -45,6 +45,8 @@ We act without undue delay. For requests governed by GDPR, the response period i
 A response deadline is not a blanket licence to keep data until that date. We instruct relevant processors/recipients where required. Our central application logs have a configured 30-day retention period. Providers may retain restricted security or legally required records; we explain relevant exceptions. We do not promise a universal backup period or instant removal of every copy.
 
 If backup copies are retained under a lawful exception, their use must be restricted and deletions reapplied before restored data returns to ordinary service. Files you exported, screenshots, your device backups and copies you shared elsewhere are outside our account-deletion process. Apple/Google may retain their own purchase records under their policies.
+
+Encrypted database backups are configured for 30 days. Separate encrypted deletion-recovery journal exports are configured for 90 days. The live recovery journal retains limited object/event identifiers, types and deletion/withdrawal times, without journal text, photos or email, and currently has no automatic expiry. It is kept to prevent deleted data or withdrawn permissions returning from backups, with retention reviewed for that purpose. Account deletion does not instantly remove these recovery records or existing security logs. They are restricted residual records, not a copy of your usable account. See the [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) for retention and the limits of automatic cleanup.
 
 ## Cancel a subscription separately
 
