@@ -21,14 +21,16 @@ AI observations are derived from the photos and context submitted for an analysi
 
 We use this information to store and display your private journal, compare selected photos, generate requested AI observations and answer your support requests. Necessary operational/security processing protects these features. We do not use it to determine eligibility for employment, insurance or credit.
 
+Internal product reports also use account-linked activity dates/counts and group tracker and factor names to understand feature use and plan improvements. Names can reveal health information; displaying totals does not make the source records anonymous. These queries do not inspect photo pixels or analysis text. This is a separate purpose from the journal and requested AI analysis, and those permissions do not supply consent to unrelated analytics. Contact us to object or request a restriction; any separately required consent must be obtained before that processing.
+
 ## Who receives it and for what purpose
 
 - **DigitalOcean** hosts journal content and account records in Frankfurt, Germany.
 - **Cloudflare** delivers and protects the API, processing requests and their contents, including journal data sent through the API. Processing may occur outside Germany.
-- **GitHub Actions** processes database records for backup/recovery and stores encrypted backups in a private repository with a configured 30-day retention period. These can contain health-related journal text and AI results, but not original photo files. Processing may occur outside Germany.
+- **GitHub Actions** processes database records for backup/recovery and stores encrypted database backups as private artifacts with a configured 30-day retention period. Separate encrypted deletion-recovery journal exports are retained for 90 days and contain limited identifiers, object types and deletion/withdrawal times, rather than journal text or photo files. The live recovery journal currently has no automatic expiry; its limited purpose and retention review are described in the general Privacy Policy. The database backups can contain health-related journal text and AI results, but not original photo files. Processing may occur outside Germany.
 - **OpenAI** receives selected photos, dates, tracker/factor context and opted-in notes to generate an analysis you request.
 - **Google/Gmail** processes information you include in support correspondence.
-- **Authorised service personnel** access only what is needed for support, operation, security or legal compliance. Limited disclosure may also be required by law or for legal claims.
+- **Authorised service personnel** have restricted access for support, operation, security, the product statistics described above or legal compliance. Limited disclosure may also be required by law or for legal claims.
 
 We do not share consumer health data with affiliated companies. Payment/sign-in providers and Resend receive information necessary for those functions, not journal content through those functions. Website hosting/analytics is described in the general Privacy Policy.
 
