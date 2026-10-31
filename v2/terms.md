@@ -5,11 +5,11 @@ lang: en
 
 # Terms of Use
 
-_Updated: 19 October 2026_
+_Updated: 31 October 2026_
 
 [Русская версия](https://www.morphtrack.app/v2/ru/terms)
 
-This revision was published on 19 October 2026. For existing accounts, changes requiring advance notice or renewed agreement apply only after those requirements have been met. Publication alone does not replace them. [Previous Terms](https://www.morphtrack.app/archive/before-2026-10-19/terms).
+The 31 October 2026 update adds a clarification about the server-side product statistics described in our Privacy Policy; it does not create consent to optional processing. For existing accounts, changes requiring advance notice or renewed agreement apply only after those requirements have been met. Publication alone does not replace them. [Previous Terms](https://www.morphtrack.app/archive/before-2026-10-31/terms).
 
 ## 1. Operator and agreement
 
@@ -67,6 +67,8 @@ Where offered, subscriptions renew automatically. The store purchase screen show
 ## 8. Privacy and deletion
 
 Our [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) and [Health Data Policy](https://www.morphtrack.app/v2/consumer-health-data) explain processing, providers, locations, retention and choices. Core app storage is in Germany; some processing occurs elsewhere.
+
+To improve the app, internal statistics use account-linked activity, dates, counts and statuses of photos, trackers, factors, analyses and subscriptions, including tracker and factor names.
 
 You can delete your account in the app or request deletion by email without installing it. Account deletion is permanent. Deleting a photo does not automatically delete an analysis based on it. Provider records and lawful retention exceptions are explained in the [deletion procedure](https://www.morphtrack.app/v2/delete-account).
 
