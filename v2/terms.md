@@ -5,11 +5,13 @@ lang: en
 
 # Terms of Use
 
-_Updated: 31 October 2026_
+_Updated: 5 November 2026_
+
+Mobile consent disclosure identifier: **2026-11-04**.
 
 [Русская версия](https://www.morphtrack.app/v2/ru/terms)
 
-The 31 October 2026 update adds a clarification about the server-side product statistics described in our Privacy Policy; it does not create consent to optional processing. For existing accounts, changes requiring advance notice or renewed agreement apply only after those requirements have been met. Publication alone does not replace them. [Previous Terms](https://www.morphtrack.app/archive/before-2026-10-31/terms).
+The 5 November 2026 update explains the separate optional product-statistics choice. Acceptance of Terms does not grant that permission. For existing accounts, changes requiring notice or renewed agreement apply only after those requirements are met. [Previous Terms](https://www.morphtrack.app/archive/before-2026-11-05/terms).
 
 ## 1. Operator and agreement
 
@@ -68,7 +70,7 @@ Where offered, subscriptions renew automatically. The store purchase screen show
 
 Our [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) and [Health Data Policy](https://www.morphtrack.app/v2/consumer-health-data) explain processing, providers, locations, retention and choices. Core app storage is in Germany; some processing occurs elsewhere.
 
-To improve the app, internal statistics use account-linked activity, dates, counts and statuses of photos, trackers, factors, analyses and subscriptions, including tracker and factor names.
+With a separate optional permission, internal statistics use account-linked activity, dates, counts and statuses of photos, trackers, factors, analyses and subscriptions, including tracker and factor names and records saved before your choice. Refusing statistics does not restrict the journal, AI or purchases. You can withdraw this permission in supported app versions or by contacting us; future calculations exclude your account. Necessary operational and security monitoring is separate.
 
 You can delete your account in the app or request deletion by email without installing it. Account deletion is permanent. Deleting a photo does not automatically delete an analysis based on it. Provider records and lawful retention exceptions are explained in the [deletion procedure](https://www.morphtrack.app/v2/delete-account).
 
@@ -93,3 +95,5 @@ Serbian law governs these Terms, without depriving consumers of mandatory protec
 For support, privacy or legal enquiries: **morphtrack.app@gmail.com**.
 
 [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) · [Health data policy](https://www.morphtrack.app/v2/consumer-health-data) · [Deletion](https://www.morphtrack.app/v2/delete-account)
+
+Operational error diagnostics in app version 2.0.9 and later are described in the [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy). They support reliability and are separate from optional product statistics; accepting these Terms does not grant the optional permissions.

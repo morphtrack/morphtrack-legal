@@ -5,7 +5,9 @@ lang: en
 
 # Consumer Health Data Privacy Policy
 
-_Updated: 30 October 2026_
+_Updated: 5 November 2026_
+
+Mobile consent disclosure identifier: **2026-11-04**.
 
 [Русская версия](https://www.morphtrack.app/v2/ru/consumer-health-data)
 
@@ -21,13 +23,15 @@ AI observations are derived from the photos and context submitted for an analysi
 
 We use this information to store and display your private journal, compare selected photos, generate requested AI observations and answer your support requests. Necessary operational/security processing protects these features. We do not use it to determine eligibility for employment, insurance or credit.
 
-Internal product reports also use account-linked activity dates/counts and group tracker and factor names to understand feature use and plan improvements. Names can reveal health information; displaying totals does not make the source records anonymous. These queries do not inspect photo pixels or analysis text. This is a separate purpose from the journal and requested AI analysis, and those permissions do not supply consent to unrelated analytics. Contact us to object or request a restriction; any separately required consent must be obtained before that processing.
+Only with your separate, optional journal-statistics permission do internal dashboards use account identifiers, recent authenticated activity, and the dates, counts, types and statuses of registrations, photos, trackers, factors, routine marks, analyses and subscriptions to evaluate active/returning use, feature adoption and subscription conversion. Reports may also group tracker and factor names, including names you enter. Those names can reveal health information. Calculations may include journal records saved before you opted in. Photo contents, notes, analysis text, optional profile details, email addresses and device details are not used in these product-statistics queries. Data is processed by the infrastructure providers described below; it is not sent to OpenAI for statistics.
+
+The source records remain account-linked even when a report displays totals. Refusing statistics does not restrict the journal, AI or purchases. Without a current explicit grant, an account is excluded from product dashboards regardless of app version. In versions with this control, turn off statistics in **More → About → AI and your data**, or contact us. Withdrawal excludes your account from future calculations and clears the recent-activity timestamp; it does not automatically delete the underlying journal or subscription records needed for their original purposes. Withdrawing journal permission also stops AI and statistics. Necessary sign-in, payment, error and security monitoring remains separate and does not depend on this optional choice. Website analytics is separate too.
 
 ## Who receives it and for what purpose
 
-- **DigitalOcean** hosts journal content and account records in Frankfurt, Germany.
+- **DigitalOcean** hosts journal content and account records in Frankfurt, Germany, and private encrypted hourly deletion-recovery journal exports with configured retention of 90 days.
 - **Cloudflare** delivers and protects the API, processing requests and their contents, including journal data sent through the API. Processing may occur outside Germany.
-- **GitHub Actions** processes database records for backup/recovery and stores encrypted database backups as private artifacts with a configured 30-day retention period. Separate encrypted deletion-recovery journal exports are retained for 90 days and contain limited identifiers, object types and deletion/withdrawal times, rather than journal text or photo files. The live recovery journal currently has no automatic expiry; its limited purpose and retention review are described in the general Privacy Policy. The database backups can contain health-related journal text and AI results, but not original photo files. Processing may occur outside Germany.
+- **GitHub Actions** processes database records for backup/recovery and stores encrypted database backups as private artifacts with a configured 30-day retention period. Private encrypted deletion-recovery exports made by GitHub recovery jobs are retained for 90 days and contain limited identifiers, object types and deletion/withdrawal times, rather than journal text or photo files. The live recovery journal currently has no automatic expiry; its limited purpose and retention review are described in the general Privacy Policy. The database backups can contain health-related journal text and AI results, but not original photo files. Processing may occur outside Germany.
 - **OpenAI** receives selected photos, dates, tracker/factor context and opted-in notes to generate an analysis you request.
 - **Google/Gmail** processes information you include in support correspondence.
 - **Authorised service personnel** have restricted access for support, operation, security, the product statistics described above or legal compliance. Limited disclosure may also be required by law or for legal claims.
@@ -38,9 +42,9 @@ We do not sell consumer health data or use it for advertising or model training.
 
 ## Your consent and controls
 
-Collection or sharing must have the consent or other specific basis required by applicable law. An exception for processing necessary to provide a requested service, where available, does not authorise unrelated purposes or replace explicit consent required elsewhere. **This policy and acceptance of Terms are not a substitute for a separate required consent.** The journal-permission screen in the updated app explains the photos, dates, notes, trackers, factors and optional profile information we process to provide your private journal, and identifies the service providers involved. Continuing records your affirmative journal permission. A separate, initially unchecked choice on the same screen controls optional sharing with OpenAI; you can use the journal without selecting it. These choices are recorded against your account, with the disclosure version and date. Older app versions may not show the journal-permission control; update the app or contact us to exercise these choices.
+Collection or sharing must have the consent or other specific basis required by applicable law. An exception for processing necessary to provide a requested service, where available, does not authorise unrelated purposes or replace explicit consent required elsewhere. **This policy and acceptance of Terms are not a substitute for a separate required consent.** In app versions that support the updated choices, one screen explains journal processing, optional OpenAI sharing and optional product statistics. You separately confirm that you are 18 or older and accept the Terms/acknowledge the Privacy Policy, then choose each processing permission independently. The processing choices start off; continuing records only the choices you actually make, with the disclosure version and date. AI and statistics are optional. Older app versions may not show all controls; they do not gain analytics permission automatically. Update the app or contact us to manage these choices. Once saved, account permissions apply across devices, including older versions.
 
-AI sharing is optional. Review or withdraw journal permission and future AI sharing in **More → About → AI and your data**. Withdrawing journal permission also stops new AI requests. New journal entries and changes that require this permission are blocked; reading and deleting existing content remain available. Withdrawal does not cancel a store subscription. You can also contact us to withdraw consent or stop particular processing. Withdrawal does not undo earlier lawful processing or erase previously saved results; you can request their deletion too.
+AI sharing is optional. Review or withdraw journal permission and future AI sharing in **More → About → AI and your data**. Withdrawing journal permission also stops new AI requests and product statistics. New journal entries and changes that require this permission are blocked; reading and deleting existing content remain available. Withdrawal does not cancel a store subscription. You can also contact us to withdraw consent or stop particular processing. Withdrawal does not undo earlier lawful processing or erase previously saved results; you can request their deletion too.
 
 ## Access, correction and deletion
 
@@ -74,3 +78,5 @@ Residence is not always the only test of coverage. For example, Washington's hea
 We notify you of material changes and identify their effective date. New categories or purposes are disclosed, and any required consent obtained, before the new processing begins. The revision date alone does not authorise new processing.
 
 [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) · [Terms](https://www.morphtrack.app/v2/terms) · [Account and data deletion](https://www.morphtrack.app/v2/delete-account)
+
+The coarse mobile error events described in the [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) do not include journal content, health observations or health inferences. Necessary reliability monitoring is separate from optional journal statistics.

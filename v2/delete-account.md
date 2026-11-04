@@ -5,7 +5,7 @@ lang: en
 
 # Account and data deletion
 
-_Updated: 30 October 2026_
+_Updated: 5 November 2026_
 
 [Русская версия](https://www.morphtrack.app/v2/ru/delete-account)
 
@@ -46,7 +46,7 @@ A response deadline is not a blanket licence to keep data until that date. We in
 
 If backup copies are retained under a lawful exception, their use must be restricted and deletions reapplied before restored data returns to ordinary service. Files you exported, screenshots, your device backups and copies you shared elsewhere are outside our account-deletion process. Apple/Google may retain their own purchase records under their policies.
 
-Encrypted database backups are configured for 30 days. Separate encrypted deletion-recovery journal exports are configured for 90 days. The live recovery journal retains limited object/event identifiers, types and deletion/withdrawal times, without journal text, photos or email, and currently has no automatic expiry. It is kept to prevent deleted data or withdrawn permissions returning from backups, with retention reviewed for that purpose. Account deletion does not instantly remove these recovery records or existing security logs. They are restricted residual records, not a copy of your usable account. See the [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) for retention and the limits of automatic cleanup.
+Encrypted database backups are configured for 30 days. Private encrypted deletion-recovery journal exports in DigitalOcean Spaces, and exports produced by GitHub recovery jobs, are configured for 90 days. Recovery receipts cover withdrawals of journal, AI and statistics permission so restoring a backup does not reinstate those permissions. The live recovery journal retains limited object/event identifiers, types and deletion/withdrawal times, without journal text, photos or email, and currently has no automatic expiry. It is kept to prevent deleted data or withdrawn permissions returning from backups, with retention reviewed for that purpose. Account deletion does not instantly remove these recovery records or existing security logs. They are restricted residual records, not a copy of your usable account. See the [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) for retention and the limits of automatic cleanup.
 
 ## Cancel a subscription separately
 
@@ -57,3 +57,5 @@ Manage cancellation in [Apple subscriptions](https://apps.apple.com/account/subs
 Contact **morphtrack.app@gmail.com** for status or to clarify a request. If we refuse it, we explain why. Reply with **Privacy appeal** for review; the [Health Data Policy](https://www.morphtrack.app/v2/consumer-health-data) explains the appeal process and complaint channels.
 
 [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) · [Health data policy](https://www.morphtrack.app/v2/consumer-health-data) · [Terms](https://www.morphtrack.app/v2/terms)
+
+Mobile diagnostic events do not carry your account identifier. Deleting an account does not immediately remove these limited records: pending local events expire within seven days, and central logs have a configured 30-day retention. Network/security records may follow the exceptions described in the Privacy Policy.

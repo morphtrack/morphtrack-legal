@@ -5,11 +5,13 @@ lang: en
 
 # Privacy Policy
 
-_Updated: 30 October 2026_
+_Updated: 5 November 2026_
+
+Mobile consent disclosure identifier: **2026-11-04**.
 
 [Русская версия](https://www.morphtrack.app/v2/ru/privacy-policy) · [Health data policy](https://www.morphtrack.app/v2/consumer-health-data) · [Deletion](https://www.morphtrack.app/v2/delete-account)
 
-This update describes server-side product statistics, database backups, deletion-recovery records, unfinished registration expiry and analysis-allowance records, alongside processing, recipients and deletion options. It does not constitute consent to new processing purposes.
+This update describes the separate product-statistics choice and account-wide withdrawal, alongside the existing processing, recipients and retention. Publication is not consent. [Previous revision](https://www.morphtrack.app/archive/before-2026-11-05/privacy-policy).
 
 ## 1. Who is responsible
 
@@ -33,15 +35,23 @@ This policy covers the app and website. Our separate [Consumer Health Data Priva
 
 Account and journal data provide the features you request; purchase records validate subscriptions; support messages let us answer you; limited technical records support operation, security and troubleshooting.
 
-Where GDPR or comparable rules apply, our grounds are performance of the service contract, legitimate interests in security and reliability, legal obligations, and consent for optional processing that requires it. **Health data also requires a separate permitted basis under sensitive-data rules.** Where explicit consent is required, it must cover the relevant purpose and be obtained separately. Accepting this policy or uploading a photo does not by itself establish that consent. The journal-permission screen in the updated app explains the photos, dates, notes, trackers, factors and optional profile information we process to provide your private journal, and identifies the service providers involved. Continuing records your affirmative journal permission. A separate, initially unchecked choice on the same screen controls optional sharing with OpenAI; you can use the journal without selecting it. These choices are recorded against your account, with the disclosure version and date. Older app versions may not show the journal-permission control; update the app or contact us to exercise these choices.
+Where GDPR or comparable rules apply, our grounds are performance of the service contract, legitimate interests in security and reliability, legal obligations, and consent for optional processing that requires it. **Health data also requires a separate permitted basis under sensitive-data rules.** Where explicit consent is required, it must cover the relevant purpose and be obtained separately. Accepting this policy or uploading a photo does not by itself establish that consent. In app versions that support the updated choices, one screen explains journal processing, optional OpenAI sharing and optional product statistics. You separately confirm that you are 18 or older and accept the Terms/acknowledge the Privacy Policy, then choose each processing permission independently. The processing choices start off; continuing records only the choices you actually make, with the disclosure version and date. AI and statistics are optional. Older app versions may not show all controls; they do not gain analytics permission automatically. Update the app or contact us to manage these choices. Once saved, account permissions apply across devices, including older versions.
 
 You may withdraw consent without affecting processing already lawfully carried out. A feature may stop working if it needs the data covered by withdrawal. Controls and requests are described below.
 
 ### Internal product statistics
 
-Our server records recent authenticated account activity. Internal dashboards use account identifiers and the dates, counts and status of registrations, photo uploads, trackers, routine marks, analyses and subscriptions to measure active/returning use, feature adoption and subscription conversion. Some reports also group tracker and factor names, including names you enter. Those names can reveal health information. These reports help us understand use of the product and plan improvements; they are separate from website analytics and advertising.
+Only with your separate, optional journal-statistics permission do internal dashboards use account identifiers, recent authenticated activity, and the dates, counts, types and statuses of registrations, photos, trackers, factors, routine marks, analyses and subscriptions to evaluate active/returning use, feature adoption and subscription conversion. Reports may also group tracker and factor names, including names you enter. Those names can reveal health information. Calculations may include journal records saved before you opted in. Photo contents, notes, analysis text, optional profile details, email addresses and device details are not used in these product-statistics queries. Data is processed by the infrastructure providers described below; it is not sent to OpenAI for statistics.
 
-The underlying records are linked to accounts, even when a report displays totals. These product-statistics queries do not inspect photo pixels or analysis text. Internal measurement is a separate purpose from providing your journal: the journal and AI switches do not grant consent to unrelated analytics. Where this processing requires consent, a notice alone does not provide it. To object to product measurement or request a restriction, contact us using the privacy-request procedure below.
+The source records remain account-linked even when a report displays totals. Refusing statistics does not restrict the journal, AI or purchases. Without a current explicit grant, an account is excluded from product dashboards regardless of app version. In versions with this control, turn off statistics in **More → About → AI and your data**, or contact us. Withdrawal excludes your account from future calculations and clears the recent-activity timestamp; it does not automatically delete the underlying journal or subscription records needed for their original purposes. Withdrawing journal permission also stops AI and statistics. Necessary sign-in, payment, error and security monitoring remains separate and does not depend on this optional choice. Website analytics is separate too.
+
+### Mobile error diagnostics (version 2.0.9 and later)
+
+To detect failures of sign-in, registration, purchases, email flows, photo upload and analysis, the app sends a small operational event to our API. It contains a random event identifier, a predefined failure category and reason, iOS/Android, app version/build and event time. It does not contain an account/device identifier, email, photo, journal text, receipt, token, raw error message or stack trace. These diagnostics are used to detect and troubleshoot failures, not to measure product engagement, and do not depend on optional product-statistics permission. They can be sent before sign-in.
+
+Unhandled Dart/Flutter errors are included. Where the operating system makes them available, we also receive a coarse crash/hang category: Android 11+ reports this on a later launch; iOS MetricKit may deliver it later and its timestamp represents a reporting window. No full OS diagnostic payload or memory contents are transmitted. Collection is best-effort and does not cover every failure. Expected cancellation is not reported as a failure.
+
+The app bounds and deduplicates its queue, retaining pending events for up to seven days and retrying when it can connect. Events pass through Cloudflare to our DigitalOcean-hosted API and central logs, configured for 30-day retention; a hash of the random event identifier is retained for up to seven days to prevent duplicate delivery. Network infrastructure still processes IP addresses for delivery/security; therefore we do not describe these events as anonymous. Expired local events are discarded when the app runs; deleting an account does not immediately erase dormant device or device-backup copies. Device backups follow your OS settings. Replay-prevention hashes may remain in restricted database backups under the periods below. Events are not sent to OpenAI and do not authorise a purchase or change your permissions. Apple/Google may separately process diagnostics under your platform settings.
 
 ## 4. Optional AI analysis
 
@@ -63,12 +73,12 @@ We do not sell personal or consumer health data, use journal content for adverti
 
 ## 6. Recipients and locations
 
-- **DigitalOcean:** backend, account database and private photo storage in Frankfurt, Germany.
+- **DigitalOcean:** backend, account database and private photo storage in Frankfurt, Germany; private encrypted hourly deletion-recovery journal exports with configured retention of 90 days.
 - **OpenAI:** the AI inputs/outputs above; processing may occur in the US and other provider locations.
 - **Resend:** verification and password-reset emails, including destination address and message content. Email data is stored in the US. These emails do not include journal photos or AI results.
 - **Google/Gmail:** correspondence sent to our support mailbox. Avoid medical records or unnecessary sensitive attachments.
 - **Apple and Google:** store payments and, if selected, sign-in. These functions receive transaction/sign-in information, not your photo journal.
-- **GitHub Actions:** private database backup and recovery checks. Database records (including notes, factors and saved AI results) are processed in a restricted temporary recovery environment; encrypted database backup files are retained as private GitHub Actions artifacts for up to 30 days. Separate encrypted deletion-recovery journal exports have a configured 90-day retention period; their limited contents are described below. GitHub processing may occur outside Germany. Original photo files remain in the separate DigitalOcean photo store and are not part of these database backups.
+- **GitHub Actions:** private database backup and recovery checks. Database records (including notes, factors and saved AI results) are processed in a restricted temporary recovery environment; encrypted database backup files are retained as private GitHub Actions artifacts for up to 30 days. Private encrypted deletion-recovery exports made by GitHub recovery jobs have a configured 90-day retention period; their limited contents are described below. GitHub processing may occur outside Germany. Original photo files remain in the separate DigitalOcean photo store and are not part of these database backups.
 - **Cloudflare:** API delivery and protection. Requests and their contents, including journal data transmitted through the API, pass through Cloudflare; processing may occur outside Germany. This is separate from website analytics.
 - **GitHub Pages and Cloudflare Web Analytics:** public website hosting and measurement. They can process network/browser information, visited pages and performance events. Cloudflare Web Analytics measures site traffic and performance; it is not connected to your private journal.
 
