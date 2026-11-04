@@ -5,11 +5,13 @@ lang: en
 
 # Terms of Use
 
-_Updated: 4 November 2026_
+_Updated: 5 November 2026_
+
+Mobile consent disclosure identifier: **2026-11-04**.
 
 [Русская версия](https://www.morphtrack.app/v2/ru/terms)
 
-The 4 November 2026 update explains the separate optional product-statistics choice. Acceptance of Terms does not grant that permission. For existing accounts, changes requiring notice or renewed agreement apply only after those requirements are met. [Previous Terms](https://www.morphtrack.app/archive/before-2026-11-04/terms).
+The 5 November 2026 update explains the separate optional product-statistics choice. Acceptance of Terms does not grant that permission. For existing accounts, changes requiring notice or renewed agreement apply only after those requirements are met. [Previous Terms](https://www.morphtrack.app/archive/before-2026-11-05/terms).
 
 ## 1. Operator and agreement
 

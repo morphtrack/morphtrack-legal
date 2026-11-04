@@ -5,7 +5,9 @@ lang: en
 
 # Consumer Health Data Privacy Policy
 
-_Updated: 4 November 2026_
+_Updated: 5 November 2026_
+
+Mobile consent disclosure identifier: **2026-11-04**.
 
 [Русская версия](https://www.morphtrack.app/v2/ru/consumer-health-data)
 

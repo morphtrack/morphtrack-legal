@@ -5,11 +5,13 @@ lang: en
 
 # Privacy Policy
 
-_Updated: 4 November 2026_
+_Updated: 5 November 2026_
+
+Mobile consent disclosure identifier: **2026-11-04**.
 
 [Русская версия](https://www.morphtrack.app/v2/ru/privacy-policy) · [Health data policy](https://www.morphtrack.app/v2/consumer-health-data) · [Deletion](https://www.morphtrack.app/v2/delete-account)
 
-This update describes the separate product-statistics choice and account-wide withdrawal, alongside the existing processing, recipients and retention. Publication is not consent. [Previous revision](https://www.morphtrack.app/archive/before-2026-11-04/privacy-policy).
+This update describes the separate product-statistics choice and account-wide withdrawal, alongside the existing processing, recipients and retention. Publication is not consent. [Previous revision](https://www.morphtrack.app/archive/before-2026-11-05/privacy-policy).
 
 ## 1. Who is responsible
 

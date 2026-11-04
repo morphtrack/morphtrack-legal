@@ -5,7 +5,7 @@ lang: en
 
 # Account and data deletion
 
-_Updated: 4 November 2026_
+_Updated: 5 November 2026_
 
 [Русская версия](https://www.morphtrack.app/v2/ru/delete-account)
 
