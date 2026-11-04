@@ -11,6 +11,13 @@ These are previous published versions, kept so you can review the information an
 
 Здесь сохранены прежние опубликованные редакции, чтобы можно было ознакомиться с действовавшей информацией и условиями. Описание сервиса в них могло устареть. Актуальные документы доступны внизу страницы.
 
+## Before the update of 4 November 2026 / До обновления 4 ноября 2026
+
+- Privacy Policy: [English](https://www.morphtrack.app/archive/before-2026-11-04/privacy-policy) · [Русский](https://www.morphtrack.app/archive/before-2026-11-04/ru/privacy-policy).
+- Consumer Health Data Privacy Policy: [English](https://www.morphtrack.app/archive/before-2026-11-04/consumer-health-data) · [Русский](https://www.morphtrack.app/archive/before-2026-11-04/ru/consumer-health-data).
+- Terms of Use: [English](https://www.morphtrack.app/archive/before-2026-11-04/terms) · [Русский](https://www.morphtrack.app/archive/before-2026-11-04/ru/terms).
+- Account and data deletion: [English](https://www.morphtrack.app/archive/before-2026-11-04/delete-account) · [Русский](https://www.morphtrack.app/archive/before-2026-11-04/ru/delete-account).
+
 ## Before the update of 30 October 2026 / До обновления 30 октября 2026
 
 - Privacy Policy, updated 19 October 2026: [English](https://www.morphtrack.app/archive/before-2026-10-30/privacy-policy) · [Русский](https://www.morphtrack.app/archive/before-2026-10-30/ru/privacy-policy).
