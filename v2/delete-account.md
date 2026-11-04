@@ -57,3 +57,5 @@ Manage cancellation in [Apple subscriptions](https://apps.apple.com/account/subs
 Contact **morphtrack.app@gmail.com** for status or to clarify a request. If we refuse it, we explain why. Reply with **Privacy appeal** for review; the [Health Data Policy](https://www.morphtrack.app/v2/consumer-health-data) explains the appeal process and complaint channels.
 
 [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) · [Health data policy](https://www.morphtrack.app/v2/consumer-health-data) · [Terms](https://www.morphtrack.app/v2/terms)
+
+Mobile diagnostic events do not carry your account identifier. Deleting an account does not immediately remove these limited records: pending local events expire within seven days, and central logs have a configured 30-day retention. Network/security records may follow the exceptions described in the Privacy Policy.

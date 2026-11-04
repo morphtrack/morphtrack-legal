@@ -95,3 +95,5 @@ Serbian law governs these Terms, without depriving consumers of mandatory protec
 For support, privacy or legal enquiries: **morphtrack.app@gmail.com**.
 
 [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) · [Health data policy](https://www.morphtrack.app/v2/consumer-health-data) · [Deletion](https://www.morphtrack.app/v2/delete-account)
+
+Operational error diagnostics in app version 2.0.9 and later are described in the [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy). They support reliability and are separate from optional product statistics; accepting these Terms does not grant the optional permissions.

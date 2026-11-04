@@ -78,3 +78,5 @@ Residence is not always the only test of coverage. For example, Washington's hea
 We notify you of material changes and identify their effective date. New categories or purposes are disclosed, and any required consent obtained, before the new processing begins. The revision date alone does not authorise new processing.
 
 [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) · [Terms](https://www.morphtrack.app/v2/terms) · [Account and data deletion](https://www.morphtrack.app/v2/delete-account)
+
+The coarse mobile error events described in the [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) do not include journal content, health observations or health inferences. Necessary reliability monitoring is separate from optional journal statistics.
