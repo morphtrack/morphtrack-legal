@@ -11,7 +11,7 @@ Mobile consent disclosure identifier: **2026-11-04**.
 
 [Русская версия](https://www.morphtrack.app/v2/ru/terms)
 
-The 5 November 2026 update explains the separate optional product-statistics choice. Acceptance of Terms does not grant that permission. For existing accounts, changes requiring notice or renewed agreement apply only after those requirements are met. [Previous Terms](https://www.morphtrack.app/archive/before-2026-11-05/terms).
+This 5 November 2026 clarification describes the separate optional product-statistics choice in the new protocol and the transitional mode for older versions. Acceptance of Terms does not grant that permission. For existing accounts, changes requiring notice or renewed agreement apply only after those requirements are met. [Previous Terms](https://www.morphtrack.app/archive/before-2026-11-05-compatibility/terms).
 
 ## 1. Operator and agreement
 
@@ -70,7 +70,7 @@ Where offered, subscriptions renew automatically. The store purchase screen show
 
 Our [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy) and [Health Data Policy](https://www.morphtrack.app/v2/consumer-health-data) explain processing, providers, locations, retention and choices. Core app storage is in Germany; some processing occurs elsewhere.
 
-With a separate optional permission, internal statistics use account-linked activity, dates, counts and statuses of photos, trackers, factors, analyses and subscriptions, including tracker and factor names and records saved before your choice. Refusing statistics does not restrict the journal, AI or purchases. You can withdraw this permission in supported app versions or by contacting us; future calculations exclude your account. Necessary operational and security monitoring is separate.
+Internal statistics use account-linked activity, dates, counts and statuses of photos, trackers, factors, analyses and subscriptions, including tracker and factor names and records saved before your choice. Under the updated permission protocol, these statistics start only after separate, optional consent. Accounts still using the previous protocol in older versions retain the previous server-side statistics without a new prompt unless statistics have been declined or journal permission withdrawn; this is not treated as consent. Moving to the new protocol, including while staying signed in, ends the previous mode. Refusing statistics does not restrict the journal, AI or purchases and applies on all devices. You can withdraw this permission in supported app versions or by contacting us; future calculations exclude your account. Necessary operational and security monitoring is separate.
 
 You can delete your account in the app or request deletion by email without installing it. Account deletion is permanent. Deleting a photo does not automatically delete an analysis based on it. Provider records and lawful retention exceptions are explained in the [deletion procedure](https://www.morphtrack.app/v2/delete-account).
 
