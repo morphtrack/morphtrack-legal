@@ -5,7 +5,7 @@ lang: en
 
 # Consumer Health Data Privacy Policy
 
-_Updated: 5 November 2026_
+_Updated: 9 November 2026_
 
 Mobile consent disclosure identifier: **2026-11-04**.
 
@@ -14,6 +14,8 @@ Mobile consent disclosure identifier: **2026-11-04**.
 **Operator:** Raisat Ramazanova, an individual developer based in Serbia. **Contact:** [morphtrack.app@gmail.com](mailto:morphtrack.app@gmail.com).
 
 This separate notice supplements our [Privacy Policy](https://www.morphtrack.app/v2/privacy-policy). Health-related information can be protected even when an app is not a medical service.
+
+This revision clarifies the move of new backup processing to DigitalOcean and the remaining historical GitHub artifacts until their original expiration. Purposes and consent choices are unchanged. [Previous revision](https://www.morphtrack.app/archive/before-2026-11-09-recovery/consumer-health-data).
 
 ## What data, from which sources, and why
 
@@ -29,9 +31,9 @@ The source records remain account-linked even when a report displays totals. Ref
 
 ## Who receives it and for what purpose
 
-- **DigitalOcean** hosts journal content and account records in Frankfurt, Germany, and private encrypted hourly deletion-recovery journal exports with configured retention of 90 days.
+- **DigitalOcean:** backend, account database and private photo storage in Frankfurt, Germany. From 9 November 2026, new database backups are also created, checked in an isolated restore environment, encrypted and stored here with 30-day retention. Database copies can contain notes, factors and saved AI results; original photo files are stored separately and are not included. Private encrypted hourly deletion-recovery exports are retained for 90 days and contain limited identifiers, object types and deletion/withdrawal times, not journal text or photo files. The live recovery journal currently has no automatic expiry; its purpose and retention review are described in the Privacy Policy.
 - **Cloudflare** delivers and protects the API, processing requests and their contents, including journal data sent through the API. Processing may occur outside Germany.
-- **GitHub Actions** processes database records for backup/recovery and stores encrypted database backups as private artifacts with a configured 30-day retention period. Private encrypted deletion-recovery exports made by GitHub recovery jobs are retained for 90 days and contain limited identifiers, object types and deletion/withdrawal times, rather than journal text or photo files. The live recovery journal currently has no automatic expiry; its limited purpose and retention review are described in the general Privacy Policy. The database backups can contain health-related journal text and AI results, but not original photo files. Processing may occur outside Germany.
+- **GitHub Actions:** source code, CI and job orchestration with technical completion statuses. New backup and restore-check jobs run in DigitalOcean and do not send plaintext journal records or backup files to GitHub. Previously created private encrypted GitHub artifacts remain until their original expiration: database copies for up to 30 days and deletion-recovery exports for up to 90 days after creation. Access is restricted to recovery work; GitHub processing may occur outside Germany.
 - **OpenAI** receives selected photos, dates, tracker/factor context and opted-in notes to generate an analysis you request.
 - **Google/Gmail** processes information you include in support correspondence.
 - **Authorised service personnel** have restricted access for support, operation, security, the product statistics described above or legal compliance. Limited disclosure may also be required by law or for legal claims.
