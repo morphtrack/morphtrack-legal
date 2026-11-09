@@ -5,13 +5,15 @@ lang: en
 
 # Privacy Policy
 
-_Updated: 5 November 2026_
+_Updated: 9 November 2026_
 
 Mobile consent disclosure identifier: **2026-11-04**.
 
 [Русская версия](https://www.morphtrack.app/v2/ru/privacy-policy) · [Health data policy](https://www.morphtrack.app/v2/consumer-health-data) · [Deletion](https://www.morphtrack.app/v2/delete-account)
 
 This clarification describes the separate product-statistics choice, the transitional mode for older versions and account-wide withdrawal, alongside the existing processing, recipients and retention. Publication is not consent. [Previous revision](https://www.morphtrack.app/archive/before-2026-11-05-compatibility/privacy-policy).
+
+This revision clarifies the move of new backup processing to DigitalOcean and the remaining historical GitHub artifacts until their original expiration. Purposes and consent choices are unchanged. [Previous revision](https://www.morphtrack.app/archive/before-2026-11-09-recovery/privacy-policy).
 
 ## 1. Who is responsible
 
@@ -73,12 +75,12 @@ We do not sell personal or consumer health data, use journal content for adverti
 
 ## 6. Recipients and locations
 
-- **DigitalOcean:** backend, account database and private photo storage in Frankfurt, Germany; private encrypted hourly deletion-recovery journal exports with configured retention of 90 days.
+- **DigitalOcean:** backend, account database and private photo storage in Frankfurt, Germany. From 9 November 2026, new database backups are also created, checked in an isolated restore environment, encrypted and stored here with 30-day retention. Database copies can contain notes, factors and saved AI results; original photo files are stored separately and are not included. Private encrypted hourly deletion-recovery exports are retained for 90 days and contain limited identifiers, object types and deletion/withdrawal times, not journal text or photo files. The live recovery journal currently has no automatic expiry; its purpose and retention review are described in the Privacy Policy.
 - **OpenAI:** the AI inputs/outputs above; processing may occur in the US and other provider locations.
 - **Resend:** verification and password-reset emails, including destination address and message content. Email data is stored in the US. These emails do not include journal photos or AI results.
 - **Google/Gmail:** correspondence sent to our support mailbox. Avoid medical records or unnecessary sensitive attachments.
 - **Apple and Google:** store payments and, if selected, sign-in. These functions receive transaction/sign-in information, not your photo journal.
-- **GitHub Actions:** private database backup and recovery checks. Database records (including notes, factors and saved AI results) are processed in a restricted temporary recovery environment; encrypted database backup files are retained as private GitHub Actions artifacts for up to 30 days. Private encrypted deletion-recovery exports made by GitHub recovery jobs have a configured 90-day retention period; their limited contents are described below. GitHub processing may occur outside Germany. Original photo files remain in the separate DigitalOcean photo store and are not part of these database backups.
+- **GitHub Actions:** source code, CI and job orchestration with technical completion statuses. New backup and restore-check jobs run in DigitalOcean and do not send plaintext journal records or backup files to GitHub. Previously created private encrypted GitHub artifacts remain until their original expiration: database copies for up to 30 days and deletion-recovery exports for up to 90 days after creation. Access is restricted to recovery work; GitHub processing may occur outside Germany.
 - **Cloudflare:** API delivery and protection. Requests and their contents, including journal data transmitted through the API, pass through Cloudflare; processing may occur outside Germany. This is separate from website analytics.
 - **GitHub Pages and Cloudflare Web Analytics:** public website hosting and measurement. They can process network/browser information, visited pages and performance events. Cloudflare Web Analytics measures site traffic and performance; it is not connected to your private journal.
 
