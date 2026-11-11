@@ -5,7 +5,7 @@ lang: en
 
 # Privacy Policy
 
-_Updated: 9 November 2026_
+_Updated: 12 November 2026_
 
 Mobile consent disclosure identifier: **2026-11-04**.
 
@@ -49,7 +49,9 @@ The source records remain account-linked even when a report displays totals. Ref
 
 ### Mobile error diagnostics (version 2.0.9 and later)
 
-To detect failures of sign-in, registration, purchases, email flows, photo upload and analysis, the app sends a small operational event to our API. It contains a random event identifier, a predefined failure category and reason, iOS/Android, app version/build and event time. It does not contain an account/device identifier, email, photo, journal text, receipt, token, raw error message or stack trace. These diagnostics are used to detect and troubleshoot failures, not to measure product engagement, and do not depend on optional product-statistics permission. They can be sent before sign-in.
+To detect failures of sign-in, registration, purchases, email flows, photo upload and analysis, the app sends a small operational event to our API. The original format contains a random event identifier, a predefined failure category and reason, iOS/Android, app version/build and event time. It has no account identifier or code locations. Builds with expanded diagnostics also send predefined action/stage, related request ID, an allowlisted error class and up to eight source-code file/line/column locations from MorphTrack itself. We derive an error fingerprint from these safe fields to group the same fault. Reports do not include email, photos, journal text, receipts, raw error messages, arbitrary filesystem paths, function arguments or full stack traces.
+
+For expanded events, the app uses a locally stored hash of account ownership to avoid attributing an older event to another account after sign-out or account switching. It authenticates delivery only if the same account is still signed in, using the normal session token in the HTTPS authorization header, never stored in the diagnostic event or queue. The server checks that session and may add a pseudonymous account reference. Authorized support staff can match that reference to an account to investigate a failure; it is account-linked data, not anonymous data. Events before sign-in, from an unverifiable session or from an earlier account may remain unlinked. Server-side purchase diagnostics can also include a verified account reference, a receipt-derived operation fingerprint, verification stage, queried store environment and bounded provider status codes; they do not contain raw receipts. These diagnostics are used to troubleshoot failures, not to measure product engagement, and do not depend on optional product-statistics permission.
 
 Unhandled Dart/Flutter errors are included. Where the operating system makes them available, we also receive a coarse crash/hang category: Android 11+ reports this on a later launch; iOS MetricKit may deliver it later and its timestamp represents a reporting window. No full OS diagnostic payload or memory contents are transmitted. Collection is best-effort and does not cover every failure. Expected cancellation is not reported as a failure.
 
