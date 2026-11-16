@@ -20,8 +20,9 @@ sitemap: false
   buttons, and which one" — with no beacon of our own, no cookies, no new
   endpoint, and nothing added to what we store.
 
-  It also carries the traffic source into Apple's campaign token, so the same
-  click still shows up as an attributed INSTALL in App Store Connect.
+  It also carries the traffic source, medium, and campaign into Apple's campaign
+  token. Attribution and visibility in App Store Connect remain subject to
+  Apple's attribution rules and reporting thresholds.
 
   The short pause is deliberate. An instant redirect can outrun the analytics
   beacon, which would undercount exactly the number this page exists to
@@ -46,18 +47,33 @@ sitemap: false
   <div class="w">
     <div class="s" aria-hidden="true"></div>
     <p>Opening the App&nbsp;Store…</p>
-    <p><a id="fallback" href="https://apps.apple.com/app/id6790181033">Continue manually</a></p>
+    <p><a id="fallback" href="https://apps.apple.com/app/apple-store/id6790181033?pt=129160832&amp;ct=site-web-landing&amp;mt=8">Continue manually</a></p>
   </div>
 <script>
 (function () {
   var q = new URLSearchParams(location.search);
   function clean(v, fb) {
     if (!v) return fb;
-    var out = String(v).toLowerCase().replace(/[^a-z0-9_-]/g, '').slice(0, 40);
+    var out = String(v).toLowerCase().replace(/[^a-z0-9_-]/g, '');
     return out || fb;
   }
-  var token = clean(clean(q.get('utm_source'), 'site') + '-' + clean(q.get('utm_medium'), 'web'), 'site-web');
-  var url = 'https://apps.apple.com/app/id6790181033?ct=' + token + '&mt=8';
+  function compact(token) {
+    if (token.length <= 30) return token;
+    // Hash the entire sanitized token so a long campaign's suffix still matters.
+    // This is a non-security identifier, not a hash of stored user data.
+    var hash = 2166136261;
+    for (var i = 0; i < token.length; i++) {
+      hash = Math.imul(hash ^ token.charCodeAt(i), 16777619) >>> 0;
+    }
+    return token.slice(0, 21) + '-' + ('00000000' + hash.toString(16)).slice(-8);
+  }
+  var token = compact([
+    clean(q.get('utm_source'), 'site'),
+    clean(q.get('utm_medium'), 'web'),
+    clean(q.get('utm_campaign'), 'landing')
+  ].join('-'));
+  // Provider token verified from this app's App Store Connect campaign link.
+  var url = 'https://apps.apple.com/app/apple-store/id6790181033?pt=129160832&ct=' + token + '&mt=8';
   document.getElementById('fallback').setAttribute('href', url);
   // Long enough for the page view to be reported, short enough to feel like a
   // redirect rather than a page.
